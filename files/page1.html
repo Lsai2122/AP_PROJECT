@@ -114,6 +114,7 @@
             background-color: #237FFF;
             outline: none;
             border: 0px;
+            cursor: pointer;
         }
         .host{
             display: flex;
@@ -161,10 +162,27 @@
             display: flex;
             flex-direction: column;
             padding-top: 250px;
+            transform: skew(-13deg);
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding-top: 250px;
+            font-family: Itim;
         }
-        .horizontal{
+        .right-bottom{
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .horizontal-left{
             width: 300px;
-            background-color:#143454;
+            background-color:#0353A4;
+            height: 5px;
+            border-radius:3px;
+        }
+        .horizontal-right{
+            width: 300px;
+            background-color:#061A40;
             height: 5px;
             border-radius:3px;
         }
@@ -176,6 +194,32 @@
             height: 50px;
             border-radius: 10px;
             margin-top:10px ;
+            font-size: 30px;
+            font-family: itim;
+            color: #006DAA;
+            cursor: pointer;
+        }
+        .button-join{
+            width: 150px;
+            background-color: #006DAA;
+            outline:none;
+            border: 0px;
+            height: 50px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            color:#B9D6F2 ;
+            font-family:itim;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        .computer{
+            width: 150px;
+            height: 150px;
+        }
+        .compu{
+            font-size:56px ;
+            color: #061A40;
+            margin-right: 10px;
         }
     </style>
 </head>
@@ -224,13 +268,18 @@
                     <img src="../images/mic.png" class="mic-img">
                     <div class="mic">Host a <br> Event</div><br>
                 </div>
-                <div class="horizontal"></div>
+                <div class="horizontal-left"></div>
                 <Button class="buttton-host">Host</Button>
             </div>
         </div>
         <div class="right">
             <div class="right-content">
-                <button></button>
+                <button class="button-join"><div >Join</div></button>
+                <div class="horizontal-right"></div>
+                <div class="right-bottom">
+                    <div class="compu">Join a <br> Event </div>
+                    <img src="../images/computer.png" class="computer">
+                </div>
             </div>
         </div>
     </div>
