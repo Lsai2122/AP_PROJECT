@@ -238,6 +238,7 @@ body{
     width: 100%;
     margin: 0px;
     display: flex;
+    flex-direction: column;
     
 }
 .New{
@@ -261,9 +262,7 @@ body{
     align-items: center;
     justify-content: center;
     width: 100%;
-}
-.arrow{
-    margin-right: 120px;
+    gap: 28px;
 }
 .boxes{
     position: relative;
