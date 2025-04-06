@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .block-background {
+            background-color: lightblue;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .login-page {
+            background-color: lightpink;
+            padding: 45px;
+            border-radius: 8px;
+        }
+        .logo {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 0;
+        }
+        .logo-pic {
+            margin-bottom: 0;
+        }
+        .logo-name {
+            margin-top: 4px;
+            font-weight: bold;
+        }
+        .email,.password {
+            height: 20px;
+            outline: 1px solid grey;
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+        label {
+            color: grey;
+        }
+    </style>
+</head>
+<body>
+    <div class="block-background">
+        <div class="login-page">
+            <div class="logo">
+                <img src="../images/mouse.png" class="logo-pic">
+                <p class="logo-name">Eventora</p>
+            </div>
+            <form class="">
+                <label for="email">Email</label>
+                <br>
+                <input type="email" name="email" class="email">
+                <br>
+                <label for="password">Password</label>
+                <br>
+                <input type="password" name="password" class="password">
+                <br>
+                <input type="submit" name="submit" class="login" value="Login">
+            </form>
+            <button class="sign-up">Sign Up</button>
+        </div>
+    </div>
+</body>
+</html>
