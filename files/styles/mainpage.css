@@ -64,7 +64,7 @@ body{
 }
 .search-icon{
     margin-left: 40px;
-    background-color: #0f4fa1;
+    background-color: transparent;
     border: solid 0.5px white;
     border-right: none;
     border-top-left-radius:17px;
@@ -75,8 +75,7 @@ body{
 }
 .search-bar{
     height: 20px;
-    background-color: #0f4fa1;
-    background-color: #0f4fa1;
+    background-color: transparent;
     border: solid 0.5px white;
     border-left: none;
     padding:5px 10px 5px 0px;
@@ -89,7 +88,7 @@ body{
     margin-right:20px;
 }
 ::placeholder {
-    color: #ccc; 
+    color: white; 
     opacity: 1;
 }
 .divider {
@@ -310,4 +309,84 @@ body{
     top: 0%;
     left: 98%;
     border-radius: 10px;
+}
+.block-background {
+    background-color: rgba(0, 0, 0, 0.331);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.login-page {
+    background-color: white;
+    border-radius: 8px;
+    width: 717px;
+    height: 564px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+}
+.logo-pic {
+    margin-bottom: 0;
+    width: 50.47px;
+    height: 61px;
+    object-fit: cover;
+}
+.logo-name {
+    margin-top: 4px;
+    font-weight: bold;
+    font-size: 32px;
+}
+.email,.password {
+    height: 32px;
+    outline: 1px solid grey;
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    width: 440px;
+    font-size: 16px;
+}
+label {
+    font-size: 18px;
+    color: grey;
+}
+.login-button {
+    width: 440px;
+    height: 32px;
+    border-radius: 12px;
+    border: none;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #0353A4;
+    color: white;
+}
+.sign-up {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+    width: 440px;
+}
+.sign-up-button {
+    background-color: transparent;
+    color: grey;
+    border: none;
+}
+.sign-up-button:hover {
+    text-decoration: underline;
 }
