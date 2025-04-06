@@ -10,9 +10,16 @@
     <style>
         .main{
             display: flex;
+            flex-direction: row;
             height: 100vh;
             overflow: hidden;
             margin:0px;
+        }
+        .heading{
+            display: flex;
+            flex-direction: row;
+            flex: 1;
+            min-width: 128px;
         }
         .left, .right {
             flex: 1;
@@ -22,7 +29,6 @@
             text-align: center;
             font-size: 24px;
             font-size: 1.5vw;
-            width: 100%;
         }
         .left {
             background-color: #0a0f30;
@@ -36,32 +42,27 @@
         }
         .name{
             font-family: sans-serif;
-            font-weight: bold;
             font-size: 30px;
         }
-        .title{
-            color: white;
-            font-family:sans-serif;
+        .title {
             position: fixed;
-            top:0;
+            top: 0;
             left: 0;
             z-index: 1000;
             display: flex;
-            font-size: 15px;
-            margin-left: 10px;
-            width: 100%;
+            flex-direction: row;
             align-items: center;
-            padding: 15px 40px;
-            max-width: 100%;
-            flex-wrap: wrap;
-            margin-top: 20px;
-            flex: 1;
-            height: 70px;
-            overflow: hidden;
+            width: 100%;
+            overflow-x: auto;
             white-space: nowrap;
+            padding: 15px 40px;
+            margin-left: 0;
+            max-width: 100%;
+            scrollbar-width: none; 
+            color: #FFFF;
+            font-family: sans-serif;
         }
         .mouse{
-            width: 30px;
             height: 30px;
             background-color: #0a0f30;
         }
@@ -77,6 +78,7 @@
             border-bottom-left-radius:17px;
             padding:5px 10px 0px ;
             cursor: pointer;
+            flex: 1;
         }
         .search-bar{
             height: 20px;
@@ -90,6 +92,7 @@
             color: white;
             outline: none;
             width: 120px;
+            flex: 1;
         }
         ::placeholder {
             color: #ccc; 
@@ -99,25 +102,29 @@
             width: 1px;
             height: 30px; 
             background-color: black;
-            margin: 0 37px;
+            margin-left: 45px;
         }
         .divider2{
             width: 1px;
             height: 30px; 
             background-color: black;
-            margin: 0 7px;
+            margin-right: 10px;
+            margin-left: 10px;
         }
         .login{
             width: 100px;
-            height: 35px;
+            height: 45px;
             border-radius: 8px;
             background-color: #237FFF;
             outline: none;
             border: 0px;
             cursor: pointer;
+            color: white;
+            font-size: 20px;
         }
         .host{
             display: flex;
+            margin-right:100px ;
         }
         .host-img{
             border: 1px solid white;
@@ -221,45 +228,63 @@
             color: #061A40;
             margin-right: 10px;
         }
+        .heads{
+            display: flex;
+            flex: 1;
+            align-items: center;
+            justify-content: center;
+            min-width: 30px;
+        }
+        .options{
+            opacity: 70%;
+            font-weight: normal;
+        }
     </style>
 </head>
 <body>
     <div class="main">
         <div class="title">
-            <img src="../images/mouse.png" class="mouse">
-            <div class="name">
-                Eventora
+            <div class="heading">
+                <img src="../images/mouse.png" class="mouse">
+                <div class="name">
+                    Eventora
+                </div>
             </div>
-            <div style="margin-left: 130px;">
+            <div class="heads options">
                 New
+                <div class="divider"></div>
             </div>
-            <div class="divider"></div>
-            <div >
+            <div class="heads options" >
                 Upcoming <br> Events
+                <div class="divider"></div>
             </div>
-            <div class="divider"></div>
-            <div >
+            <div class="heads options" >
                 Best Hosts
+                <div class="divider"></div>
             </div>
-            <div class="divider"></div>
-            <div >
+            <div class="heads options">
                 Best Events
+                <div class="divider"></div>
             </div>
-            <div class="divider"></div>
-            <div>
+            <div class="heads options">
                 Applied
             </div>
-            <div style="margin-right: 30px;"></div>
-            <div class="search">
-                <img src="../images/search.png" class="search-icon">
-                <input type="text" class="search-bar" placeholder="Search">
+            <div class="heads">
+                <div class="search">
+                    <img src="../images/search.png" class="search-icon">
+                    <input type="text" class="search-bar" placeholder="Search">
+                </div>
             </div>
-            <div class="divider2"></div>
-            <button class="login">Login</button>
-            <div class="divider2"></div>
-            <div class="host">
-                <img src="../images/plus.png" class="host-img">
-                <div class="host-txt">Host</div>
+            <div class="heads">
+                <div class="divider2"></div>
+                <button class="login">Login</button>
+                <div class="divider2"></div>
+            </div>
+            <div class="heads">
+                <div class="host">
+                    <img src="../images/plus.png" class="host-img">
+                    <div class="host-txt">Host</div>
+                </div>
             </div>
         </div>
         <div class="left">
