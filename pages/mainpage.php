@@ -1,3 +1,6 @@
+<?php
+    include('header.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="files/styles/mainpage.css">
+    <link rel="stylesheet" href="pages/styles/mainpage.css">
     <link rel="website icon" href="images/logo.png" type="png">
 </head>
 <body>
