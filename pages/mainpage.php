@@ -1,3 +1,6 @@
+<?php
+    include('pages/header.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,10 +10,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">123456
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossori123456gin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="files/styles/mainpage.css">
+    <link rel="stylesheet" href="pages/styles/mainpage.css">
     <link rel="website icon" href="images/logo.png" type="png">
 </head>
 <body>
@@ -44,7 +47,7 @@
             </div>
             <div class="normal-event">
                 <div class="arrow">
-                    <img src="../images/arrow-left.png" id="normal-prev">
+                    <img src="images/arrow-left.png" id="normal-prev">
                 </div>
                 <div class="event-view-box">
                     <div class="event">
@@ -125,7 +128,7 @@
                     </div>
                 </div>
                 <div class="arrow">
-                    <img src="../images/arrow-right.png" id="normal-next">
+                    <img src="images/arrow-right.png" id="normal-next">
                 </div>
             </div>
         </div>
@@ -136,7 +139,7 @@
             </div>
             <div class="best-event">
                 <div class="arrow">
-                    <img src="../images/arrow-left.png" id="best-prev">
+                    <img src="images/arrow-left.png" id="best-prev">
                 </div>
                 <div class="event-view-box">
                     <div class="best-event">
@@ -217,16 +220,16 @@
                     </div>
                 </div>
                 <div class="arrow">
-                    <img src="../images/arrow-right.png" id="best-next">
+                    <img src="images/arrow-right.png" id="best-next">
                 </div>
                 
             </div>
             <div>
-                <img src="../images/arrow-right.png" alt="">
+                <img src="images/arrow-right.png" alt="">
             </div>
         </div>
     </div>
     <div class="login-into"></div>
-    <script type="module" src="files/script/mainpage.js"></script>
+    <script type="module" src="pages/scripts/mainpage.js"></script>
 </body>
 </html>
