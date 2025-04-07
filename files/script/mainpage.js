@@ -27,14 +27,24 @@ document.querySelector('.login').addEventListener('click',()=> {
     document.body.style.overflow = "hidden";
 });
 let scrollContainer=document.querySelector('.event-view-box');
-let next=document.getElementById('next');
-let prev=document.getElementById('prev');
+let normalNext=document.getElementById('normal-next');
+let normalPrev=document.getElementById('normal-prev');
+let bestNext=document.getElementById('best-next');
+let bestPrev=document.getElementById('best-prev');
 
-next.addEventListener('click',()=> {
+normalNext.addEventListener('click',()=> {
     scrollContainer.scrollLeft+= 420;
     scrollContainer.style.scrollBehavior='smooth';
 });
-prev.addEventListener('click',()=> {
+normalPrev.addEventListener('click',()=> {
+    scrollContainer.scrollLeft-= 420;
+    scrollContainer.style.scrollBehavior='smooth';
+});
+normalNext.addEventListener('click',()=> {
+    scrollContainer.scrollLeft+= 420;
+    scrollContainer.style.scrollBehavior='smooth';
+});
+normalPrev.addEventListener('click',()=> {
     scrollContainer.scrollLeft-= 420;
     scrollContainer.style.scrollBehavior='smooth';
 });
