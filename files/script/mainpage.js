@@ -25,4 +25,16 @@ document.querySelector('.login').addEventListener('click',()=> {
     `;
     document.querySelector('.login-into').innerHTML=login;
     document.body.style.overflow = "hidden";
-})
+});
+let scrollContainer=document.querySelector('.event-view-box');
+let next=document.getElementById('next');
+let prev=document.getElementById('prev');
+
+next.addEventListener('click',()=> {
+    scrollContainer.scrollLeft+= 420;
+    scrollContainer.style.scrollBehavior='smooth';
+});
+prev.addEventListener('click',()=> {
+    scrollContainer.scrollLeft-= 420;
+    scrollContainer.style.scrollBehavior='smooth';
+});
