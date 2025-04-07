@@ -1,6 +1,7 @@
 
 body{
     margin: 0px;
+    font-family: inter;
 }
 .main{
     display: flex;
@@ -128,11 +129,18 @@ body{
     padding-top: 30px;
     font-family:itim ;
     padding-left: 30px;
-    margin: 0px;
+    margin: 0px 0px 75px 0px;
 }
 .underline{
     height: 3px;
     width: 60px;
+    border-radius: 3px;
+    background-color:#000000;
+    margin: 0px;
+}
+.underline-best {
+    height: 3px;
+    width: 151px;
     border-radius: 3px;
     background-color:#000000;
     margin: 0px;
@@ -270,4 +278,185 @@ label {
 }
 .sign-up-button:hover {
     text-decoration: underline;
+}
+.normal-event {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 18px;
+}
+.event {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 10px;
+    width: 100%;
+    flex: none;
+}
+.event-details {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 250px;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0);
+    border-radius: 12px;
+}
+.event-cover-pic {
+    width: 100%;
+    height: 200px;
+    background-color: white;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+.event-info {
+    height: 200px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+.entry-type {
+    position: absolute;
+    top: 44%;
+    left: 10%;
+    background-color: #003559;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 5px;
+}
+.event-mode {
+    position: absolute;
+    top: 44%;
+    left: 25%;
+    background-color: #003559;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 5px;
+}
+.event-pic {
+    width: 110px;
+    height: 110px;
+    background-color: #003559;
+    position: absolute;
+    right: 12%;
+    top: 11%;
+}
+.event-name {
+    font-weight: bold;
+    font-size: 22px;
+    position: absolute;
+    top: 62%;
+    left: 12%;
+}
+.event-place {
+    font-size: 14px;
+    color: grey;
+    position: absolute;
+    left: 12%;
+    top: 71%;
+}
+.event-time-left {
+    color: grey;
+    font-size: 14px;
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+}
+.event-view-box {
+    width: 1250px;
+    display: flex;
+    overflow-x: scroll;
+}
+.event-view-box::-webkit-scrollbar {
+    display: none;
+}
+#next,#prev {
+    cursor: pointer;
+}
+.best-event {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 18px;
+}
+.best-event {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 10px;
+    width: 100%;
+    flex: none;
+}
+.best-event-details {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 250px;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0);
+    border-radius: 12px;
+}
+.best-event-cover-pic {
+    width: 100%;
+    height: 200px;
+    background-color: white;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+.best-event-info {
+    height: 200px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+.best-entry-type {
+    position: absolute;
+    top: 44%;
+    left: 10%;
+    background-color: #003559;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 5px;
+}
+.best-event-mode {
+    position: absolute;
+    top: 44%;
+    left: 25%;
+    background-color: #003559;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 5px;
+}
+.best-event-pic {
+    width: 110px;
+    height: 110px;
+    background-color: #003559;
+    position: absolute;
+    right: 12%;
+    top: 11%;
+}
+.best-event-name {
+    font-weight: bold;
+    font-size: 22px;
+    position: absolute;
+    top: 62%;
+    left: 12%;
+}
+.best-event-place {
+    font-size: 14px;
+    color: grey;
+    position: absolute;
+    left: 12%;
+    top: 71%;
+}
+.best-event-time-left {
+    color: grey;
+    font-size: 14px;
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+}
+.best-event-view-box {
+    width: 1250px;
+    display: flex;
+    overflow-x: scroll;
+}
+.best-event-view-box::-webkit-scrollbar {
+    display: none;
 }

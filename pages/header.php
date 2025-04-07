@@ -54,5 +54,6 @@
             </div>
         </div>
     </header>
+    <script src="pages/scripts/header.js"></script>
 </body>
 </html>
