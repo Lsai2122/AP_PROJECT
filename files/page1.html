@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,13 +9,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
     <style>
-        .main{
+        .main {
             display: flex;
             height: 100vh;
             overflow: hidden;
-            margin:0px;
+            margin: 0px;
         }
-        .left, .right {
+
+        .left,
+        .right {
             flex: 1;
             display: flex;
             justify-content: center;
@@ -24,26 +27,30 @@
             font-size: 1.5vw;
             width: 100%;
         }
+
         .left {
             background-color: #0a0f30;
             transform: skewX(13deg);
-            margin-left:-10%;
+            margin-left: -10%;
         }
+
         .right {
             background-color: #0f4fa1;
             transform: skew(13deg);
             margin-right: -10%;
         }
-        .name{
+
+        .name {
             font-family: sans-serif;
             font-weight: bold;
             font-size: 30px;
         }
-        .title{
+
+        .title {
             color: white;
-            font-family:sans-serif;
+            font-family: sans-serif;
             position: fixed;
-            top:0;
+            top: 0;
             left: 0;
             z-index: 1000;
             display: flex;
@@ -60,54 +67,75 @@
             overflow: hidden;
             white-space: nowrap;
         }
-        .mouse{
+
+        .options {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            min-width: 250px;
+            margin-left: 70pxpx;
+        }
+
+        .heads {
+            justify-content: center;
+            display: flex;
+            flex: 1;
+        }
+
+        .mouse {
             width: 30px;
             height: 30px;
             background-color: #0a0f30;
         }
-        .search{
+
+        .search {
             display: flex;
         }
-        .search-icon{
+
+        .search-icon {
             margin-left: 40px;
             background-color: #0f4fa1;
             border: solid 0.5px white;
             border-right: none;
-            border-top-left-radius:17px;
-            border-bottom-left-radius:17px;
-            padding:5px 10px 0px ;
+            border-top-left-radius: 17px;
+            border-bottom-left-radius: 17px;
+            padding: 5px 10px 0px;
             cursor: pointer;
         }
-        .search-bar{
+
+        .search-bar {
             height: 20px;
             background-color: #0f4fa1;
             background-color: #0f4fa1;
             border: solid 0.5px white;
             border-left: none;
-            padding:5px 10px 5px 0px;
-            border-top-right-radius:17px;
-            border-bottom-right-radius:17px;
+            padding: 5px 10px 5px 0px;
+            border-top-right-radius: 17px;
+            border-bottom-right-radius: 17px;
             color: white;
             outline: none;
             width: 120px;
         }
+
         ::placeholder {
-            color: #ccc; 
+            color: #ccc;
             opacity: 1;
         }
+
         .divider {
             width: 1px;
-            height: 30px; 
+            height: 30px;
             background-color: black;
-            margin: 0 37px;
         }
-        .divider2{
+
+        .divider2 {
             width: 1px;
-            height: 30px; 
+            height: 30px;
             background-color: black;
             margin: 0 7px;
         }
-        .login{
+
+        .login {
             width: 100px;
             height: 35px;
             border-radius: 8px;
@@ -116,34 +144,39 @@
             border: 0px;
             cursor: pointer;
         }
-        .host{
+
+        .host {
             display: flex;
         }
-        .host-img{
+
+        .host-img {
             border: 1px solid white;
             padding: 10px 3px 10px 10px;
             border-right: none;
             border-top-left-radius: 13px;
             border-bottom-left-radius: 13px;
             height: 17px;
-            
+
         }
-        .host-txt{
+
+        .host-txt {
             font-size: 17px;
             border: 1px solid white;
-            padding:8px 10px ;
+            padding: 8px 10px;
             border-left: none;
             border-top-right-radius: 13px;
             border-bottom-right-radius: 13px;
         }
-        .mic{
+
+        .mic {
             width: 150px;
             height: 120px;
             color: #0353A4;
             font-family: Itim;
             font-size: 50px;
         }
-        .left-content{
+
+        .left-content {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -152,13 +185,15 @@
             width: 100%;
             padding-top: 250px;
         }
-        .left-upper{
+
+        .left-upper {
             display: flex;
             align-items: center;
             gap: 20px;
             margin-bottom: 20px;
         }
-        .right-content{
+
+        .right-content {
             display: flex;
             flex-direction: column;
             padding-top: 250px;
@@ -169,87 +204,99 @@
             padding-top: 250px;
             font-family: Itim;
         }
-        .right-bottom{
+
+        .right-bottom {
             display: flex;
             align-items: center;
             margin-top: 20px;
         }
-        .horizontal-left{
+
+        .horizontal-left {
             width: 300px;
-            background-color:#0353A4;
+            background-color: #0353A4;
             height: 5px;
-            border-radius:3px;
+            border-radius: 3px;
         }
-        .horizontal-right{
+
+        .horizontal-right {
             width: 300px;
-            background-color:#061A40;
+            background-color: #061A40;
             height: 5px;
-            border-radius:3px;
+            border-radius: 3px;
         }
-        .buttton-host{
+
+        .buttton-host {
             width: 150px;
             background-color: #003559;
-            outline:none;
+            outline: none;
             border: 0px;
             height: 50px;
             border-radius: 10px;
-            margin-top:10px ;
+            margin-top: 10px;
             font-size: 30px;
             font-family: itim;
             color: #006DAA;
             cursor: pointer;
         }
-        .button-join{
+
+        .button-join {
             width: 150px;
             background-color: #006DAA;
-            outline:none;
+            outline: none;
             border: 0px;
             height: 50px;
             border-radius: 10px;
             margin-bottom: 10px;
-            color:#B9D6F2 ;
-            font-family:itim;
+            color: #B9D6F2;
+            font-family: itim;
             font-size: 30px;
             cursor: pointer;
         }
-        .computer{
+
+        .computer {
             width: 150px;
             height: 150px;
         }
-        .compu{
-            font-size:56px ;
+
+        .compu {
+            font-size: 56px;
             color: #061A40;
             margin-right: 10px;
         }
     </style>
 </head>
+
 <body>
     <div class="main">
         <div class="title">
-            <img src="../images/mouse.png" class="mouse">
-            <div class="name">
-                Eventora
+            <div class="logo">
+                <img src="../images/mouse.png" class="mouse">
+                <div class="name">
+                    Eventora
+                </div>
             </div>
-            <div style="margin-left: 130px;">
-                New
+            <div class="options">
+                <div class="divider"></div>
+                <div class="heads">
+                    New
+                </div>
+                <div class="divider"></div>
+                <div class="heads">
+                    Upcoming <br> Events
+                </div>
+                <div class="divider"></div>
+                <div class="heads">
+                    Best Hosts
+                </div>
+                <div class="divider"></div>
+                <div class="heads">
+                    Best Events
+                </div>
+                <div class="divider"></div>
+                <div class="heads">
+                    Applied
+                </div>
             </div>
-            <div class="divider"></div>
-            <div >
-                Upcoming <br> Events
-            </div>
-            <div class="divider"></div>
-            <div >
-                Best Hosts
-            </div>
-            <div class="divider"></div>
-            <div >
-                Best Events
-            </div>
-            <div class="divider"></div>
-            <div>
-                Applied
-            </div>
-            <div style="margin-right: 30px;"></div>
             <div class="search">
                 <img src="../images/search.png" class="search-icon">
                 <input type="text" class="search-bar" placeholder="Search">
@@ -274,7 +321,9 @@
         </div>
         <div class="right">
             <div class="right-content">
-                <button class="button-join"><div >Join</div></button>
+                <button class="button-join">
+                    <div>Join</div>
+                </button>
                 <div class="horizontal-right"></div>
                 <div class="right-bottom">
                     <div class="compu">Join a <br> Event </div>
@@ -284,4 +333,5 @@
         </div>
     </div>
 </body>
+
 </html>
