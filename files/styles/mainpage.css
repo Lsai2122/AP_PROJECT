@@ -480,3 +480,6 @@ label {
 .event-view-box::-webkit-scrollbar {
     display: none;
 }
+#next,#prev {
+    cursor: pointer;
+}
