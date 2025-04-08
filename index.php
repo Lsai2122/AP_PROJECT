@@ -4,12 +4,15 @@
     $normalizedPath = rtrim($path, '/');
     
     if ($normalizedPath === '/index.php' || 
-    $normalizedPath === '' || 
-    $normalizedPath === '/AP_Project/index.php') {
-    include('pages/mainpage.php');
-} else {
-    echo "bye";
-}
+        $normalizedPath === '' || 
+        $normalizedPath === '/AP_Project/index.php') {
+
+        include('pages/mainpage.php');
+        
+
+    } else {
+        echo "bye";
+    }
 
     
 ?>

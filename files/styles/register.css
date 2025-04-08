@@ -1,9 +1,9 @@
-body{
+.block-background{
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.main{
+.signup-main{
     width: 717px;
     height: 812px;
     border: 1px solid black;
@@ -12,26 +12,26 @@ body{
     align-items: center;
     padding-top: 100px;
     font-family: sans-serif;
-    background-color: FFFFFF;
+    background-color: #FFFFFF;
     border-radius: 10px;
 }
-.heading{
+.signup-heading{
     font-size:32px;
     padding-right: 0px;
     font-weight: bold;
     margin-bottom: 70px;
 }
-.mouse{
+.signup-mouse{
     width: 50.47px;
     height: 61px;
 }
-.input{
+.signup-input{
     width: 497px;
     height: 55px;
     border-radius: 20px;
     margin-bottom: 30px;
 }
-.login{
+.signup-login{
     width: 497px;
     height: 55px;
     border-radius: 20px;
@@ -42,11 +42,11 @@ body{
     font-size: 24px;
 
 }
-.input_text{
+.signup-input_text{
     font-size: 24px;
     opacity: 60%;
 }
-.bottom_txt{
+.signup-bottom_txt{
     padding-top:20px ;
     padding-left: 420px;
     opacity: 72%;
