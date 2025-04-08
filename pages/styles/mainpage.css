@@ -381,3 +381,6 @@ body{
 .best-event-view-box::-webkit-scrollbar {
     display: none;
 }
+.head-header{
+    background-color: #0a0f3000 !important;
+}
