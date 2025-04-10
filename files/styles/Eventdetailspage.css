@@ -295,3 +295,35 @@ body{
     font-size: 14px;
     margin-left: 40px;
 }
+.team-details {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #ffffff;
+    align-items: start;
+    padding-left: 36px;
+    padding-right: 36px;
+    border-radius: 8px;
+}
+.team-lead-info,.team-member-info {
+    background-color: #ffffff;
+}
+
+.team-lead-name,.team-member-name {
+    font-weight: bold;
+    font-size: 18px;
+}
+.team-lead-mail,.team-lead-contact,.team-member-mail,.team-member-contact {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+.lead-name,.member-name,.lead-contact,.lead-mail,.member-contact,.member-mail {
+    font-weight: normal;
+    
+}
+.team-lead-details,.team-member-details {
+    margin-left: 30px;
+    margin-top: 12px;
+}
