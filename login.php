@@ -1,17 +1,53 @@
 <?php
-if (isset($_POST['submit']) && $_POST["submit"] == "Login") {
-    $username = $_POST['email'];
-    $password = $_POST['password'];
+session_start();
 
-    echo $username . "<br>";
-    echo $password . "<br>";
+header('Content-Type: application/json');
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = $_POST['email'] ?? '';
+    $password = $_POST['password'] ?? '';
+
     $conn = new mysqli("localhost", "root", "", "ap_project");
-    if($conn->connect_error){
-        die("Connection failed: " . $conn->connect_error);
+    if ($conn->connect_error) {
+        echo json_encode(['success' => false, 'message' => 'DB connection failed']);
+        exit();
     }
-    $sql = "INSERT INTO login_info (";
-}
-else {
-    echo "Please submit the form.";
+
+    if (!empty($email)) {
+        $stmt = $conn->prepare("SELECT * FROM login_info WHERE email = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result && $result->num_rows === 1) {
+            $user = $result->fetch_assoc();
+            
+            if (password_verify($password, $user['password'])) {
+                // Save to session
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['user_id'] = $user['id']; // assuming column is id
+                $_SESSION['phone'] = $user['phone'];
+
+                echo json_encode([
+                    'success' => true,
+                    'username' => $user['username'],
+                    'user_id' => $user['id'],
+                    'phone' => $user['phone']
+                ]);
+            } else {
+                echo json_encode(['success' => false, 'message' => 'Invalid password']);
+            }
+        } else {
+            echo json_encode(['success' => false, 'message' => 'No user found with this email']);
+        }
+
+        $stmt->close();
+    } else {
+        echo json_encode(['success' => false, 'message' => 'Email required']);
+    }
+
+    $conn->close();
+} else {
+    echo json_encode(['success' => false, 'message' => 'Invalid request']);
 }
 ?>

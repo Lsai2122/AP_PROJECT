@@ -234,15 +234,11 @@ label {
     font-size:32px;
     padding-right: 0px;
     font-weight: bold;
-    margin-bottom: 70px;
+    margin-bottom: 20px;
 }
 .signup-mouse{
     width: 50.47px;
     height: 61px;
-}
-.signup-input_text{
-    font-size: 24px;
-    opacity: 60%;
 }
 .signup-bottom_txt{
     text-align: right;
