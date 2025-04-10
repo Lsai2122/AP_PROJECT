@@ -1,12 +1,15 @@
-document.querySelector('.head-login').addEventListener('click',()=> {
+function LoginDisplay(){
     const login=`
         <div class="block-background">
             <div class="login-page">
+            <div class="back">
+                <img src="images/back_button.png" class="login-back" onclick="Back()">
+            </div>
                 <div class="logo">
                     <img src="images/logo.png" class="logo-pic">
                     <p class="logo-name">Eventora</p>
                 </div>
-                <form action="login.php" method="POST">
+                <form action="pages/login.php" method="POST">
                     <label for="email">Email</label>
                     <br>
                     <input type="email" name="email" class="email">
@@ -25,16 +28,19 @@ document.querySelector('.head-login').addEventListener('click',()=> {
     `;
     document.querySelector('.login-into').innerHTML=login;
     document.body.style.overflow = "hidden";
-});
+}
 function signUpFunction(){
     const login=`
     <div class="block-background">
     <div class="signup-main">
+    <div class="back">
+                <img src="images/back_button.png" class="login-back" onclick="Back()">
+            </div>
         <div class="signup-logo">
             <img src="images/square_mouse.png" class="signup-mouse">
         </div>
         <div class="signup-heading">Eventora</div>
-        <form action="reg.php" method="POST" class="signup-form_container">
+        <form action="pages/reg.php" method="POST" class="signup-form_container">
             <div class="signup-form">
                 <label class="signup-input_text">Username</label><br>
                 <input type="text" class="signup-input" name="username"><br>
@@ -46,9 +52,9 @@ function signUpFunction(){
                 <input type="password" class="signup-input" name="password"><br>
                 <button class="signup-login">Sign Up</button>
             </div>
-            <div class="signup-bottom_txt">
+            <button class="sign-up-button" onclick="LoginDisplay()">
                 Log in
-            </div>
+            </button>
         </form>
     </div> 
     </div>
@@ -56,3 +62,8 @@ function signUpFunction(){
     document.querySelector('.login-into').innerHTML=login;
     document.body.style.overflow = "hidden";
 };
+function Back(){
+    const login = "";
+    document.querySelector('.login-into').innerHTML=login;
+    document.body.style.overflow = "auto";
+}

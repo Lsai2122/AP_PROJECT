@@ -44,7 +44,7 @@
                 <input type="text" placeholder="Search Events" class="head-search-input">
             </div>
             <div class="head-vertical-line"></div>
-            <div class="head-login">
+            <div class="head-login" onclick="LoginDisplay()">
                 <button class="head-login-button">Login</button>
             </div>
             <div class="head-vertical-line"></div>

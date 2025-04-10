@@ -3,15 +3,13 @@
     $path = parse_url($uri, PHP_URL_PATH);
     $normalizedPath = rtrim($path, '/');
     
-    if ($normalizedPath === '/index.php' || 
-        $normalizedPath === '' || 
-        $normalizedPath === '/AP_Project/index.php') {
+    if (strpos(strtoupper($normalizedPath), "AP_PROJECT")!=false){
 
         include('pages/mainpage.php');
         
 
     } else {
-        echo "bye";
+        echo $normalizedPath;
     }
 
     

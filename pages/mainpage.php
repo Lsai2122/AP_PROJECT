@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossori123456gin>
     <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="pages/styles/mainpage.css">
     <link rel="website icon" href="images/logo.png" type="png">
@@ -141,7 +141,7 @@
                 <div class="arrow">
                     <img src="images/arrow-left.png" id="best-prev">
                 </div>
-                <div class="event-view-box">
+                <div class="best-event-view-box">
                     <div class="best-event">
                         <div class="event-1 best-event-details">
                             <div class="best-event-cover-pic">
@@ -222,10 +222,370 @@
                 <div class="arrow">
                     <img src="images/arrow-right.png" id="best-next">
                 </div>
-                
             </div>
-            <div>
-                <img src="images/arrow-right.png" alt="">
+        </div>
+        <div class="section-3">
+            <div class="applied">
+                Applied Events
+                <div class="underline-applied"></div>
+            </div>
+            <div class="applied-event">
+                <div class="arrow">
+                    <img src="images/arrow-left.png" id="applied-prev">
+                </div>
+                <div class="applied-event-view-box">
+                    <div class="applied-event-box">
+                        <div class="event-1 applied-event-details">
+                            <div class="applied-event-cover-pic">
+                                <div class="applied-event-pic"></div>
+                                <div class="applied-event-mode">Offline</div>
+                                <div class="applied-entry-type">Free</div>
+                            </div>
+                            <div class="applied-event-info">
+                                <div class="applied-event-name">Blast Hackthon</div>
+                                <div class="applied-event-place">Uttar Pradesh</div>
+                            </div>
+                            <div class="round-1">
+                                <p class="round">
+                                    Round 1: <span>Date-time</span>
+                                </p>
+                                <div class="rounds-info">
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="round-2">
+                                <p class="round">
+                                    Round 2: <span>Date-time</span>
+                                </p>
+                                <div class="rounds-info">
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="event-2 applied-event-details">
+                            <div class="applied-event-cover-pic">
+                                <div class="applied-event-pic"></div>
+                                <div class="applied-event-mode">Offline</div>
+                                <div class="applied-entry-type">Free</div>
+                            </div>
+                            <div class="applied-event-info">
+                                <div class="applied-event-name">Blast Hackthon</div>
+                                <div class="applied-event-place">Uttar Pradesh</div>
+                            </div>
+                            <div class="round-1">
+                                <p class="round">
+                                    Round 1: <span>Date-time</span>
+                                </p>
+                                <div class="rounds-info">
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="round-2">
+                                <p class="round">
+                                    Round 2: <span>Date-time</span>
+                                </p>
+                                <div class="rounds-info">
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="event-3 applied-event-details">
+                            <div class="applied-event-cover-pic">
+                                <div class="applied-event-pic"></div>
+                                <div class="applied-event-mode">Offline</div>
+                                <div class="applied-entry-type">Free</div>
+                            </div>
+                            <div class="applied-event-info">
+                                <div class="applied-event-name">Blast Hackthon</div>
+                                <div class="applied-event-place">Uttar Pradesh</div>
+                            </div>
+                            <div class="round-1">
+                                <p class="round">
+                                    Round 1: <span>Date-time</span>
+                                </p>
+                                <div class="rounds-info">
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="round-2">
+                                <p class="round">
+                                    Round 2: <span>Date-time</span>
+                                </p>
+                                <div class="rounds-info">
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="event-4 applied-event-details">
+                            <div class="applied-event-cover-pic">
+                                <div class="applied-event-pic"></div>
+                                <div class="applied-event-mode">Offline</div>
+                                <div class="applied-entry-type">Free</div>
+                            </div>
+                            <div class="applied-event-info">
+                                <div class="applied-event-name">Blast Hackthon</div>
+                                <div class="applied-event-place">Uttar Pradesh</div>
+                            </div>
+                            <div class="round-1">
+                                <p class="round">
+                                    Round 1: <span>Date-time</span>
+                                </p>
+                                <div class="rounds-info">
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="round-2">
+                                <p class="round">
+                                    Round 2: <span>Date-time</span>
+                                </p>
+                                <div class="rounds-info">
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="applied-event-box">
+                        <div class="event-1 applied-event-details">
+                            <div class="applied-event-cover-pic">
+                                <div class="applied-event-pic"></div>
+                                <div class="applied-event-mode">Offline</div>
+                                <div class="applied-entry-type">Free</div>
+                            </div>
+                            <div class="applied-event-info">
+                                <div class="applied-event-name">Blast Hackthon</div>
+                                <div class="applied-event-place">Uttar Pradesh</div>
+                            </div>
+                            <div class="round-1">
+                                <p class="round">
+                                    Round 1: <span>Date-time</span>
+                                </p>
+                                <div class="rounds-info">
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="round-2">
+                                <p class="round">
+                                    Round 2: <span>Date-time</span>
+                                </p>
+                                <div class="rounds-info">
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="event-2 applied-event-details">
+                            <div class="applied-event-cover-pic">
+                                <div class="applied-event-pic"></div>
+                                <div class="applied-event-mode">Offline</div>
+                                <div class="applied-entry-type">Free</div>
+                            </div>
+                            <div class="applied-event-info">
+                                <div class="applied-event-name">Blast Hackthon</div>
+                                <div class="applied-event-place">Uttar Pradesh</div>
+                            </div>
+                            <div class="round-1">
+                                <p class="round">
+                                    Round 1: <span>Date-time</span>
+                                </p>
+                                <div class="rounds-info">
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="round-2">
+                                <p class="round">
+                                    Round 2: <span>Date-time</span>
+                                </p>
+                                <div class="rounds-info">
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="event-3 applied-event-details">
+                            <div class="applied-event-cover-pic">
+                                <div class="applied-event-pic"></div>
+                                <div class="applied-event-mode">Offline</div>
+                                <div class="applied-entry-type">Free</div>
+                            </div>
+                            <div class="applied-event-info">
+                                <div class="applied-event-name">Blast Hackthon</div>
+                                <div class="applied-event-place">Uttar Pradesh</div>
+                            </div>
+                            <div class="round-1">
+                                <p class="round">
+                                    Round 1: <span>Date-time</span>
+                                </p>
+                                <div class="rounds-info">
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="round-2">
+                                <p class="round">
+                                    Round 2: <span>Date-time</span>
+                                </p>
+                                <div class="rounds-info">
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="event-4 applied-event-details">
+                            <div class="applied-event-cover-pic">
+                                <div class="applied-event-pic"></div>
+                                <div class="applied-event-mode">Offline</div>
+                                <div class="applied-entry-type">Free</div>
+                            </div>
+                            <div class="applied-event-info">
+                                <div class="applied-event-name">Blast Hackthon</div>
+                                <div class="applied-event-place">Uttar Pradesh</div>
+                            </div>
+                            <div class="round-1">
+                                <p class="round">
+                                    Round 1: <span>Date-time</span>
+                                </p>
+                                <div class="rounds-info">
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="round-2">
+                                <p class="round">
+                                    Round 2: <span>Date-time</span>
+                                </p>
+                                <div class="rounds-info">
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                    <div class="information">
+                                        information........
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="arrow">
+                    <img src="images/arrow-right.png" id="applied-next">
+                </div>
             </div>
         </div>
     </div>

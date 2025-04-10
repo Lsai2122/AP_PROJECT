@@ -9,8 +9,9 @@ if (isset($_POST['submit']) && $_POST["submit"] == "Login") {
     if($conn->connect_error){
         die("Connection failed: " . $conn->connect_error);
     }
-    $sql = "INSERT INTO login_info ("
-} else {
+    $sql = "INSERT INTO login_info (";
+}
+else {
     echo "Please submit the form.";
 }
 ?>
