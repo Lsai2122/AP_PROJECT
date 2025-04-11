@@ -428,3 +428,6 @@ body{
     color: white !important;
     border-color: white;
 }
+.section-2,.section-3{
+    padding-bottom: 50px;
+}
