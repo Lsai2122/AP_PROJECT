@@ -217,3 +217,10 @@ p{
     font-size: 20px;
     font-weight:bold;
 }
+#display-rounds {
+    overflow-y: scroll;
+    height: 1000px;
+}
+#display-rounds::-webkit-scrollbar {
+    display: none;
+}
