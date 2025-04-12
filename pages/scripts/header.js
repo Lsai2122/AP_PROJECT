@@ -30,7 +30,6 @@ function LoginDisplay(){
     `;
     document.querySelector('.login-into').innerHTML=login;
     document.body.style.overflow = "hidden";
-    doc
     document.getElementById("loginForm").addEventListener("submit", function (e) {
         e.preventDefault();
         const formData = new FormData(this);
