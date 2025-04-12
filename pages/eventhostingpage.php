@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="pages/styles/eventhostingpage.css">
     <title>Document</title>
 </head>
-<body onload="checklogin()">
+<body >
     <div class="form_out">
         <div class="gap"></div>
         <div class="form_body">
@@ -29,7 +29,7 @@
         <div class="gap"></div>
     </div>
     <div class="login-into"></div>
-    <script>
+    <script type="module">
         function checklogin(){
             fetch("session.php")
             .then(res => res.text())
@@ -79,8 +79,11 @@
                                 })
             .catch(err => console.error("Error loading session:", err));
         }
-        
+        function roundsDisplay() {
+        numberOfRounds(document.getElementById("rounds").value);
+        console.log("Done");
+    }
     </script>
-    <script src='pages/scripts/eventhosting.js'></script>
+    <script src="pages/scripts/eventhosting.js"></script>
 </body>
 </html>

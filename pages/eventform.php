@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
 <form class="eventhoster">
     <div class="form_body_left">
         <div class="eve_nam">
@@ -15,6 +23,8 @@
         <div class="st">
             <label for="state">State:</label><br>
             <input type="text" name="state" id="state">
+            <br>
+            <div class="incorrect-state"></div>
         </div>
         <div class="ven">
             <label for="venue">Venue:</label> <br>
@@ -22,25 +32,25 @@
         </div>
         <div class="no_rnds">
             <label for="rounds">Number of Rounds:</label><br>
-            <select name="rounds" id="rounds">
-                <option value=0></option>
-                <option value=1>Round 1</option>
-                <option value=2>Round 2</option>
-                <option value=3>Round 3</option>
-                <option value=4>Round 4</option>
-                <option value=5>Round 5</option>
+            <select name="rounds" id="rounds" onchange="roundsDisplay()">
+                <option value="0"></option>
+                <option value="1">Round 1</option>
+                <option value="2">Round 2</option>
+                <option value="3">Round 3</option>
+                <option value="4">Round 4</option>
+                <option value="5">Round 5</option>
             </select>
         </div>
         <div class="no_mems">
             <label for="max_members">Max Number of Members:</label><br>
             <select name="max_members" id="max_members">
                 <option value="0"></option>
-                <option value="1">1 Member</option>
-                <option value="2">2 Members</option>
-                <option value="3">3 Members</option>
-                <option value="4">3 Members</option>
-                <option value="5">4 Members</option>
-                <option value="6">5 Members</option>
+                <option value="1">Member 1</option>
+                <option value="2">Member 2</option>
+                <option value="3">Member 3</option>
+                <option value="4">Member 4</option>
+                <option value="5">Member 5</option>
+                <option value="6">Member 6</option>
             </select>
         </div>
         <div class="pp">
@@ -48,43 +58,16 @@
             <input type="text" name="price" id="price">
         </div>
         <div class="conds">
-            <input type="checkbox" name="terms" id="terms">
+            <input type="checkbox" name="terms" id="terms" required>
             <label for="terms">Terms and Conditions</label>
         </div>
-
     </div>
-    <div class="form_vertical_line"></div>
-    <div class="form_body_right">
-        <div class="body_right_details">
-            <p>Round 1:</p>
-            <div class="username">
-                <label for="name">Name:</label><br>
-                <input type="text" name="name1" id="name1">
-            </div>
-            <div class="dt">
-                <label for="date">Date:</label><br>
-                <input type="date" name="date1" id="date1">
-            </div>
-            <div class="tm">
-                <label for="time">Time:</label><br>
-                <input type="time" name="time1" id="time1">
-            </div>
-            <div class="dur">
-                <label for="duration">Duration:in hrs</label><br>
-                <input type="text" name="duration1" id="duration">
-            </div>
-            <div class="details_rnds">
-                <label for="details_of_round">Details of Round 1:</label><br>
-                <textarea name="details_of_round1" id="deatails_of_round"></textarea>
-            </div>
-            <div class="modes">
-                <input type="radio" name="mode1" id="online">
-                <label for="online">Online:</label>
-                <input type="radio" name="mode1" id="offline">
-                <label for="offline">Offline:</label>
-            </div>
-        </div>
-        <div class="body_right_horizontal"></div>
     </div>
+                <div class="form_vertical_line"></div>
+                <div class="form_body_right" id="display-rounds"></div>
+            </div>
     <button class="submit">reg</button>
 </form>
+
+</body>
+</html>
