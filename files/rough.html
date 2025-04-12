@@ -1,27 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-    </style>
+  <title>Keep Input Value</title>
 </head>
 <body>
-    <div>Team Leader: name</div>
-    <table>
-        <tr>
-            <td>email:</td>
-            <td>leadermail@email.com</td>
-        </tr>
-        <tr>
-            <td>contact: </td>
-            <td>+91 7894561230</td>
-        </tr>
-    </table>
-    <script src="script/rough.js"></script>
+
+  <input type="text" id="myInput" placeholder="Type something...">
+  <button onclick="handleSubmit()">Submit</button>
+
+  <p id="output"></p>
+
+  <script>
+    function handleSubmit() {
+      const input = document.getElementById("myInput");
+      const output = document.getElementById("output");
+      
+      // Display the current input value
+      output.textContent = "You typed: " + input.value;
+
+      // Do NOT clear the input — just leave it as is
+    }
+  </script>
+
 </body>
 </html>
