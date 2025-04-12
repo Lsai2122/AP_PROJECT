@@ -1,31 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Keep Input Value</title>
+  <title>Persistent Input</title>
 </head>
 <body>
 
-  <input type="text" id="myInput" placeholder="Type something...">
+  <input type="text" id="myInput" placeholder="Enter your state...">
   <button onclick="handleSubmit()">Submit</button>
 
-  <p id="output"></p>
-
   <script>
-    function handleSubmit() {
-      const input = document.getElementById("myInput");
-      const output = document.getElementById("output");
-      
-      // Display the current input value
-      output.textContent = "You typed: " + input.value;
+    const input = document.getElementById("myInput");
 
-      // Do NOT clear the input — just leave it as is
+    // 🔁 Load from localStorage when page loads
+    window.addEventListener("load", () => {
+      const savedValue = localStorage.getItem("userInput");
+      if (savedValue) {
+        input.value = savedValue;
+      }
+    });
+
+    // 💾 Save to localStorage on submit
+    function handleSubmit() {
+      localStorage.setItem("userInput", input.value);
+      console.log("Submitted:", input.value);
     }
   </script>
 
 </body>
-<<<<<<< HEAD
 </html>
-=======
-
-</html>
->>>>>>> de2cbbce97a78988d7286b009d668c6c746ab428
