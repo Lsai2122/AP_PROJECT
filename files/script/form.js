@@ -37,7 +37,7 @@ function numberOfRounds(rounds) {
                                 <input type="text" name="duration" id="duration">
                             </div>
                             <div class="details_rnds">
-                                <label for="deatails_of_round">Details of Round 1:</label><br>
+                                <label for="deatails_of_round">Details of Round ${i+1}:</label><br>
                                 <textarea name="deatails_of_round" id="deatails_of_round"></textarea>
                             </div>
                             <div class="modes">
