@@ -1,14 +1,13 @@
 <?php
-
+    
     session_start();
-    $_SESSION['user-id']=-1;
     $uri = $_SERVER['REQUEST_URI'];
     $path = parse_url($uri, PHP_URL_PATH);
     $normalizedPath = rtrim($path, '/');
     
-    if (strpos(strtoupper($normalizedPath), "AP_PROJECT")!=false){
+    if (strpos(strtoupper($normalizedPath), "EVENT")!=false){
 
-        include('pages/mainpage.php');
+        include('pages/eventhostingpage.php');
         
 
     } else {

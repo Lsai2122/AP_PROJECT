@@ -24,15 +24,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
             if (password_verify($password, $user['password'])) {
                 // Save to session
-                $_SESSION['username'] = $user['username'];
-                $_SESSION['user_id'] = $user['id']; // assuming column is id
-                $_SESSION['phone'] = $user['phone'];
+                $_SESSION['user-id'] = $user['id']; // assuming column is id
 
                 echo json_encode([
                     'success' => true,
-                    'username' => $user['username'],
-                    'user_id' => $user['id'],
-                    'phone' => $user['phone']
+                    'id'=>$user['id']
                 ]);
             } else {
                 echo json_encode(['success' => false, 'message' => 'Invalid password']);

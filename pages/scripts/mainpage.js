@@ -1,3 +1,4 @@
+
 //header animation
 const header = document.querySelector(".head-header")
 const host = document.querySelector(".head-host-button")
@@ -46,11 +47,11 @@ bestPrev.addEventListener('click',()=> {
     bestScrollContainer.scrollLeft-= 420;
     bestScrollContainer.style.scrollBehavior='smooth';
 });
-appliedNext.addEventListener('click',()=> {
+function appliedright(){
     appliedScrollContainer.scrollLeft+= 340;
     appliedScrollContainer.style.scrollBehavior='smooth';
-});
-appliedPrev.addEventListener('click',()=> {
+};
+function appliedleft(){
     appliedScrollContainer.scrollLeft-= 340;
     appliedScrollContainer.style.scrollBehavior='smooth';
-});
+};

@@ -1,3 +1,9 @@
+<?php
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +15,8 @@
 <body>
     <header class="head-header">
         <div class="head-left">
-            <div class="head-logo">
-                <img src="images/mouse.png" alt="Logo" class="head-logo-image">
+            <div class="head-logo" onclick="window.location.href='index.php'">
+                <img src="images/logo.png" alt="Logo" class="head-logo-image">
                 <p class="head-logo-text">Eventora</p>
             </div>
         </div>
@@ -44,16 +50,23 @@
                 <input type="text" placeholder="Search Events" class="head-search-input">
             </div>
             <div class="head-vertical-line"></div>
-            <div class="head-login" onclick="LoginDisplay()">
-                <button class="head-login-button">Login</button>
+            <div class="head-login" >
+                
             </div>
             <div class="head-vertical-line"></div>
-            <div class="head-host-button">
+            <div class="head-host-button" onclick="window.location.href='eventhosting.php'">
                 <img src="images/plus1.png" alt="Host Icon" class="head-host-image">
                 Host
             </div>
         </div>
     </header>
-    <script src="pages/scripts/header.js"></script>
+    <div class="logininfocontainer">
+    <div class="logininfo"></div>
+    </div>
+    <div class="loggedinfo">
+        
+    </div>
+
+    <script  src="pages/scripts/header.js"></script>
 </body>
 </html>

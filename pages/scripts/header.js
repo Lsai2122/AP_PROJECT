@@ -1,3 +1,4 @@
+
 function LoginDisplay(){
     const login=`
         <div class="block-background">
@@ -29,7 +30,7 @@ function LoginDisplay(){
     `;
     document.querySelector('.login-into').innerHTML=login;
     document.body.style.overflow = "hidden";
-
+    doc
     document.getElementById("loginForm").addEventListener("submit", function (e) {
         e.preventDefault();
         const formData = new FormData(this);
@@ -41,23 +42,12 @@ function LoginDisplay(){
         .then(res => res.json())
         .then(data => {
             if (data.success) {
-                document.getElementById("loginStatus").style.color = "green";
-                document.getElementById("loginStatus").innerText = `Welcome ${data.username}!`;
-        
-                // Store in localStorage or pass to header via JS
-                localStorage.setItem('username', data.username);
-                localStorage.setItem('user_id', data.user_id);
-                localStorage.setItem('phone', data.phone);
-        
-                // You can now update the header with this info
+                checklogin();
                 Back();
-                document.querySelector(".head-login").innerHTML=`<img src="images/user-logo.png">`;
-        
-                // Optionally close login form
-                setTimeout(() => Back(), 1000);
             } else {
-                document.getElementById("loginStatus").style.color = "red";
-                document.getElementById("loginStatus").innerText = data.message;
+                document.getElementById("loginStatus").innerText = res.message;
+                console.error(err);
+                checklogin();
             }
         })
         .catch(err => {
