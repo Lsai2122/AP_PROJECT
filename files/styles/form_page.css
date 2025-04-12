@@ -224,3 +224,8 @@ p{
 #display-rounds::-webkit-scrollbar {
     display: none;
 }
+hr {
+    width: 75%;
+    height: 100%;
+    border: 1px solid black;
+}
