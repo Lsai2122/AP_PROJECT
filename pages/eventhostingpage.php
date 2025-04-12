@@ -29,7 +29,6 @@
         <div class="gap"></div>
     </div>
     <div class="login-into"></div>
-    <script src='pages/scripts/eventhosting.js'></script>
     <script>
         function checklogin(){
             fetch("session.php")
@@ -82,5 +81,6 @@
         }
         
     </script>
+    <script src='pages/scripts/eventhosting.js'></script>
 </body>
 </html>

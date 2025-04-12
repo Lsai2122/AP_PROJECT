@@ -85,35 +85,6 @@
             </div>
         </div>
         <div class="body_right_horizontal"></div>
-        <div class="body_right_details">
-            <p>Round 1:</p>
-            <div class="username">
-                <label for="name">Name:</label><br>
-                <input type="text" name="name2" id="name">
-            </div>
-            <div class="dt">
-                <label for="date">Date:</label><br>
-                <input type="date" name="date2" id="date">
-            </div>
-            <div class="tm">
-                <label for="time">Time:</label><br>
-                <input type="time" name="time2" id="time">
-            </div>
-            <div class="dur">
-                <label for="duration">Duration:in hrs</label><br>
-                <input type="text" name="duration2" id="duration">
-            </div>
-            <div class="details_rnds">
-                <label for="deatails_of_round2">Details of Round 1:</label><br>
-                <textarea name="deatails_of_round" id="deatails_of_round"></textarea>
-            </div>
-            <div class="modes">
-                <input type="radio" name="mode2" id="online" value="online">
-                <label for="online">Online:</label>
-                <input type="radio" name="mode2" id="offline" value="offline">
-                <label for="offline">Offline:</label>
-            </div>
-        </div>
     </div>
     <button class="submit">reg</button>
 </form>
