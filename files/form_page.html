@@ -71,14 +71,17 @@
                         <div class="eve_nam">
                             <label for="event_name">Event Name:</label><br>
                             <input type="text" name="event_name" id="event_name">
+                            <div class="incorrect-name"></div>
                         </div>
                         <div class="d_sub">
                             <label for="date_sub">Last Date for Submission:</label><br>
                             <input type="date" name="date_sub" id="date_sub">
+                            <div class="incorrect-date"></div>
                         </div>
                         <div class="t_sub">
                            <label for="time_sub">Time for Submission:</label><br>
                            <input type="time" name="time_sub" id="time_sub"> 
+                           <div class="incorrect-time"></div>
                         </div>
                         <div class="st">
                             <label for="state">State:</label><br>
@@ -89,6 +92,7 @@
                         <div class="ven">
                            <label for="venue">Venue:</label> <br>
                            <textarea name="venue" id="venue"></textarea>
+                           <div class="incorrect-venue"></div>
                         </div>
                         <div class="no_rnds">
                             <label for="rounds">Number of Rounds:</label><br>
@@ -100,6 +104,7 @@
                                 <option value="4">Round 4</option>
                                 <option value="5">Round 5</option>
                             </select>
+                            <div class="incorrect-rounds"></div>
                         </div>
                         <div class="no_mems">
                             <label for="max_members">Max Number of Members:</label><br>
@@ -112,13 +117,15 @@
                                 <option value="5">Member 5</option>
                                 <option value="6">Member 6</option>
                             </select>
+                            <div class="incorrect-members"></div>
                         </div>
                         <div class="pp">
                             <label for="price">Price Pool:</label><br>
                             <input type="text" name="price" id="price">
+                            <div class="incorrect-price"></div>
                         </div>
                         <div class="conds">
-                            <input type="checkbox" name="terms" id="terms" required>
+                            <input type="checkbox" name="terms" id="terms" value="ok">
                             <label for="terms">Terms and Conditions</label>
                         </div>
                     </form>
