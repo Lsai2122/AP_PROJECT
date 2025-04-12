@@ -9,8 +9,14 @@ let prizePool= document.getElementById('price');
 let termsConditions= document.getElementById('terms');
 document.body.addEventListener('keydown',(event)=> {
     if(event.key === 'Enter') {
-        
-        stateCheck(state.value);
+        //timeCheck(submissionTime.value);
+        //dateCheck(lastDate.value);
+        //eventNameCheck(eventName.value);
+        //checkBox(termsConditions);
+        //stateCheck(state.value);
+        //venueCheck(venue.value);
+        //priceCheck(prizePool.value);
+        //membersCheck(totalMembers.value);
     }
 });
 totalRounds.addEventListener('change',()=> {
@@ -60,5 +66,44 @@ function stateCheck(state) {
     const indiaState = ["andhra pradesh","arunachal pradesh","assam","bihar","chhattisgarh","goa","gujarat","haryana","himachal pradesh","jharkhand","karnataka","kerala","madhya pradesh","maharashtra","manipur","meghalaya","mizoram","nagaland","odisha","punjab","rajasthan","sikkim","tamil nadu","telangana","tripura","uttar pradesh","uttarakhand","west bengal"];
     if(!indiaState.includes(!state.toLowerCase())) {
         document.querySelector('.incorrect-state').innerHTML = '*Please enter a correct state name';
+    }
+}
+function checkBox(value) {
+    if(!value.checked) {
+        alert("Please agree terms & conditions");
+    }
+}
+function eventNameCheck(value) {
+    if(value === '') {
+        document.querySelector('.incorrect-name').innerHTML = '*Please enter valid Event name';
+    }
+}
+function dateCheck(value) {
+    if(value === '') {
+        document.querySelector('.incorrect-date').innerHTML = '*Please select last date for event';
+    }
+}
+function timeCheck(value) {
+    if(value === '') {
+        document.querySelector('.incorrect-time').innerHTML = '*Please enter valid Time';
+    }
+}
+function venueCheck(value) {
+    if(value === '') {
+        document.querySelector('.incorrect-venue').innerHTML = '*Please fill venue';
+    }
+}
+function priceCheck(value) {
+    if (/[^0-9]/.test(value)) {
+        document.querySelector('.incorrect-price').innerHTML = '*Please enter a valid price (numbers only)';
+    }
+    else if(value==='') {
+        document.querySelector('.incorrect-price').innerHTML = '*Please enter a valid price (numbers only)';
+    }
+}
+function membersCheck(value) {
+    if(value === 0) {
+        document.querySelector('.incorrect-members').innerHTML = '*Please enter no. of members';
+        
     }
 }
