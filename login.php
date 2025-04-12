@@ -27,7 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['user-id'] = $user['id']; // assuming column is id
 
                 echo json_encode([
-                    'success' => true
+                    'success' => true,
+                    'id'=>$user['id']
                 ]);
             } else {
                 echo json_encode(['success' => false, 'message' => 'Invalid password']);

@@ -241,7 +241,13 @@
                     fetch('fetchusername.php')
                         .then(res=>res.json())
                         .then(data =>{
-                            document.querySelector(".logininfo").innerHTML = "Hello, " + data.username;
+                            if(data.success){
+                                document.querySelector(".logininfo").innerHTML = "Hello, " + data.username;
+                            }
+                            else{
+                                console.warn("usernot found");
+                                
+                            }
                         })
                     setTimeout(()=>{
                         document.querySelector(".logininfocontainer").innerHTML="";

@@ -36,14 +36,15 @@ body{
     font-size: 36px;
     font-weight: 700px;
 }
-.form_body_main{
+.eventhoster{
     display:flex;
     justify-content: center;
 }
 .form_body_left{
     flex:1;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 .form_body_right{
     flex:1;

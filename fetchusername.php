@@ -3,12 +3,12 @@ session_start();
 
 header('Content-Type: application/json');
 
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['user-id'])) {
     echo json_encode(['success' => false, 'message' => 'User not logged in']);
     exit();
 }
 
-$user_id = $_SESSION['user_id'];
+$user_id = $_SESSION['user-id'];
 
 // Connect to DB
 $conn = new mysqli("localhost", "root", "", "ap_project");

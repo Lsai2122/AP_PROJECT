@@ -22,12 +22,14 @@
             <div class="body_top">
                 <p>Host a Event</p>
             </div>
-            <div class="form_body_main">
+            <div class="eventform">
                 
-            </div>
+</div>
         </div>
         <div class="gap"></div>
     </div>
+    <div class="login-into"></div>
+    <script src='pages/scripts/eventhosting.js'></script>
     <script>
         function checklogin(){
             fetch("session.php")
@@ -36,7 +38,7 @@
                 if(html=='-1'){
                     document.querySelector(".head-login").innerHTML = '<button class="head-login-button" onclick="LoginDisplay()">Login</button>';
                     document.querySelector(".logininfo").innerHTML = 'not signed in'
-                    document.querySelector(".form_body_main").innerHTML=`<button class="head-login-button" onclick="LoginDisplay()">Login</button> to host a event`;
+                    document.querySelector(".eventform").innerHTML=`<button class="head-login-button" onclick="LoginDisplay()">Login</button> to host a event`;
                 }
                 else{
                     document.querySelector(".head-login").innerHTML ='<img src="images/user-logo.png">';
@@ -48,9 +50,34 @@
                     setTimeout(()=>{
                         document.querySelector(".logininfocontainer").innerHTML="";
                     },1000)
-                    document.querySelector(".form_body_main").innerHTML=`<?php include "pages/eventform.php"?>`
+                    document.querySelector(".eventform").innerHTML=`<?php include "pages/eventform.php"?>`
+                    document.querySelector(".eventhoster").addEventListener("submit", function(e) {
+                        e.preventDefault(); // Prevent default form submission
+
+                        fetch("eventfilling.php", {
+                            method: "POST",
+                            body: new FormData(this) // Send all form fields
+                        })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.success) {
+                                alert("Event submitted successfully!");
+                                // You can redirect or reset form here:
+                                // location.href = "dashboard.php";
+                                // this.reset(); 
+                            } else {
+                                console.error(data.message);
+                                alert("Error: " + data.message);
+                            }
+                        })
+                        .catch(err => {
+                            console.error("Fetch error:", err);
+                            alert("Something went wrong!");
+                        });
+                    });
+
                 }
-            })
+                                })
             .catch(err => console.error("Error loading session:", err));
         }
         
