@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=2.0">
     <title>Eventora</title>
     <link rel="stylesheet" href="../files/styles/eventparticipate.css">
 </head>
@@ -85,28 +85,30 @@
         <form class="event-form" method="post">
             <div class="team-name-box">
                 <label for="team-name" class="team-name">Team Name: </label>
-                <input type="text" name="team-name" id="team-name" class="team-input-name">
+                <input type="text" name="team-name" id="team-name" class="team-input-name" placeholder="Name" size="35">
             </div>
             <div class="team-leader-box">
                 <label for="lead-name" class="lead-name">Team Leader: </label>
                 <div class="lead-details">
                     <div class="name-college-gender">
-                        <input type="text" name="lead-name" id="lead-name" class="lead-name-input" placeholder="Name"><br>
-                        <input type="text" name="lead-college" id="lead-college" class="lead-college" placeholder="College"><br>
+                        <input type="text" name="lead-name" id="lead-name" class="lead-name-input" placeholder="Name" size="30"><br>
+                        <input type="text" name="lead-college" id="lead-college" class="lead-college" placeholder="College" size="30"><br>
                         <div class="lead-gender">
                             <div class="sex">Gender:</div>
-                            <input type="radio" name="lead-male" id="male" class="male" value="male">
-                            <label for="male" class="lead-male">Male</label>
-                            <input type="radio" name="lead-female" id="female" class="female" value="female">
-                            <label for="female" class="lead-female">Female</label>
+                            <div class="male">
+                                <input type="radio" name="lead-male" id="male" class="input-male" value="male">
+                                <label for="male" class="lead-male">Male</label>
+                            </div>
+                            <div class="female"> 
+                                <input type="radio" name="lead-female" id="input-female" class="female" value="female">
+                                <label for="female" class="lead-female">Female</label>
+                            </div>
                         </div>
                     </div>
                     <div class="line"></div>
-                    <div class="email-number-button">
-                        <div class="email-number">
-                            <input type="emial" name="lead-email" id="lead-email" class="lead-email" placeholder="Email"><br>
-                            <input type="tel" name="lead-number" id="lead-number" class="lead-number" placeholder="Phone Number"><br>
-                        </div>
+                    <div class="email-number-button">        
+                        <input type="email" name="lead-email" id="lead-email" class="lead-email" placeholder="Email" size="30"><br>
+                        <input type="tel" name="lead-number" id="lead-number" class="lead-number" placeholder="Phone Number" size="30"><br>
                         <div class="button">
                             <input type="button" name="add-member" id="add-member" class="add-member" value="Add a Member">
                             <input type="reset" name="remove" id="remove" class="remove" value="Remove">
@@ -115,59 +117,63 @@
                 </div>
             </div>
             <div class="team-members-box">
-                <div class="member-1-box member-box">
-                    <label for="member-1-name member-name" class="member-1-name member-name">Member 1: </label>
-                <div class="member-1-details member-details">
-                    <div class="name-college-gender">
-                        <input type="text" name="member-1-name" id="member-1-name" class="member-1-name-input member-name-input" placeholder="Name"><br>
-                        <input type="text" name="member-1-college" id="member-1-college" class="member-1-college member-college" placeholder="College"><br>
-                        <div class="member-1-gender member-gender">
-                            <div class="sex">Gender:</div>
-                            <input type="radio" name="member-1-male" id="male" class="male" value="male">
-                            <label for="male" class="member-1-male">Male</label>
-                            <input type="radio" name="member-1-female" id="female" class="female" value="female">
-                            <label for="female" class="member-1-female">Female</label>
+                <div class="team-member-box team-member-1-box">
+                    <label for="member-1-name" class="member-name member-1-name">Member 1: </label>
+                    <div class="member-details member-1-details">
+                        <div class="name-college-gender">
+                            <input type="text" name="member-1-name" id="member-1-name" class="member-1-name-input member-name-input" placeholder="Name" size="30"><br>
+                            <input type="text" name="member-1-college" id="member-1-college" class="member-1-college member-college" placeholder="College" size="30"><br>
+                            <div class="member-gender member-1-gender">
+                                <div class="sex">Gender:</div>
+                                <div class="male">
+                                    <input type="radio" name="member-1-gender" id="member-1-male" class="input-male" value="male">
+                                    <label for="male" class="member-1-male member-male">Male</label>
+                                </div>
+                                <div class="female"> 
+                                    <input type="radio" name="member-1-gender" id="member-1-female" class="input-female" value="female">
+                                    <label for="female" class="member-1-female member-female">Female</label>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="line"></div>
-                    <div class="email-number-button">
-                        <div class="email-number">
-                            <input type="emial" name="member-1-email" id="member-1-email" class="member-1-email member-email" placeholder="Email"><br>
-                            <input type="tel" name="member-1-number" id="member-1-number" class="member-1-number member-number" placeholder="Phone Number"><br>
-                        </div>
-                        <div class="button">
-                            <input type="button" name="add-member" id="add-member" class="add-member" value="Add a Member">
-                            <input type="reset" name="remove" id="remove" class="remove" value="Remove">
-                        </div>
-                    </div>
-                </div>
-                </div>
-                <div class="member-2-box member-box">
-                    <label for="member-2-name member-name" class="member-2-name member-name">Member 2: </label>
-                <div class="member-2-details member-details">
-                    <div class="name-college-gender">
-                        <input type="text" name="member-2-name" id="member-2-name" class="member-2-name-input member-name-input" placeholder="Name"><br>
-                        <input type="text" name="member-2-college" id="member-2-college" class="member-2-college member-college" placeholder="College"><br>
-                        <div class="member-2-gender member-gender">
-                            <div class="sex">Gender:</div>
-                            <input type="radio" name="member-2-male" id="male" class="male" value="male">
-                            <label for="male" class="member-2-male">Male</label>
-                            <input type="radio" name="member-2-female" id="female" class="female" value="female">
-                            <label for="female" class="member-2-female">Female</label>
-                        </div>
-                    </div>
-                    <div class="line"></div>
-                    <div class="email-number-button">
-                        <div class="email-number">
-                            <input type="emial" name="member-2-email" id="member-2-email" class="member-2-email member-email" placeholder="Email"><br>
-                            <input type="tel" name="member-2-number" id="member-2-number" class="member-2-number member-number" placeholder="Phone Number"><br>
-                        </div>
-                        <div class="button">
-                            <input type="button" name="add-member" id="add-member" class="add-member" value="Add a Member">
-                            <input type="reset" name="remove" id="remove" class="remove" value="Remove">
+                        <div class="line"></div>
+                        <div class="member-email-number-button">        
+                            <input type="email" name="member-1-email" id="member-1-email" class="member-1-email member-email" placeholder="Email" size="30"><br>
+                            <input type="tel" name="member-1-number" id="member-1-number" class="member-1-number member-number" placeholder="Phone Number" size="30"><br>
+                            <div class="button">
+                                <input type="button" name="add-member" id="add-member" class="add-member" value="Add a Member">
+                                <input type="reset" name="remove" id="remove" class="remove" value="Remove">
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="team-member-box team-member-2-box">
+                    <label for="member-2-name" class="member-name member-2-name">Member 2: </label>
+                    <div class="member-details member-2-details">
+                        <div class="name-college-gender">
+                            <input type="text" name="member-2-name" id="member-2-name" class="member-2-name-input member-name-input" placeholder="Name" size="30"><br>
+                            <input type="text" name="member-2-college" id="member-2-college" class="member-2-college member-college" placeholder="College" size="30"><br>
+                            <div class="member-gender member-2-gender">
+                                <div class="sex">Gender:</div>
+                                <div class="male">
+                                    <input type="radio" name="member-2-gender" id="member-2-male" class="input-male" value="male">
+                                    <label for="male" class="member-2-male member-male">Male</label>
+                                </div>
+                                <div class="female"> 
+                                    <input type="radio" name="member-2-gender" id="member-2-female" class="input-female" value="female">
+                                    <label for="female" class="member-2-female member-female">Female</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="line"></div>
+                        <div class="member-email-number-button">        
+                            <input type="email" name="member-2-email" id="member-2-email" class="member-2-email member-email" placeholder="Email" size="30"><br>
+                            <input type="tel" name="member-2-number" id="member-2-number" class="member-2-number member-number" placeholder="Phone Number" size="30"><br>
+                            <div class="button">
+                                <input type="button" name="add-member" id="add-member" class="add-member" value="Add a Member">
+                                <input type="reset" name="remove" id="remove" class="remove" value="Remove">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </form>

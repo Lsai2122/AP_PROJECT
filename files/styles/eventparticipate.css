@@ -206,7 +206,7 @@ label {
     display: flex;
     flex-direction: row;
     border-radius: 8px;
-    box-shadow: 2px 9px 8px rgba(0, 0, 0, 0.498);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
 }
 .border-line {
     width: 11px;
@@ -242,7 +242,7 @@ label {
     align-items: center;
     margin-right: 32px;
     border-radius: 8px;
-    box-shadow: 2px 2px 9px rgba(0, 0, 0, 0.498);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
 }
 .number {
     text-align: center;
@@ -299,4 +299,136 @@ label {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 36px;
+}
+.event-form {
+    display: flex;
+    flex-direction: column;
+    width: 1217px;
+    height: 1253px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 12px;
+    gap: 18px;
+}
+.team-name-box {
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    align-items: center;
+}
+.team-name {
+    font-size: 26px;
+    font-weight: bold;
+    color: black;
+}
+.team-leader-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 1128px;
+    gap: 18px;
+}
+.lead-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    text-indent: 70px;
+}
+.lead-details,.member-details {
+    display: flex;
+    justify-content: space-around;
+
+}
+.line {
+    width: 2px;
+    height: 224.5px;
+    background-color: #000000;
+}
+.name-college-gender {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    margin-left: 25px;
+    justify-content: start;
+}
+input[type="text"],input[type="email"],
+input[type="tel"],
+input[type="number"] {
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: #fff;
+    font-size: 16px;
+    border-radius: 10px;
+}
+.lead-gender,.member-gender {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 15px;
+    width: 304px;
+}
+.lead-male,.lead-female,.member-male,.member-female {
+    color: black;
+}
+.sex {
+    font-size: 18px;
+}
+.email-number-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    justify-content: start;
+}
+.button {
+    width: 304px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.add-member {
+    padding: 12px 36px;
+    background-color: #237FFF;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+}
+.remove {
+    padding: 12px 42px;
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+.team-members-box {
+    display: flex;
+    flex-direction: column;
+}
+.team-members-box {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.team-member-box {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.member-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    text-indent: 70px;
+    display: block; 
+}
+.member-email-number-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    justify-content: start;
+    margin-right: 90px;
 }
