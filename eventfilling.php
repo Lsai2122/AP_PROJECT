@@ -29,13 +29,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $details_of_round = [];
     $modes = [];
 
-    for ($i = 0; $i < $rounds; $i++) {
-        $names[] = $_POST["name$i"] ?? '';
-        $dates[] = $_POST["date$i"] ?? '';
-        $times[] = $_POST["time$i"] ?? '';
-        $durations[] = $_POST["duration$i"] ?? '';
-        $details_of_round[] = $_POST["details_of_round$i"] ?? '';
-        $modes[] = ($_POST["mode$i"] ?? '') === 'offline' ? 0 : 1;
+    for ($i = 1; $i < $rounds+1; $i++) {
+        $names[] = $_POST["name$i"];
+        $dates[] = $_POST["date$i"];
+        $times[] = $_POST["time$i"];
+        $durations[] = $_POST["duration$i"];
+        $details_of_round[] = $_POST["details_of_round$i"];
+        $modes[] = ($_POST["mode$i"]) === 'offline' ? 0 : 1;
     }
 
     // DB Connection
@@ -56,8 +56,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Loop through rounds
         for ($i = 0; $i < $rounds; $i++) {
-            $table = "round" . $i; // Table name must exist
-            $stmt2 = $conn->prepare("INSERT INTO $table (event_id, round_name, date, time, duration, details, is_online)
+            $table = "round" . ($i+1); // Table name must exist
+            $stmt2 = $conn->prepare("INSERT INTO $table (eventid, round_name, date, time, duration, details, is_online)
                                      VALUES (?, ?, ?, ?, ?, ?, ?)");
             $stmt2->bind_param("isssssi", $event_id, $names[$i], $dates[$i], $times[$i], $durations[$i], $details_of_round[$i], $modes[$i]);
             $stmt2->execute();

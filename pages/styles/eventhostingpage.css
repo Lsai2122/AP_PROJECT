@@ -1,3 +1,8 @@
+body{
+    font-family: "Inter", sans-serif;
+}
+
+
 .form_out{
     background-color: #061A40;
     position:absolute;
@@ -31,14 +36,19 @@
     font-size: 36px;
     font-weight: 700px;
 }
-.form_body_main{
+.eventform{
+    height: 700px;
+}
+.eventhoster{
     display:flex;
     justify-content: center;
+    height: 700px;
 }
 .form_body_left{
     flex:1;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 .form_body_right{
     flex:1;
@@ -48,11 +58,12 @@
 }
 .form_vertical_line{
     width:2px;
-    height:1000px;
+    height:100%;
     background-color: black;
 }
 label{
     font-size: 16px;
+    color: black;
 }
 input,select,textarea{
     width:300px;
@@ -95,9 +106,17 @@ p{
     font-size: 20px;
     font-weight:bold;
 }
+.head-search-input{
+    height: 41.5px !important;
+}
+
+
+
+
+
 #display-rounds {
     overflow-y: scroll;
-    height: 1000px;
+    height: 700px;
 }
 #display-rounds::-webkit-scrollbar {
     display: none;

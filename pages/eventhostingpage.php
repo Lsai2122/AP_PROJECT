@@ -29,7 +29,7 @@
         <div class="gap"></div>
     </div>
     <div class="login-into"></div>
-    <script type="module">
+    <script>
         function checklogin(){
             fetch("session.php")
             .then(res => res.text())

@@ -1,4 +1,4 @@
-setTimeout(()=> {
+
     eventName= document.getElementById('event_name');
     lastDate= document.getElementById('date_sub');
     submissionTime= document.getElementById('time_sub');
@@ -10,7 +10,6 @@ setTimeout(()=> {
     termsConditions= document.getElementById('terms');
     checklogin();
     
-},1000)
 function numberOfRounds(rounds) {
     let roundsDisplay='';
     for(let i=0;i<rounds;i++) {
@@ -20,28 +19,28 @@ function numberOfRounds(rounds) {
                             <p>Round ${i+1}:</p>
                             <div class="username">
                                 <label for="name">Name:</label><br>
-                                <input type="text" name="name" id="name" class="name${i+1}">
+                                <input type="text" name="name${i+1}" id="name" class="name${i+1}">
                             </div>
                             <div class="dt">
                                 <label for="date">Date:</label><br>
-                                <input type="date" name="date" id="date" class="date${i+1}">
+                                <input type="date" name="date${i+1}" id="date" class="date${i+1}">
                             </div>
                             <div class="tm">
                                 <label for="time">Time:</label><br>
-                                <input type="time" name="time" id="time" class="time${i+1}">
+                                <input type="time" name="time${i+1}" id="time" class="time${i+1}">
                             </div>
                             <div class="dur">
                                 <label for="duration">Duration:in hrs</label><br>
-                                <input type="text" name="duration" id="duration" class="duration${i+1}">
+                                <input type="text" name="duration${i+1}" id="duration" class="duration${i+1}">
                             </div>
                             <div class="details_rnds">
-                                <label for="deatails_of_round">Details of Round ${i+1}:</label><br>
-                                <textarea name="deatails_of_round" id="deatails_of_round" class="deatails_of_rounds${i+1}"></textarea>
+                                <label for="details_of_round">Details of Round ${i+1}:</label><br>
+                                <textarea name="details_of_round${i+1}" id="deatails_of_round" class="deatails_of_rounds${i+1}"></textarea>
                             </div>
                             <div class="modes">
-                                <input type="radio" name="mode" id="online" class="online${i+1}">
+                                <input type="radio" name="mode${i+1}" id="online" class="online${i+1}" value=1>
                                 <label for="online">Online:</label>
-                                <input type="radio" name="mode" id="offline" class="offline${i+1}">
+                                <input type="radio" name="mode${i+1}" id="offline" class="offline${i+1}" value=0>
                                 <label for="offline">Offline:</label>
                             </div>
                         </div>
