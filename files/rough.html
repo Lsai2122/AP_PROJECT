@@ -1,30 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Persistent Input</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .head {
+      display: flex;
+      justify-content: space-between;
+      background-color: red;
+      width: 500px;
+    }
+    .tail1 {
+      width: 150px;
+      height: 150px;
+      background-color: lightblue;
+    }
+    .tail2 {
+      width: 150px;
+      height: 150px;
+      background-color: lightpink;
+    }
+  </style>
 </head>
 <body>
-
-  <input type="text" id="myInput" placeholder="Enter your state...">
-  <button onclick="handleSubmit()">Submit</button>
-
-  <script>
-    const input = document.getElementById("myInput");
-
-    // 🔁 Load from localStorage when page loads
-    window.addEventListener("load", () => {
-      const savedValue = localStorage.getItem("userInput");
-      if (savedValue) {
-        input.value = savedValue;
-      }
-    });
-
-    // 💾 Save to localStorage on submit
-    function handleSubmit() {
-      localStorage.setItem("userInput", input.value);
-      console.log("Submitted:", input.value);
-    }
-  </script>
-
+  <div class="head">
+    <div class="tail1"></div>
+    <div class="tail2"></div>
+  </div>
 </body>
 </html>
