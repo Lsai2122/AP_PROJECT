@@ -25,7 +25,7 @@ $stmt->execute();
 $stmt->bind_result($username);
 
 if ($stmt->fetch()) {
-    echo json_encode(['success' => true, 'username' => $username]);
+    echo json_encode(['success' => true, 'username' => $username,'id'=>$_SESSION['user-id']]);
 } else {
     echo json_encode(['success' => false, 'message' => 'User not found']);
 }
