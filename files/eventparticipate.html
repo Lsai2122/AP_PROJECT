@@ -7,53 +7,7 @@
     <link rel="stylesheet" href="../files/styles/eventparticipate.css">
 </head>
 <body>
-    <header class="head-header">
-        <div class="head-left">
-            <div class="head-logo">
-                <img src="../images/mouse.png" alt="Logo" class="head-logo-image">
-                <p class="head-logo-text">Eventora</p>
-            </div>
-        </div>
-        <div class="head-mid">
-            <div class="head-new">
-                New
-                <div class="head-vertical-line"></div>
-            </div>
-            <div class="head-upcoming">
-                Upcoming<br>Events
-                <div class="head-vertical-line"></div>
-            </div>
-            <div class="head-best-hosts">
-                Best Hosts
-                <div class="head-vertical-line"></div>
-            </div>
-            <div class="head-best-events">
-                Best Events
-                <div class="head-vertical-line"></div>
-            </div>
-            <div class="head-applied">
-                Applied
-                <div class="head-vertical-line"></div>
-            </div>
-        </div>
-        <div class="head-right">
-            <div class="head-search-bar">
-                <div class="head-search-icon">
-                    <img src="../images/search1.png" alt="Search Icon" class="head-search-image">
-                </div>
-                <input type="text" placeholder="Search Events" class="head-search-input">
-            </div>
-            <div class="head-vertical-line"></div>
-            <div class="head-login">
-                <button class="head-login-button">Login</button>
-            </div>
-            <div class="head-vertical-line"></div>
-            <div class="head-host-button">
-                <img src="../images/plus1.png" alt="Host Icon" class="head-host-image">
-                Host
-            </div>
-        </div>
-    </header>
+    
     <div class="main-page">
         <div class="event-info-box">
             <div class="border-line"></div>
@@ -82,7 +36,7 @@
                 </div>
             </div>
         </div>
-        <form class="event-form" method="post">
+        <form class="event-form">
             <div class="team-name-box">
                 <label for="team-name" class="team-name">Team Name: </label>
                 <input type="text" name="team-name" id="team-name" class="team-input-name" placeholder="Name" size="35">
@@ -96,11 +50,11 @@
                         <div class="lead-gender">
                             <div class="sex">Gender:</div>
                             <div class="male">
-                                <input type="radio" name="lead-male" id="male" class="input-male" value="male">
+                                <input type="radio" name="lead-gender" id="male" class="input-male" value="male">
                                 <label for="male" class="lead-male">Male</label>
                             </div>
                             <div class="female"> 
-                                <input type="radio" name="lead-female" id="input-female" class="female" value="female">
+                                <input type="radio" name="lead-gender" id="input-female" class="female" value="female">
                                 <label for="female" class="lead-female">Female</label>
                             </div>
                         </div>
@@ -110,7 +64,7 @@
                         <input type="email" name="lead-email" id="lead-email" class="lead-email" placeholder="Email" size="30"><br>
                         <input type="tel" name="lead-number" id="lead-number" class="lead-number" placeholder="Phone Number" size="30"><br>
                         <div class="button">
-                            <input type="button" name="add-member" id="add-member" class="add-member" value="Add a Member">
+                            <input type="button" name="add-member" id="add-member" class="add-member" value="Add a Member" onclick="addMember();">
                             <input type="reset" name="remove" id="remove" class="remove" value="Remove">
                         </div>
                     </div>
@@ -176,7 +130,9 @@
                     </div>
                 </div>
             </div>
+            <input type="submit" name="submit" id="submit" class="submit">
         </form>
     </div>
+    <script src="../files/script/eventparticipate.js"></script>
 </body>
 </html>

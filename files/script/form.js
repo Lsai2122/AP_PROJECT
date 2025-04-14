@@ -7,7 +7,7 @@ let totalRounds= document.getElementById('rounds');
 let totalMembers= document.getElementById('max_members'); 
 let prizePool= document.getElementById('price'); 
 let termsConditions= document.getElementById('terms');
-document.body.addEventListener('keydown',(event)=> {
+/*document.body.addEventListener('keydown',(event)=> {
     if(event.key === 'Enter') {
         //timeCheck(submissionTime.value);
         //dateCheck(lastDate.value);
@@ -18,10 +18,9 @@ document.body.addEventListener('keydown',(event)=> {
         //priceCheck(prizePool.value);
         //membersCheck(totalMembers.value);
     }
-});
+});*/
 totalRounds.addEventListener('change',()=> {
     numberOfRounds(totalRounds.value);
-    console.log("DOne");
 })
 function numberOfRounds(rounds) {
     let roundsDisplay='';
