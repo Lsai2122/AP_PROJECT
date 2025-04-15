@@ -52,67 +52,8 @@
                     <img src="images/arrow-left.png" id="normal-prev">
                 </div>
                 <div class="event-view-box">
-                    <div class="event">
-                        <div class="event-1 event-details">
-                            <div class="event-cover-pic">
-                                <div class="event-pic"></div>
-                            </div>
-                            <div class="event-info">
-                                <div class="event-name">Blast Hackthon</div>
-                                <div class="event-place">Uttar Pradesh</div>
-                                <div class="event-time-left">11 days left</div>
-                            </div>
-                        </div>
-                        <div class="event-2 event-details">
-                            <div class="event-cover-pic">
-                                <div class="event-pic"></div>
-                            </div>
-                            <div class="event-info">
-                                <div class="event-name">Blast Hackthon</div>
-                                <div class="event-place">Uttar Pradesh</div>
-                                <div class="event-time-left">11 days left</div>
-                            </div>
-                        </div>
-                        <div class="event-3 event-details">
-                            <div class="event-cover-pic">
-                                <div class="event-pic"></div>
-                            </div>
-                            <div class="event-info">
-                                <div class="event-name">Blast Hackthon</div>
-                                <div class="event-place">Uttar Pradesh</div>
-                                <div class="event-time-left">11 days left</div>
-                            </div>
-                        </div>
-                        <div class="event-4 event-details">
-                            <div class="event-cover-pic">
-                                <div class="event-pic"></div>
-                            </div>
-                            <div class="event-info">
-                                <div class="event-name">Blast Hackthon</div>
-                                <div class="event-place">Uttar Pradesh</div>
-                                <div class="event-time-left">11 days left</div>
-                            </div>
-                        </div>
-                        <div class="event-5 event-details">
-                            <div class="event-cover-pic">
-                                <div class="event-pic"></div>
-                            </div>
-                            <div class="event-info">
-                                <div class="event-name">Blast Hackthon</div>
-                                <div class="event-place">Uttar Pradesh</div>
-                                <div class="event-time-left">11 days left</div>
-                            </div>
-                        </div>
-                        <div class="event-6 event-details">
-                            <div class="event-cover-pic">
-                                <div class="event-pic"></div>
-                            </div>
-                            <div class="event-info">
-                                <div class="event-name">Blast Hackthon</div>
-                                <div class="event-place">Uttar Pradesh</div>
-                                <div class="event-time-left">11 days left</div>
-                            </div>
-                        </div>
+                    <div class="NewEvent">
+                        
                     </div>
                 </div>
                 <div class="arrow">
@@ -251,7 +192,27 @@
                     n = result.n;
                     data = result.data;
                     console.log(n);
-                    console.log(data)
+                    console.log(data);
+                    for(i=0;i<n;i++){
+                        const today = new Date();
+                        const targetDate = new Date(data[i]['last_date']); // example future date
+
+                        const timeDiff = targetDate - today; // in milliseconds
+                        const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); // convert to days
+                        document.querySelector(".NewEvent").innerHTML+=`
+                        <div class="event-1 event-details" onclick="window.location.href='eventdetailspage.php?event_id=${data[i]['id']}'">
+                            <div class="event-cover-pic">
+                                <div class="event-pic"></div>
+                            </div>
+                            <div class="event-info">
+                                <div class="event-name">${data[i]['event_name']}</div>
+                                <div class="event-place">${data[i]['state']}</div>
+                                <div class="event-time-left">${daysLeft} days left</div>
+                            </div>
+                        </div>
+                        `
+                    }
+                    
                 })
                 .catch(error => {
                     console.error("Error fetching data:", error);

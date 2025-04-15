@@ -207,7 +207,7 @@ body{
     align-items: center;
     margin-top: 18px;
 }
-.event,.best-event {
+.NewEvent,.best-event {
     display: flex;
     gap: 15px;
     flex: none;
