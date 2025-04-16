@@ -210,6 +210,11 @@ input[type="number"] {
 .team-members-box {
     display: flex;
     flex-direction: column;
+    flex: none;
+    overflow-y: scroll;
+}
+.team-members-box::-webkit-scrollbar {
+    display: none;
 }
 .team-members-box {
     display: flex;
