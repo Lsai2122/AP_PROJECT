@@ -14,15 +14,24 @@
     }
 
     $sql = "SELECT * FROM event_main_details WHERE id = $id";
-    $result = $conn->query($sql)
+    $result = $conn->query($sql);
 
-    if ($stmt->fetch()) {
-        echo json_encode(['success' => true, 'username' => $username,'id'=>$_SESSION['user-id']]);
-    } else {
-        echo json_encode(['success' => false, 'message' => 'User not found']);
+    $data = [];
+    if($result->num_rows>0){
+        while($row = $result->fetch_assoc()){
+            $data[]=$row;
+        }
     }
-
-    $stmt->close();
+    $rounds = [];
+    for($i=1;$i<=$data[0]['rounds'];$i++){
+        $sql = "SELECT * FROM round$i WHERE eventid = $id";
+        $result = $conn->query($sql);
+        if($result->num_rows>0){
+            while($row=$result->fetch_assoc()){
+                $rounds[]=$row;
+            }
+        }
+    }
     $conn->close();
 
 ?>
@@ -56,22 +65,18 @@
                     <div class="details-gap"></div>
                     <div class="location">
                         <img src=" images/location.png" alt="Location Icon" class="location-icon">
-                        <p class="location-text">Uttar Pradesh</p>
-                    </div>
-                    <div class="status">
-                        <img src=" images/offline.png" alt="Clock Icon" class="status-icon">
-                        <p class="status-text">Offline</p>
+                        <p class="location-text"></p>
                     </div>
                     <div class="date">
                         <img src=" images/calendar.png" alt="Calendar Icon" class="date-icon">
-                        <p class="date-text">Last Date: 12th March 2024</p>
+                        <p class="date-text"></p>
                     </div>
 
                 </div>
             </div>
             <div class="days-left">
                 <div class="days-container">
-                    <div class="days-number">12</div>
+                    <div class="days-number"></div>
                     <div class="days-text"><span style="opacity: 0.54;">Days Left</span></div>
                 </div>
             </div>
@@ -103,7 +108,7 @@
                         </div>
                     </div>
                     <div class="reg-but">
-                        <button class="reg-button">Register</button>
+                        <button class="reg-button" onclick="window.location.href = 'eventreg.php'">Register</button>
                     </div>
                 </div>
             </div>
@@ -112,65 +117,9 @@
             <div class="stages-head">
                 <p>Stages & Timings</p>
                 <div style="flex: 1;"></div>
-                <div class="round1">
-                    <div class="round1-text">Round 1: <span style="font-weight: normal;">Online Submission
-                            Round</span></div>
-                    <div class="round1-details">
-                        <div class="days-container1">
-                            <div class="days-number">12</div>
-                            <div class="days-text"><span style="opacity: 0.54;">Days Left</span></div>
-                        </div>
-                        <div class="date-and-time">
-                            <div class="round1-details-given">dasfhjgfghfdgfhydsacdggfcfvgrdcvfgtfdcxvfbghygf
-                                dcvfdszaxcdfvgtrdszxdcfvgtfdcx
-                                vfgfvcxdfrcv cdfgbv c<br>
-                            </div>
-                            <div class="round1-date">Date: 12th March 2024</div>
-                            <div class="round1-time">Time: 10:00 AM - 12:00 PM</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="round2">
-                    <div class="round2-text">Round 1: <span style="font-weight: normal;">Online Submission
-                            Round</span></div>
-                    <div class="round2-details">
-                        <div class="days-container1">
-                            <div class="days-number">12</div>
-                            <div class="days-text"><span style="opacity: 0.54;">Days Left</span></div>
-                        </div>
-                        <div class="date-and-time">
-                            <div class="round2-details-given">dasfhjgfghfdgfhydsacdggfcfvgrdcvfgtfdcxvfbghygf
-                                dcvfdszaxcdfvgtrdszxdcfvgtfdcx
-                                vfgfvcxdfrcv cdfgbv c<br>
-                            </div>
-                            <div class="round2-date">Date: 12th March 2024</div>
-                            <div class="round2-time">Time: 10:00 AM - 12:00 PM</div>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div>
-        <div class="information-div">
-            <div class="information-head">
-                Information
-            </div>
-            <div class="information-details-given">
-                <div class="information-details-text">dasfhjgfghfdgfhydsacdggfcfvgrdcvfgtfdcxvfbghygf
-                    dcvfdszaxcdfvgtrdszxdcfvgtfdcx
-                    vfgfvcxdfrcv cdfgbv c<br><br>
-                    dasfhjgfghfdgfhydsacdggfcfvgrdcvfgtfdcxvfbghygf
-                </div>
-                <div class="information-details-contact">
-                    <div class="information-details-contact-div">
-                        <div class="information-details-contact-text">Contact</div>
-                        <div class="information-details-contact-details">
-                            Name: Ajay Varma<br>
-                            Email: ajay.varma@example.com<br>
-                            Phone: +1234567890<br>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <script>
                 function checklogin(){
                     fetch("session.php")
@@ -194,15 +143,59 @@
                                         })
                     .catch(err => console.error("Error loading session:", err));
                 }
-                const params = new URLSearchParams(window.location.search);
-                
-                console.log(params.get('event_id'));
+                const EventDetails = JSON.parse(`<?php echo json_encode($data);?>`)[0];
+                const rounds = <?php echo json_encode($rounds);?>;
 
-                event="nmaeasfa"
-                event_name=document.querySelector(".event-name").innerHTML=`
+
+                console.log(EventDetails);
+                console.log(rounds);
+
+
+                event=EventDetails.event_name;
+                state = EventDetails.state;
+                date = new Date(EventDetails.last_date);
+                MaxMem = EventDetails.max_members;
+                norounds = EventDetails.rounds;
+                const today = new Date();
+                const targetDate = date; // example future date
+                const timeDiff = targetDate - today; // in milliseconds
+                const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); // convert to days
+
+                document.querySelector(".event-name").innerHTML=`
                                             ${event}
                                             <div class="horizontal-line"></div>
-                                            `
+                                            `;
+                document.querySelector(".location-text").innerHTML = state;
+                document.querySelector(".date-text").innerHTML=`Last Date: ${date.toISOString().slice(0, 10)}`;
+                document.querySelector(".days-number").innerHTML=daysLeft;
+                document.querySelector(".team-size-data").innerHTML = `1-${MaxMem} Members`
+
+                for(i=1;i<=norounds;i++){
+                    rtime = rounds[i-1]['time']
+                    time = new Date("1970-01-01T"+ rtime);
+                    newtime = new Date(time);
+                    newtime.setHours(newtime.getHours()+rounds[i-1]['duration'])
+                    newtime =(newtime).toTimeString().slice(0,5);
+                    time = time.toTimeString().slice(0,5);
+                    rdate = new Date(rounds[i-1]['date'])
+                    rdaysLeft= Math.ceil((rdate-today)/(1000*60*60*24));
+                    console.log(time);
+                document.querySelector(".stages-head").innerHTML+= `<div class="round">
+                            <div class="round-text">Round ${i}: <span style="font-weight: normal;">${rounds[i-1]["round_name"]}</span></div>
+                            <div class="round-details">
+                                <div class="days-container1">
+                                    <div class="days-number">${rdaysLeft}</div>
+                                    <div class="days-text"><span style="opacity: 0.54;">Days Left</span></div>
+                                </div>
+                                <div class="date-and-time">
+                                    <div class="round-details-given">${rounds[i-1]["details"]}<br>
+                                    </div>
+                                    <div class="round-date">Date: ${rounds[i-1]["date"]}</div>
+                                    <div class="round-time">Time: ${time}-${newtime}</div>
+                                </div>
+                            </div>
+                        </div>`
+                }
             </script>
 </body>
 
