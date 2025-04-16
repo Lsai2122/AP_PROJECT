@@ -124,7 +124,7 @@ body{
     flex-direction: column;
     
 }
-.New{
+.New,.best_events{
     color: #000000;
     font-size: 30px;
     padding-top: 30px;
@@ -207,12 +207,11 @@ body{
     align-items: center;
     margin-top: 18px;
 }
-.event,.best-event {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-gap: 10px;
-    width: 100%;
+.NewEvent,.best-event {
+    display: flex;
+    gap: 15px;
     flex: none;
+
 }
 .event-details,.best-event-details {
     display: flex;

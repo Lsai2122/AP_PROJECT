@@ -11,7 +11,6 @@ window.addEventListener("scroll",()=>{
     if(scrollY >= triggerPoint){
         header.classList.remove("head-header-top");
         host.classList.remove("head-host-button-top")
-        triggered=true;
     }
     else{
         host.classList.add("head-host-button-top")

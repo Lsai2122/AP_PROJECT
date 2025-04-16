@@ -1,6 +1,8 @@
 <?php
     include('pages/header.php');
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,81 +52,8 @@
                     <img src="images/arrow-left.png" id="normal-prev">
                 </div>
                 <div class="event-view-box">
-                    <div class="event">
-                        <div class="event-1 event-details">
-                            <div class="event-cover-pic">
-                                <div class="event-pic"></div>
-                                <div class="entry-type">Free</div>
-                                <div class="event-mode">Offline</div>
-                            </div>
-                            <div class="event-info">
-                                <div class="event-name">Blast Hackthon</div>
-                                <div class="event-place">Uttar Pradesh</div>
-                                <div class="event-time-left">11 days left</div>
-                            </div>
-                        </div>
-                        <div class="event-2 event-details">
-                            <div class="event-cover-pic">
-                                <div class="event-pic"></div>
-                                <div class="entry-type">Paid</div>
-                                <div class="event-mode">Offline</div>
-                            </div>
-                            <div class="event-info">
-                                <div class="event-name">Blast Hackthon</div>
-                                <div class="event-place">Uttar Pradesh</div>
-                                <div class="event-time-left">11 days left</div>
-                            </div>
-                        </div>
-                        <div class="event-3 event-details">
-                            <div class="event-cover-pic">
-                                <div class="event-pic"></div>
-                                <div class="entry-type">Free</div>
-                                <div class="event-mode">Offline</div>
-                            </div>
-                            <div class="event-info">
-                                <div class="event-name">Blast Hackthon</div>
-                                <div class="event-place">Uttar Pradesh</div>
-                                <div class="event-time-left">11 days left</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="event">
-                        <div class="event-1 event-details">
-                            <div class="event-cover-pic">
-                                <div class="event-pic"></div>
-                                <div class="entry-type">Free</div>
-                                <div class="event-mode">Offline</div>
-                            </div>
-                            <div class="event-info">
-                                <div class="event-name">Blast Hackthon</div>
-                                <div class="event-place">Uttar Pradesh</div>
-                                <div class="event-time-left">11 days left</div>
-                            </div>
-                        </div>
-                        <div class="event-2 event-details">
-                            <div class="event-cover-pic">
-                                <div class="event-pic"></div>
-                                <div class="entry-type">Free</div>
-                                <div class="event-mode">Offline</div>
-                            </div>
-                            <div class="event-info">
-                                <div class="event-name">Blast Hackthon</div>
-                                <div class="event-place">Uttar Pradesh</div>
-                                <div class="event-time-left">11 days left</div>
-                            </div>
-                        </div>
-                        <div class="event-3 event-details">
-                            <div class="event-cover-pic">
-                                <div class="event-pic"></div>
-                                <div class="entry-type">Free</div>
-                                <div class="event-mode">Offline</div>
-                            </div>
-                            <div class="event-info">
-                                <div class="event-name">Blast Hackthon</div>
-                                <div class="event-place">Uttar Pradesh</div>
-                                <div class="event-time-left">11 days left</div>
-                            </div>
-                        </div>
+                    <div class="NewEvent">
+                        
                     </div>
                 </div>
                 <div class="arrow">
@@ -133,7 +62,7 @@
             </div>
         </div>
         <div class="section-2">
-            <div class="New">
+            <div class="best_events">
                 Best Events
                 <div class="underline-best"></div>
             </div>
@@ -228,36 +157,66 @@
     </div>
     <div class="login-into"></div>
         <script>
-        function checklogin(){
-            fetch("session.php")
-            .then(res => res.text())
-            .then(html => {
-                if(html=='-1'){
-                    document.querySelector(".head-login").innerHTML = '<button class="head-login-button" onclick="LoginDisplay()">Login</button>';
-                    document.querySelector(".logininfo").innerHTML = 'not signed in'
-                }
-                else{
-                    document.querySelector(".head-login").innerHTML ='<img src="images/user-logo.png" onclick="loggedinfo()">';
-                    fetch('fetchusername.php')
-                        .then(res=>res.json())
-                        .then(data =>{
-                            if(data.success){
-                                document.querySelector(".logininfo").innerHTML = "Hello, " + data.username;
-                            }
-                            else{
-                                console.warn("usernot found");
-                                
-                            }
-                        })
-                    setTimeout(()=>{
-                        document.querySelector(".logininfocontainer").innerHTML="";
-                    },1000)
-                    document.querySelector(".section-3").innerHTML=`<?php include "pages/joined_events.php"?>`
-                }
-            })
-            .catch(err => console.error("Error loading session:", err));
-        }
-        
+            function checklogin(){
+                fetch("session.php")
+                .then(res => res.text())
+                .then(html => {
+                    if(html=='-1'){
+                        document.querySelector(".head-login").innerHTML = '<button class="head-login-button" onclick="LoginDisplay()">Login</button>';
+                        document.querySelector(".logininfo").innerHTML = 'not signed in'
+                    }
+                    else{
+                        document.querySelector(".head-login").innerHTML ='<img src="images/user-logo.png" onclick="loggedinfo()">';
+                        fetch('fetchusername.php')
+                            .then(res=>res.json())
+                            .then(data =>{
+                                if(data.success){
+                                    document.querySelector(".logininfo").innerHTML = "Hello, " + data.username;
+                                }
+                                else{
+                                    console.warn("usernot found");
+                                    
+                                }
+                            })
+                        setTimeout(()=>{
+                            document.querySelector(".logininfocontainer").innerHTML="";
+                        },1000)
+                        document.querySelector(".section-3").innerHTML=`<?php include "pages/joined_events.php"?>`
+                    }
+                })
+                .catch(err => console.error("Error loading session:", err));
+            }
+            fetch("last_five.php")
+                .then(response => response.json())
+                .then(result => {
+                    n = result.n;
+                    data = result.data;
+                    console.log(n);
+                    console.log(data);
+                    for(i=0;i<n;i++){
+                        const today = new Date();
+                        const targetDate = new Date(data[i]['last_date']); // example future date
+
+                        const timeDiff = targetDate - today; // in milliseconds
+                        const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); // convert to days
+                        document.querySelector(".NewEvent").innerHTML+=`
+                        <div class="event-1 event-details" onclick="window.location.href='eventdetailspage.php?event_id=${data[i]['id']}'">
+                            <div class="event-cover-pic">
+                                <div class="event-pic"></div>
+                            </div>
+                            <div class="event-info">
+                                <div class="event-name">${data[i]['event_name']}</div>
+                                <div class="event-place">${data[i]['state']}</div>
+                                <div class="event-time-left">${daysLeft} days left</div>
+                            </div>
+                        </div>
+                        `
+                    }
+                    
+                })
+                .catch(error => {
+                    console.error("Error fetching data:", error);
+                });
     </script>
     <script type="module" src="pages/scripts/mainpage.js"></script>
     <script src="pages/scripts/header.js"></script>
