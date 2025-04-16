@@ -108,7 +108,7 @@
                         </div>
                     </div>
                     <div class="reg-but">
-                        <button class="reg-button" onclick="window.location.href = 'eventreg.php'">Register</button>
+                        <button class="reg-button" onclick="window.location.href = 'eventreg.php?event_id=<?php echo $id;?>'">Register</button>
                     </div>
                 </div>
             </div>
@@ -166,7 +166,7 @@
                                             <div class="horizontal-line"></div>
                                             `;
                 document.querySelector(".location-text").innerHTML = state;
-                document.querySelector(".date-text").innerHTML=`Last Date: ${date.toISOString().slice(0, 10)}`;
+                document.querySelector(".date-text").innerHTML=`Last Date: ${date.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}`;
                 document.querySelector(".days-number").innerHTML=daysLeft;
                 document.querySelector(".team-size-data").innerHTML = `1-${MaxMem} Members`
 
