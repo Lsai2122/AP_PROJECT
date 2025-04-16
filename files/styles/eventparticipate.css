@@ -157,9 +157,7 @@ body{
     margin-left: 25px;
     justify-content: start;
 }
-input[type="text"],input[type="email"],
-input[type="tel"],
-input[type="number"] {
+.team-input-name,.lead-name-input,.lead-college,.lead-email,.lead-number,.member-name-input,.member-college,.member-email,.member-number {
     padding: 10px 15px;
     border: none;
     outline: none;
@@ -193,6 +191,9 @@ input[type="number"] {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: absolute;
+    right: 8%;
+    bottom: 25%;
 }
 .add-member {
     padding: 12px 36px;
