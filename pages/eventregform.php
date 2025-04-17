@@ -1,5 +1,4 @@
 <?php
-
     $id = $_GET["event_id"];
 
     // Connect to DB
@@ -60,42 +59,7 @@
             </div>
         </div>
         <form class="event-form">
-            <div class="team-name-box">
-                <label for="team-name" class="team-name">Team Name: </label>
-                <input type="text" name="team-name" id="team-name" class="team-input-name" placeholder="Name" size="35">
-            </div>
-            <div class="team-leader-box">
-                <label for="lead-name" class="lead-name">Team Leader: </label>
-                <div class="lead-details">
-                    <div class="name-college-gender">
-                        <input type="text" name="lead-name" id="lead-name" class="lead-name-input" placeholder="Name" size="30"><br>
-                        <input type="text" name="lead-college" id="lead-college" class="lead-college" placeholder="College" size="30"><br>
-                        <div class="lead-gender">
-                            <div class="sex">Gender:</div>
-                            <div class="male">
-                                <input type="radio" name="lead-gender" id="male" class="input-male" value="male">
-                                <label for="male" class="lead-male">Male</label>
-                            </div>
-                            <div class="female"> 
-                                <input type="radio" name="lead-gender" id="input-female" class="female" value="female">
-                                <label for="female" class="lead-female">Female</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="line"></div>
-                    <div class="email-number-button">        
-                        <input type="email" name="lead-email" id="lead-email" class="lead-email" placeholder="Email" size="30"><br>
-                        <input type="tel" name="lead-number" id="lead-number" class="lead-number" placeholder="Phone Number" size="30"><br>
-                    </div>
-                </div>
-            </div>
-            <div class="team-members-box">
-            </div>
-            <div class="button">
-                <input type="button" name="add-member" id="add-member" class="add-member" value="Add a Member">
-                <input type="reset" name="remove" id="remove" class="remove" value="Remove">
-            </div>
-            <input type="submit" name="submit" id="submit" class="submit">
+           
         </form>
     </div>
     <div class="login-into"></div>
@@ -111,6 +75,44 @@
                     document.querySelector(".event-form").innerHTML=`<button class="head-login-button" onclick="LoginDisplay()">Login</button> to proceed`
                 }
                 else{
+                    document.querySelector('.event-form').innerHTML=`
+                     <div class="team-name-box">
+                        <label for="team-name" class="team-name">Team Name: </label>
+                        <input type="text" name="team-name" id="team-name" class="team-input-name" placeholder="Name" size="35">
+                    </div>
+                    <div class="team-leader-box">
+                        <label for="lead-name" class="lead-name">Team Leader: </label>
+                        <div class="lead-details">
+                            <div class="name-college-gender">
+                                <input type="text" name="lead-name" id="lead-name" class="lead-name-input" placeholder="Name" size="30"><br>
+                                <input type="text" name="lead-college" id="lead-college" class="lead-college" placeholder="College" size="30"><br>
+                                <div class="lead-gender">
+                                    <div class="sex">Gender:</div>
+                                    <div class="male">
+                                        <input type="radio" name="lead-gender" id="male" class="input-male" value="male">
+                                        <label for="male" class="lead-male">Male</label>
+                                    </div>
+                                    <div class="female"> 
+                                        <input type="radio" name="lead-gender" id="input-female" class="female" value="female">
+                                        <label for="female" class="lead-female">Female</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="line"></div>
+                            <div class="email-number-button">        
+                                <input type="email" name="lead-email" id="lead-email" class="lead-email" placeholder="Email" size="30"><br>
+                                <input type="tel" name="lead-number" id="lead-number" class="lead-number" placeholder="Phone Number" size="30"><br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-members-box">
+                    </div>
+                    <div class="button">
+                        <input type="button" name="add-member" id="add-member" class="add-member" onclick='add()' value="Add a Member">
+                        <input type="reset" name="remove" id="remove" class="remove" value="Remove">
+                    </div>
+                    <input type="submit" name="submit" id="submit" class="submit">
+                    `
                     document.querySelector(".head-login").innerHTML ='<img src="images/user-logo.png">';
                     fetch('fetchusername.php')
                         .then(res=>res.json())
@@ -124,7 +126,9 @@
                                 })
             .catch(err => console.error("Error loading session:", err));
         }
-
+        document.querySelector(".event-form").addEventListener("submit",function(e){
+            e.preventDefault();
+        })
 
         console.log(EventDetails);
 

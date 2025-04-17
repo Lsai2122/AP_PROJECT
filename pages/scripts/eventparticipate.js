@@ -1,12 +1,13 @@
-let teamName= document.getElementById('team-name');
+
+let i=0;
+function add(){
+    let teamName= document.getElementById('team-name');
 let leadName= document.getElementById('lead-name');
 let leadCollege= document.getElementById('lead-college');
 let leadEmail= document.getElementById('lead-email');
 let leadNumber= document.getElementById('lead-number');
 let addMembers= document.getElementById('add-member');
 let memberBox= document.querySelector('.team-members-box');
-let i=0;
-document.getElementById('add-member').addEventListener('click',()=> {
     if(i<totalMembers) {
         let html=`
             <div class="team-member-box team-member-${i+1}-box">
@@ -41,4 +42,4 @@ document.getElementById('add-member').addEventListener('click',()=> {
     else {
         alert("Maximum team members reached!");
     }
-});
+};

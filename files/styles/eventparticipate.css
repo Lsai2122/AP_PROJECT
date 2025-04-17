@@ -105,13 +105,13 @@ body{
     gap: 36px;
 }
 .event-form {
+    padding: 20px 20px;
     display: flex;
     flex-direction: column;
     width: 1217px;
     height: 1253px;
     background-color: white;
     border-radius: 8px;
-    padding: 12px;
     gap: 18px;
     position: relative;
 }
