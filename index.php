@@ -5,13 +5,12 @@
     
     if ($normalizedPath === '/index.php' || 
         $normalizedPath === '' || 
-        $normalizedPath === '/AP_Project/index.php') {
+        $normalizedPath === '/website/ap_project/index.php') {
 
         include('pages/mainpage.php');
-        
 
     } else {
-        echo "bye";
+        echo  $normalizedPath;
     }
 
     
