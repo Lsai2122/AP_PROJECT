@@ -1,9 +1,10 @@
 <?php
+    session_start();
     include 'pages/header.php'; 
     
     
 
-    $id = $_GET["event_id"];
+    $id = (int)$_GET["event_id"];
 
     // Connect to DB
     $conn = new mysqli("localhost", "root", "", "ap_project");
@@ -31,6 +32,13 @@
                 $rounds[]=$row;
             }
         }
+    }
+    $joined=-1;
+    $user = $_SESSION['user-id'];
+    $sql = "SELECT * FROM joined WHERE event_id=$id AND user_id=$user";
+    $result = $conn->query($sql);
+    if($result->num_rows>0){
+        $joined=1;
     }
     $conn->close();
 
@@ -81,36 +89,7 @@
                 </div>
             </div>
             <div class="register">
-                <div class="register-container">
-                    <div class="register-details">
-                        <div class="event-logo">
-                            <img src=" images/event.png" alt="Event Logo" class="event-logo-image">
-                        </div>
-                        <div class="event-description">
-                            <div class="team-size">
-                                <div class="team-img">
-                                    <img src=" images/team.png">
-                                </div>
-                                <div class="team-info">
-                                    <div class="team-size-text">Team Size</div>
-                                    <div class="team-size-data">1-4 Members</div>
-                                </div>
-                            </div>
-                            <div class="teams-joined">
-                                <div class="teams-img">
-                                    <img src=" images/teams.png">
-                                </div>
-                                <div class="teams-info">
-                                    <div class="teams-size-text">Teams Joined</div>
-                                    <div class="teams-size-data">200+</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="reg-but">
-                        <button class="reg-button" onclick="window.location.href = 'eventreg.php?event_id=<?php echo $id;?>'">Register</button>
-                    </div>
-                </div>
+               
             </div>
         </div>
         <div class="stages">
@@ -120,6 +99,7 @@
                 
             </div>
         </div>
+        <div class="login-into"></div>
             <script>
                 function checklogin(){
                     fetch("session.php")
@@ -128,6 +108,37 @@
                         if(html=='-1'){
                             document.querySelector(".head-login").innerHTML = '<button class="head-login-button" onclick="LoginDisplay()">Login</button>';
                             document.querySelector(".logininfo").innerHTML = 'not signed in'
+                            document.querySelector(".register").innerHTML=` <div class="register-container">
+                                    <div class="register-details">
+                                        <div class="event-logo">
+                                            <img src=" images/event.png" alt="Event Logo" class="event-logo-image">
+                                        </div>
+                                        <div class="event-description">
+                                            <div class="team-size">
+                                                <div class="team-img">
+                                                    <img src=" images/team.png">
+                                                </div>
+                                                <div class="team-info">
+                                                    <div class="team-size-text">Team Size</div>
+                                                    <div class="team-size-data">1-4 Members</div>
+                                                </div>
+                                            </div>
+                                            <div class="teams-joined">
+                                                <div class="teams-img">
+                                                    <img src=" images/teams.png">
+                                                </div>
+                                                <div class="teams-info">
+                                                    <div class="teams-size-text">Teams Joined</div>
+                                                    <div class="teams-size-data">200+</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="reg-but">
+                                        <button class="reg-button" onclick="window.location.href = 'eventreg.php?event_id=<?php echo $id;?>'">Register</button>
+                                    </div>
+                                </div>`
+                            document.querySelector(".team-size-data").innerHTML = `1-${MaxMem} Members`
                         }
                         else{
                             document.querySelector(".head-login").innerHTML ='<img src="images/user-logo.png">';
@@ -139,6 +150,81 @@
                             setTimeout(()=>{
                                 document.querySelector(".logininfocontainer").innerHTML="";
                             },1000)
+                            joined = <?php echo $joined;?>;
+                            if(joined==-1){
+                                document.querySelector(".register").innerHTML=` <div class="register-container">
+                                    <div class="register-details">
+                                        <div class="event-logo">
+                                            <img src=" images/event.png" alt="Event Logo" class="event-logo-image">
+                                        </div>
+                                        <div class="event-description">
+                                            <div class="team-size">
+                                                <div class="team-img">
+                                                    <img src=" images/team.png">
+                                                </div>
+                                                <div class="team-info">
+                                                    <div class="team-size-text">Team Size</div>
+                                                    <div class="team-size-data">1-4 Members</div>
+                                                </div>
+                                            </div>
+                                            <div class="teams-joined">
+                                                <div class="teams-img">
+                                                    <img src=" images/teams.png">
+                                                </div>
+                                                <div class="teams-info">
+                                                    <div class="teams-size-text">Teams Joined</div>
+                                                    <div class="teams-size-data">200+</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="reg-but">
+                                        <button class="reg-button" onclick="window.location.href = 'eventreg.php?event_id=<?php echo $id;?>'">Register</button>
+                                    </div>
+                                </div>`
+                                document.querySelector(".team-size-data").innerHTML = `1-${MaxMem} Members`
+                            }
+                            else{
+                                document.querySelector(".register").innerHTML=`<div class="team-lead-info">
+                                    <div class="team-lead-name">
+                                        Team Leader: <span class="lead-name">Lead Name</span>
+                                    </div>
+                                    <div class="team-lead-details">
+                                        <div class="team-lead-mail">
+                                            Email: <span class="lead-mail">leadermail@example.com</span>
+                                        </div>
+                                        <div class="team-lead-contact">
+                                            Contact: <span class="lead-contact">+91 7894561230</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="team-member-info">
+                                    <div class="team-member-name">
+                                        Team member: <span class="member-name">member Name</span>
+                                    </div>
+                                    <div class="team-member-details">
+                                        <div class="team-member-mail">
+                                            Email: <span class="member-mail">membermail@example.com</span>
+                                        </div>
+                                        <div class="team-member-contact">
+                                            Contact: <span class="member-contact">+91 7894561230</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="team-member-info">
+                                    <div class="team-member-name">
+                                        Team member: <span class="member-name">member Name</span>
+                                    </div>
+                                    <div class="team-member-details">
+                                        <div class="team-member-mail">
+                                            Email: <span class="member-mail">membermail@example.com</span>
+                                        </div>
+                                        <div class="team-member-contact">
+                                            Contact: <span class="member-contact">+91 7894561230</span>
+                                        </div>
+                                    </div>
+                                </div>`
+                            }
                         }
                                         })
                     .catch(err => console.error("Error loading session:", err));
@@ -168,7 +254,7 @@
                 document.querySelector(".location-text").innerHTML = state;
                 document.querySelector(".date-text").innerHTML=`Last Date: ${date.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}`;
                 document.querySelector(".days-number").innerHTML=daysLeft;
-                document.querySelector(".team-size-data").innerHTML = `1-${MaxMem} Members`
+                
 
                 for(i=1;i<=norounds;i++){
                     rtime = rounds[i-1]['time']

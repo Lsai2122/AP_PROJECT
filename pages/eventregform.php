@@ -32,7 +32,8 @@
 <body onload="checklogin()">
     <script>
         const EventDetails = JSON.parse(`<?php echo json_encode($data);?>`)[0];
-        let totalMembers= EventDetails.max_members;
+        let totalMembers= EventDetails.max_members-1;
+        current=1;
     </script>
     <div class="main-page">
         <div class="event-info-box">
@@ -78,18 +79,18 @@
                     document.querySelector('.event-form').innerHTML=`
                      <div class="team-name-box">
                         <label for="team-name" class="team-name">Team Name: </label>
-                        <input type="text" name="team-name" id="team-name" class="team-input-name" placeholder="Name" size="35">
+                        <input type="text" name="team-name" id="team-name" class="team-input-name" placeholder="Name" size="35" required>
                     </div>
                     <div class="team-leader-box">
                         <label for="lead-name" class="lead-name">Team Leader: </label>
                         <div class="lead-details">
                             <div class="name-college-gender">
-                                <input type="text" name="lead-name" id="lead-name" class="lead-name-input" placeholder="Name" size="30"><br>
-                                <input type="text" name="lead-college" id="lead-college" class="lead-college" placeholder="College" size="30"><br>
+                                <input type="text" name="lead-name" id="lead-name" class="lead-name-input" placeholder="Name" size="30" required><br>
+                                <input type="text" name="lead-college" id="lead-college" class="lead-college" placeholder="College" size="30" required><br>
                                 <div class="lead-gender">
                                     <div class="sex">Gender:</div>
                                     <div class="male">
-                                        <input type="radio" name="lead-gender" id="male" class="input-male" value="male">
+                                        <input type="radio" name="lead-gender" id="male" class="input-male" value="male" required>
                                         <label for="male" class="lead-male">Male</label>
                                     </div>
                                     <div class="female"> 
@@ -100,8 +101,8 @@
                             </div>
                             <div class="line"></div>
                             <div class="email-number-button">        
-                                <input type="email" name="lead-email" id="lead-email" class="lead-email" placeholder="Email" size="30"><br>
-                                <input type="tel" name="lead-number" id="lead-number" class="lead-number" placeholder="Phone Number" size="30"><br>
+                                <input type="email" name="lead-email" id="lead-email" class="lead-email" placeholder="Email" size="30" required><br>
+                                <input type="tel" name="lead-number" id="lead-number" class="lead-number" placeholder="Phone Number" size="30" required><br>
                             </div>
                         </div>
                     </div>
@@ -113,6 +114,27 @@
                     </div>
                     <input type="submit" name="submit" id="submit" class="submit">
                     `
+                    document.querySelector(".event-form").addEventListener("submit",function(e){
+                        formdata = new FormData(this);
+                        formdata.append('current',current);
+                        formdata.append("event_id",<?php echo $id?>);
+                        fetch("eventjoinedfiller.php",{
+                                method:"POST",
+                                body: formdata
+                        })
+                        .then(res=>res.json())
+                        .then(data=>{
+                            if(data.success){
+                                alert("Joined Successfully")
+                            }else{
+                                alert(data.message);
+                            }
+                        })
+                        .catch(err=>{
+                            console.error(err);
+                            alert("something went wrong");
+                        })
+                    })
                     document.querySelector(".head-login").innerHTML ='<img src="images/user-logo.png">';
                     fetch('fetchusername.php')
                         .then(res=>res.json())
@@ -128,10 +150,8 @@
         }
         document.querySelector(".event-form").addEventListener("submit",function(e){
             e.preventDefault();
+            
         })
-
-        console.log(EventDetails);
-
 
         event=EventDetails.event_name;
         state = EventDetails.state;

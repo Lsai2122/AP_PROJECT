@@ -11,8 +11,6 @@
                         <div class="event-1 applied-event-details">
                             <div class="applied-event-cover-pic">
                                 <div class="applied-event-pic"></div>
-                                <div class="applied-event-mode">Offline</div>
-                                <div class="applied-entry-type">Free</div>
                             </div>
                             <div class="applied-event-info">
                                 <div class="applied-event-name">Blast Hackthon</div>
@@ -180,8 +178,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="applied-event-box">
                         <div class="event-1 applied-event-details">
                             <div class="applied-event-cover-pic">
                                 <div class="applied-event-pic"></div>

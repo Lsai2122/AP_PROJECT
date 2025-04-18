@@ -193,7 +193,7 @@ body{
     align-items: center;
     position: absolute;
     right: 8%;
-    bottom: 19%;
+    bottom: 120px;
 }
 .add-member {
     padding: 12px 36px;
@@ -247,7 +247,7 @@ body{
     height: 40px;
     position: absolute;
     right: 8%;
-    bottom: 5%;
+    bottom: 42px;
     background-color: #237FFF;
     border: none;
     border-radius: 8px;
