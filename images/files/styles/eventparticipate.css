@@ -1,0 +1,255 @@
+body{
+    font-family: "Inter", sans-serif;
+    background: linear-gradient(#B9D6F2,#ffffff);
+}
+.event-info-box {
+    width: 616px;
+    height: 329px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+.border-line {
+    width: 11px;
+    background-color: #061A40;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+.event-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 605px;
+    align-items: flex-end;
+}
+.event-info {
+    display: flex;
+    width: 605px;
+    justify-content: space-between;
+    height: 180px;
+}
+.event-pic {
+    width: 150px;
+    height: 150px;
+    background-color: black;
+    margin-right: 32px;
+}
+.days-left {
+    width: 99px;
+    height: 108px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-right: 32px;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+.number {
+    text-align: center;
+    font-size: 42px;
+    font-weight: 300;
+    height: 84px;
+    width: 99px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.left {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: rgba(185, 214, 242, 0.65);
+    width: 99px;
+    height: 24px;
+    text-align: center;
+}
+.event-details {
+    width: 381px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: start;
+    padding-left: 42px;
+    gap: 8px;
+}
+.event-name {
+    font-size: 32px;
+    position: relative;
+}
+.event-details div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    color: grey;
+}
+.event-name::after {
+    content: '';
+    width: 100%;
+    height: 4px;
+    background: #061A40;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 8px;
+}
+.main-page {
+    margin-top: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+}
+.event-form {
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    width: 1217px;
+    height: 1253px;
+    background-color: white;
+    border-radius: 8px;
+    gap: 18px;
+    position: relative;
+}
+.team-name-box {
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    align-items: center;
+}
+.team-name {
+    font-size: 26px;
+    font-weight: bold;
+    color: black;
+}
+.team-leader-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 1128px;
+    gap: 18px;
+}
+.lead-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    text-indent: 70px;
+}
+.lead-details,.member-details {
+    display: flex;
+    justify-content: space-around;
+
+}
+.line {
+    width: 2px;
+    height: 224.5px;
+    background-color: #000000;
+}
+.name-college-gender {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    margin-left: 25px;
+    justify-content: start;
+}
+.team-input-name,.lead-name-input,.lead-college,.lead-email,.lead-number,.member-name-input,.member-college,.member-email,.member-number {
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: #fff;
+    font-size: 16px;
+    border-radius: 10px;
+}
+.lead-gender,.member-gender {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 15px;
+    width: 304px;
+}
+.lead-male,.lead-female,.member-male,.member-female {
+    color: black;
+}
+.sex {
+    font-size: 18px;
+}
+.email-number-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    justify-content: start;
+}
+.button {
+    width: 304px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    right: 8%;
+    bottom: 25%;
+}
+.add-member {
+    padding: 12px 36px;
+    background-color: #237FFF;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+}
+.remove {
+    padding: 12px 42px;
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+.team-members-box {
+    display: flex;
+    flex-direction: column;
+    flex: none;
+    overflow-y: scroll;
+}
+.team-members-box::-webkit-scrollbar {
+    display: none;
+}
+.team-members-box {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.team-member-box {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.member-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    text-indent: 70px;
+    display: block; 
+}
+.member-email-number-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    justify-content: start;
+    margin-right: 90px;
+}
+.submit {
+    width: 121px;
+    height: 40px;
+    position: absolute;
+    right: 8%;
+    bottom: 21%;
+    background-color: #237FFF;
+    border: none;
+    border-radius: 8px;
+    color: white;
+}
