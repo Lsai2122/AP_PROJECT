@@ -12,7 +12,7 @@ body{
     justify-content: space-between;
     align-items: center;
     border-bottom: solid 1px #000000;
-    background-color: white;
+    background-color:white;
 }
 .head-left{
     flex: 3;
@@ -38,8 +38,14 @@ body{
     align-items: center;
 }
 .head-logo-text{
+    cursor: pointer;
     font-size: 20px;
     font-weight: 700;
+}
+.head-logo-image{
+    cursor: pointer;
+    width: 25px;
+    border-radius: 50%;
 }
 .head-logo{
     display: flex;
@@ -63,6 +69,7 @@ body{
     display: flex;
     align-content: center;
     justify-content: center;
+
 }
 .head-search-icon{
     display: flex;
@@ -79,7 +86,6 @@ body{
 }
 .head-search-input{
     width: 75%;
-    height: 38px;
     border-radius: 22.5px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -87,6 +93,7 @@ body{
     border-left: 0;
     padding-left: 10px;
     font-size: 16px;
+    outline: none;
 }
 .head-login-button{
     display: flex;
@@ -113,17 +120,21 @@ body{
     border-radius: 6px;
     font-size: 16px;
     font-weight: 500;
+    cursor: pointer;
 }
 .head-host-image{
     margin-right: 10px;
 }
-.email,.password {
+
+
+
+.email,.password,.signup-input {
     height: 32px;
     outline: 1px solid grey;
     border: none;
     border-radius: 8px;
     margin-bottom: 12px;
-    width: 440px;
+    width: 400px;
     font-size: 16px;
 }
 .block-background {
@@ -139,10 +150,12 @@ body{
     align-items: center;
 }
 .login-page {
+    position: relative;
     background-color: white;
     border-radius: 8px;
-    width: 717px;
-    height: 564px;
+    width: auto;
+    height: auto;
+    padding: 40px 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -171,8 +184,8 @@ label {
     font-size: 18px;
     color: grey;
 }
-.login-button {
-    width: 440px;
+.login-button,.signup-login {
+    width: 400px;
     height: 32px;
     border-radius: 12px;
     border: none;
@@ -198,7 +211,11 @@ label {
 .sign-up-button:hover {
     text-decoration: underline;
 }
-
+.login-back{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
 
 
 
@@ -207,16 +224,17 @@ label {
     font-weight: 700;
 }
 .signup-main{
-    width: 50%;
-    height: 812px;
+    position: relative;
+    padding: 40px 30px;
+    width: auto;
+    height: auto;
     border: 1px solid black;
     display: flex;
     flex-direction:column;
     align-items: center;
-    padding-top: 100px;
     font-family: sans-serif;
-    border-radius: 10px;
-    z-index: 1000;
+    border-radius: 8px;
+    z-index: 10000;
     background-color: white;
     justify-content: center;
 }
@@ -224,36 +242,26 @@ label {
     font-size:32px;
     padding-right: 0px;
     font-weight: bold;
-    margin-bottom: 70px;
+    margin-bottom: 20px;
 }
 .signup-mouse{
     width: 50.47px;
     height: 61px;
 }
-.signup-input{
-    width: 497px;
-    height: 55px;
-    border-radius: 20px;
-    margin-bottom: 30px;
-}
-.signup-login{
-    width: 497px;
-    height: 55px;
-    border-radius: 20px;
-    margin-top: 30px; 
-    background-color: #0353A4;
-    color:#FFFFFF;
-    font-weight: bold;
-    font-size: 24px;
-
-}
-.signup-input_text{
-    font-size: 24px;
-    opacity: 60%;
-}
 .signup-bottom_txt{
-    padding-top:20px ;
-    padding-left: 420px;
+    text-align: right;
+    margin-top: 30px;
     opacity: 72%;
     font-size: 16px;
+}
+.logininfo{
+    position: fixed;
+    top: 98px;
+    right: 0px;
+    padding: 10px 20px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    display: flex;
+    background-color: white;
+    z-index: 1000000;
 }

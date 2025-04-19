@@ -53,6 +53,7 @@ body{
 
 }
 .register{
+    background-color: white;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -108,40 +109,7 @@ body{
     border-radius: 10px; 
     display: flex;
     flex-direction: column;
-}
-.lead_mem_details{
-    display: flex;
-}
-.details-gap{
-    flex:13;
-    
-}
-.leader_details{
-    flex:70;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-.leader_name{
-    height:50px;
-    display: flex;
-    gap: 18px;
-    align-items: center;
-    padding-left: 35px;
-}
-.m_name{
-    font-size: 20px;
-    font-weight: 700;
-}
-.s_name{
-    font-size: 20px;
-}
-.mm_name{
-    font-size: 16px;
-    font-weight: 700;
-}
-.det{
-    display: flex;
+    justify-content: center;
     align-items: center;
 }
 .register-details{
@@ -213,17 +181,18 @@ body{
 .stages-head{
     margin-top: 30px;
     margin-left: 25px;
+    margin-bottom: 200px;
     font-size: 24px;
     font-weight: bold;
 }
-.round1,.round2{
+.round{
     margin-top: 20px;
     width: 796px;
-    height: 187px;
+    height: auto;
     border-radius: 10px;
     box-shadow: 4px 4px 10.9px 1px rgba(0, 0, 0, 0.25);
 }
-.round1-text,.round2-text{
+.round-text{
     font-size: 20px;
     font-weight: bold;
     padding-top: 10px;
@@ -241,12 +210,12 @@ body{
     border-radius: 15px;
     border: solid 1px black;
 }
-.round1-details,.round2-details{
+.round-details{
     margin-top: 10px;
     display: flex;
     justify-content: start;
 }
-.round1-details-given,.round2-details-given{
+.round-details-given{
     max-width: 556px;
     font-size: 15px;
     font-weight: normal;
@@ -255,14 +224,16 @@ body{
     margin-top: 10px;
     margin-left: 10px;
 }
-.round1-date,.round2-date{
+.round-date{
     margin-top: 50px;
 }
-.round1-date,.round1-time,.round2-date,.round2-time{
+.round-date,.round-time{
     color: rgba(0,0,0, 0.699);
     font-size: 12px;
 }
-
+.round-time{
+    margin-bottom: 20px;
+}
 .information-div{
     display: flex;
     flex-direction: column;

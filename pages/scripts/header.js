@@ -1,12 +1,16 @@
-document.querySelector('.head-login').addEventListener('click',()=> {
+
+function LoginDisplay(){
     const login=`
         <div class="block-background">
             <div class="login-page">
+            <div class="back">
+                <img src="images/back_button.png" class="login-back" onclick="Back()">
+            </div>
                 <div class="logo">
                     <img src="images/logo.png" class="logo-pic">
                     <p class="logo-name">Eventora</p>
                 </div>
-                <form action="login.php" method="POST">
+                <form id = "loginForm">
                     <label for="email">Email</label>
                     <br>
                     <input type="email" name="email" class="email">
@@ -15,8 +19,9 @@ document.querySelector('.head-login').addEventListener('click',()=> {
                     <br>
                     <input type="password" name="password" class="password">
                     <br>
-                    <input type="submit" name="submit" class="login-button" value="Login">
+                    <input type="submit"  class="login-button" value="Login">
                 </form>
+                <div id="loginStatus"></div>
                 <div class="sign-up">
                     <button class="sign-up-button" onclick="signUpFunction()">Sign Up</button>
                 </div>
@@ -25,11 +30,39 @@ document.querySelector('.head-login').addEventListener('click',()=> {
     `;
     document.querySelector('.login-into').innerHTML=login;
     document.body.style.overflow = "hidden";
-});
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        
+        fetch("login.php", {
+            method: "POST",
+            body: new FormData(this)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                checklogin();
+                Back();
+            } else {
+                document.getElementById("loginStatus").innerText = res.message;
+                console.error(err);
+                checklogin();
+            }
+        })
+        .catch(err => {
+            document.getElementById("loginStatus").innerText = "Login failed. Try again.";
+            console.error(err);
+        });
+        
+    });
+}
 function signUpFunction(){
     const login=`
     <div class="block-background">
     <div class="signup-main">
+    <div class="back">
+                <img src="images/back_button.png" class="login-back" onclick="Back()">
+            </div>
         <div class="signup-logo">
             <img src="images/square_mouse.png" class="signup-mouse">
         </div>
@@ -46,9 +79,9 @@ function signUpFunction(){
                 <input type="password" class="signup-input" name="password"><br>
                 <button class="signup-login">Sign Up</button>
             </div>
-            <div class="signup-bottom_txt">
+            <button class="sign-up-button" onclick="LoginDisplay()">
                 Log in
-            </div>
+            </button>
         </form>
     </div> 
     </div>
@@ -56,3 +89,8 @@ function signUpFunction(){
     document.querySelector('.login-into').innerHTML=login;
     document.body.style.overflow = "hidden";
 };
+function Back(){
+    const login = "";
+    document.querySelector('.login-into').innerHTML=login;
+    document.body.style.overflow = "auto";
+}
