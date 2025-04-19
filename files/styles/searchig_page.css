@@ -144,3 +144,86 @@ button{
     border-radius:16px ;
     box-shadow: 1.2px 1.2px 1.2px rgba(0, 0, 0, 0.498);
 }
+.body_below{
+    display: flex;
+    height:1000px;
+    
+}
+.below_gap{
+    flex:12.5;
+    background-color: lightgreen;
+}
+.below_main{
+    flex:75
+}
+
+
+.event-details,.best-event-details {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 250px;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0);
+    border-radius: 12px;
+    flex:1
+}
+.event-cover-pic,.best-event-cover-pic {
+    width: 100%;
+    height: 200px;
+    background-color: white;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+.event-info,.best-event-info {
+    height: 200px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+.entry-type,.best-entry-type {
+    position: absolute;
+    top: 44%;
+    left: 10%;
+    background-color: #003559;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 5px;
+}
+.event-mode,.best-event-mode {
+    position: absolute;
+    top: 44%;
+    left: 25%;
+    background-color: #003559;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 5px;
+}
+.event-pic,.best-event-pic {
+    width: 110px;
+    height: 110px;
+    background-color: #003559;
+    position: absolute;
+    right: 12%;
+    top: 11%;
+}
+.event-name,.best-event-name {
+    font-weight: bold;
+    font-size: 22px;
+    position: absolute;
+    top: 62%;
+    left: 12%;
+}
+.event-place,.best-event-place {
+    font-size: 14px;
+    color: grey;
+    position: absolute;
+    left: 12%;
+    top: 71%;
+}
+.event-time-left,.best-event-time-left {
+    color: grey;
+    font-size: 14px;
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+}

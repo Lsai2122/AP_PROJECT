@@ -108,7 +108,40 @@ body{
     border-radius: 10px; 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+}
+.lead_mem_details{
+    display: flex;
+}
+.details-gap{
+    flex:13;
+    
+}
+.leader_details{
+    flex:70;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.leader_name{
+    height:50px;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    padding-left: 35px;
+}
+.m_name{
+    font-size: 20px;
+    font-weight: 700;
+}
+.s_name{
+    font-size: 20px;
+}
+.mm_name{
+    font-size: 16px;
+    font-weight: 700;
+}
+.det{
+    display: flex;
     align-items: center;
 }
 .register-details{
