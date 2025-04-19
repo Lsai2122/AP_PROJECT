@@ -66,85 +66,12 @@
                 Best Events
                 <div class="underline-best"></div>
             </div>
-            <div class="best-event">
+            <div class="best_event">
                 <div class="arrow">
                     <img src="images/arrow-left.png" id="best-prev">
                 </div>
                 <div class="best-event-view-box">
-                    <div class="best-event">
-                        <div class="event-1 best-event-details">
-                            <div class="best-event-cover-pic">
-                                <div class="best-event-pic"></div>
-                                <div class="best-entry-type">Free</div>
-                                <div class="best-event-mode">Offline</div>
-                            </div>
-                            <div class="best-event-info">
-                                <div class="best-event-name">Blast Hackthon</div>
-                                <div class="best-event-place">Uttar Pradesh</div>
-                                <div class="best-event-time-left">11 days left</div>
-                            </div>
-                        </div>
-                        <div class="event-2 best-event-details">
-                            <div class="best-event-cover-pic">
-                                <div class="best-event-pic"></div>
-                                <div class="best-entry-type">Paid</div>
-                                <div class="best-event-mode">Offline</div>
-                            </div>
-                            <div class="best-event-info">
-                                <div class="best-event-name">Blast Hackthon</div>
-                                <div class="best-event-place">Uttar Pradesh</div>
-                                <div class="best-event-time-left">11 days left</div>
-                            </div>
-                        </div>
-                        <div class="event-3 best-event-details">
-                            <div class="best-event-cover-pic">
-                                <div class="best-event-pic"></div>
-                                <div class="best-entry-type">Free</div>
-                                <div class="best-event-mode">Offline</div>
-                            </div>
-                            <div class="best-event-info">
-                                <div class="best-event-name">Blast Hackthon</div>
-                                <div class="best-event-place">Uttar Pradesh</div>
-                                <div class="best-event-time-left">11 days left</div>
-                            </div>
-                        </div>
-                        <div class="event-1 best-event-details">
-                            <div class="best-event-cover-pic">
-                                <div class="best-event-pic"></div>
-                                <div class="best-entry-type">Free</div>
-                                <div class="best-event-mode">Offline</div>
-                            </div>
-                            <div class="best-event-info">
-                                <div class="best-event-name">Blast Hackthon</div>
-                                <div class="best-event-place">Uttar Pradesh</div>
-                                <div class="best-event-time-left">11 days left</div>
-                            </div>
-                        </div>
-                        <div class="event-2 best-event-details">
-                            <div class="best-event-cover-pic">
-                                <div class="best-event-pic"></div>
-                                <div class="best-entry-type">Free</div>
-                                <div class="best-event-mode">Offline</div>
-                            </div>
-                            <div class="best-event-info">
-                                <div class="best-event-name">Blast Hackthon</div>
-                                <div class="best-event-place">Uttar Pradesh</div>
-                                <div class="best-event-time-left">11 days left</div>
-                            </div>
-                        </div>
-                        <div class="event-3 best-event-details">
-                            <div class="best-event-cover-pic">
-                                <div class="best-event-pic"></div>
-                                <div class="best-entry-type">Free</div>
-                                <div class="best-event-mode">Offline</div>
-                            </div>
-                            <div class="best-event-info">
-                                <div class="best-event-name">Blast Hackthon</div>
-                                <div class="best-event-place">Uttar Pradesh</div>
-                                <div class="best-event-time-left">11 days left</div>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="best-event"></div>
                 </div>
                 <div class="arrow">
                     <img src="images/arrow-right.png" id="best-next">
@@ -180,42 +107,179 @@
                             document.querySelector(".logininfocontainer").innerHTML="";
                         },1000)
                         document.querySelector(".section-3").innerHTML=`<?php include "pages/joined_events.php"?>`
+                        const userId = <?php echo $id;?>; // Example user_id
+
+                        fetch('fetcheventsjoined.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: `user_id=${userId}`
+                        })
+                        .then(response => response.json())
+                        .then(res => {
+                            if (data.error) {
+                                console.error('Error:', data.error);
+                            } else {
+                                data = res.data;
+                                n=res.n;
+                                for(i=0;i<res.n;i++){
+                                    id = data[i].id;
+                                    fetch('fetcheventdetails.php', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/x-www-form-urlencoded',
+                                    },
+                                    body: `event_id=${id}`
+                                    })
+                                    .then(response => response.json())
+                                    .then(data2 => {
+                                        if (data2.error) {
+                                        console.log('Error:', data2.error);
+                                        } else {
+                                            data2 = data2.data
+                                            console.log(data2)
+                                            link = `window.location.href='eventdetailspage.php?event_id=${data2['id']}`
+                                            document.querySelector(".applied-event-box").innerHTML += `
+                                                <div class="event-${i} applied-event-details" onclick="window.location.href='eventdetailspage.php?event_id=${data2['id']}'">
+                                                    <div class="applied-event-cover-pic">
+                                                        <div class="applied-event-pic"></div>
+                                                    </div>
+                                                    <div class="applied-event-info">
+                                                        <div class="applied-event-name">${data2.event_name}</div>
+                                                        <div class="applied-event-place">${data2.state}</div>
+                                                    </div>
+                                                    <div class="round-1">
+                                                        <p class="round">
+                                                            Round 1: <span>${data2['round1']?.[0]?.round_name || 'N/A'}</span>
+                                                        </p>
+                                                        <div class="rounds-info">
+                                                            <div class="information">
+                                                                Date: ${data2['round1']?.[0]?.date || 'N/A'}
+                                                            </div>
+                                                            <div class="information">
+                                                                Time: ${data2['round1']?.[0]?.time || 'N/A'}
+                                                            </div>
+                                                            <div class="information">
+                                                                Details: ${data2['round1']?.[0]?.details || 'N/A'}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="round-2">
+                                                        <p class="round">
+                                                            Round 2: <span>${data2['round2']?.[0]?.round_name || 'N/A'}</span>
+                                                        </p>
+                                                        <div class="rounds-info">
+                                                            <div class="information">
+                                                                Date: ${data2['round2']?.[0]?.date || 'N/A'}
+                                                            </div>
+                                                            <div class="information">
+                                                                Time: ${data2['round2']?.[0]?.time || 'N/A'}
+                                                            </div>
+                                                            <div class="information">
+                                                                Details: ${data2['round2']?.[0]?.details || 'N/A'}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            `;
+
+                                        }
+                                    })
+                                    
+
+                                }
+                                
+                            }
+                        })
+                        .catch(error => console.error('Error:', error));
                     }
                 })
                 .catch(err => console.error("Error loading session:", err));
             }
-            fetch("last_five.php")
-                .then(response => response.json())
-                .then(result => {
-                    n = result.n;
-                    data = result.data;
-                    console.log(n);
-                    console.log(data);
-                    for(i=0;i<n;i++){
-                        const today = new Date();
-                        const targetDate = new Date(data[i]['last_date']); // example future date
+            {fetch("last_five.php")
+            .then(response => response.json())
+            .then(result => {
+                n = result.n;
+                data = result.data;
+                for(i=0;i<n;i++){
+                    const today = new Date();
+                    const targetDate = new Date(data[i]['last_date']); // example future date
 
-                        const timeDiff = targetDate - today; // in milliseconds
-                        const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); // convert to days
-                        document.querySelector(".NewEvent").innerHTML+=`
-                        <div class="event-${i+1} event-details" onclick="window.location.href='eventdetailspage.php?event_id=${data[i]['id']}'">
-                            <div class="event-cover-pic">
-                                <div class="event-pic"></div>
-                            </div>
-                            <div class="event-info">
-                                <div class="event-name">${data[i]['event_name']}</div>
-                                <div class="event-place">${data[i]['state']}</div>
-                                <div class="event-time-left">${daysLeft} days left</div>
-                            </div>
+                    const timeDiff = targetDate - today; // in milliseconds
+                    const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); // convert to days
+                    document.querySelector(".NewEvent").innerHTML+=`
+                    <div class="event-${i+1} event-details" onclick="window.location.href='eventdetailspage.php?event_id=${data[i]['id']}'">
+                        <div class="event-cover-pic">
+                            <div class="event-pic"></div>
                         </div>
-                        `
-                    }
+                        <div class="event-info">
+                            <div class="event-name">${data[i]['event_name']}</div>
+                            <div class="event-place">${data[i]['state']}</div>
+                            <div class="event-time-left">${daysLeft} days left</div>
+                        </div>
+                    </div>
+                    `
+                }
+                
+            })
+            .catch(error => {
+                console.error("Error fetching data:", error);
+            });
+            }
+
+
+            {fetch('fetchbest.php')
+            .then(response=>response.json())
+            .then(result=>{
+                n=result.n;
+                data = result.data
+                for(i=0;i<n;i++){
+                    eventId=data[i].id;
+                    fetch('fetcheventdetails.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `event_id=${eventId}`
+                    })
+                    .then(response => response.json())
+                    .then(data2 => {
+                        if (data2.error) {
+                        console.log('Error:', data2.error);
+                        } else {
+                            data2 = data2.data
+                            const today = new Date();
+                            const targetDate = new Date(data2['last_date']); // example future date
+
+                            const timeDiff = targetDate - today; // in milliseconds
+                            const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); // convert to days
+                            document.querySelector('.best-event').innerHTML += `
+                                <div class="event-${i + 1} best-event-details" onclick="window.location.href='eventdetailspage.php?event_id=${data2['id']}'">
+                                    <div class="best-event-cover-pic">
+                                        <div class="best-event-pic"></div>
+                                    </div>
+                                    <div class="best-event-info">
+                                        <div class="best-event-name">${data2['event_name']}</div>
+                                        <div class="best-event-place">${data2['state']}</div>
+                                        <div class="best-event-time-left">${daysLeft} days left</div>
+                                    </div>
+                                </div>
+                            `;
+
+                        // You can display the event data in your UI
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
                     
-                })
-                .catch(error => {
-                    console.error("Error fetching data:", error);
-                });
-    </script>
+                }
+            })
+            }
+
+
+
+
+</script>
     <script type="module" src="pages/scripts/mainpage.js"></script>
     <script src="pages/scripts/header.js"></script>
 </body>

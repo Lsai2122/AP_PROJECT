@@ -201,7 +201,7 @@ body{
     border-radius: 10px;
 }
 
-.normal-event,.best-event {
+.normal-event,.best_event {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -221,6 +221,7 @@ body{
     position: relative;
     border: 1px solid rgba(0, 0, 0);
     border-radius: 12px;
+    cursor: pointer;
 }
 .event-cover-pic,.best-event-cover-pic {
     width: 100%;
@@ -301,6 +302,7 @@ body{
     position: relative;
     border: 1px solid rgba(0, 0, 0);
     border-radius: 12px;
+    cursor: pointer;
 }
 .applied-event-cover-pic {
     width: 300px;
@@ -429,4 +431,8 @@ body{
 }
 .section-2,.section-3{
     padding-bottom: 50px;
+}
+.information{
+    height: 20px;
+    overflow: hidden;
 }
