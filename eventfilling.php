@@ -58,7 +58,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         for ($i = 0; $i < $rounds; $i++) {
             $table = "round" . ($i+1); // Table name must exist
             $stmt2 = $conn->prepare("INSERT INTO $table (eventid, round_name, date, time, duration, details, is_online)
-                                     VALUES (?, ?, ?, ?, ?, ?, ?)");
+            VALUES (?, ?, ?, ?, ?, ?, ?)");
+            
+
+            if (!$stmt2) {
+            echo json_encode(['success' => false, 'message' => 'Prepare failed for round table: ' . $conn->error]);
+            exit();
+            }
             $stmt2->bind_param("isssssi", $event_id, $names[$i], $dates[$i], $times[$i], $durations[$i], $details_of_round[$i], $modes[$i]);
             $stmt2->execute();
             $stmt2->close();
