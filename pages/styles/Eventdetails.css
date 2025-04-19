@@ -53,6 +53,7 @@ body{
 
 }
 .register{
+    background-color: white;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -187,7 +188,7 @@ body{
 .round{
     margin-top: 20px;
     width: 796px;
-    height: 187px;
+    height: auto;
     border-radius: 10px;
     box-shadow: 4px 4px 10.9px 1px rgba(0, 0, 0, 0.25);
 }
@@ -230,7 +231,9 @@ body{
     color: rgba(0,0,0, 0.699);
     font-size: 12px;
 }
-
+.round-time{
+    margin-bottom: 20px;
+}
 .information-div{
     display: flex;
     flex-direction: column;

@@ -12,7 +12,7 @@ if ($conn->connect_error) {
     die(json_encode(["error" => "Connection failed: " . $conn->connect_error]));
 }
 
-$sql = "SELECT * FROM event_main_details ORDER BY id DESC LIMIT 5"; // replace 'your_table' and 'id' as needed
+$sql = "SELECT * FROM event_main_details ORDER BY id DESC LIMIT 7"; // replace 'your_table' and 'id' as needed
 $result = $conn->query($sql);
 
 $data = [];

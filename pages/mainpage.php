@@ -108,8 +108,6 @@
                                 <div class="best-event-time-left">11 days left</div>
                             </div>
                         </div>
-                    </div>
-                    <div class="best-event">
                         <div class="event-1 best-event-details">
                             <div class="best-event-cover-pic">
                                 <div class="best-event-pic"></div>
@@ -200,7 +198,7 @@
                         const timeDiff = targetDate - today; // in milliseconds
                         const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); // convert to days
                         document.querySelector(".NewEvent").innerHTML+=`
-                        <div class="event-1 event-details" onclick="window.location.href='eventdetailspage.php?event_id=${data[i]['id']}'">
+                        <div class="event-${i+1} event-details" onclick="window.location.href='eventdetailspage.php?event_id=${data[i]['id']}'">
                             <div class="event-cover-pic">
                                 <div class="event-pic"></div>
                             </div>

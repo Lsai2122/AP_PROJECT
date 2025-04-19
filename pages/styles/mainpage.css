@@ -397,9 +397,9 @@ body{
     font-weight: normal;
 }
 .applied-event-box {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    grid-gap: 10px;
+    display: flex;
+   
+    gap: 40px;
     width: 100%;
     flex: none;
 }

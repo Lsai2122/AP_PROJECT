@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (!empty($email)) {
-        $stmt = $conn->prepare("SELECT * FROM login_info WHERE email = ?");
+        $stmt =$conn ->prepare("SELECT * FROM login_info WHERE email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $result = $stmt->get_result();

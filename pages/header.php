@@ -47,7 +47,7 @@
                 <div class="head-search-icon">
                     <img src="images/search1.png" alt="Search Icon" class="head-search-image">
                 </div>
-                <input type="search" placeholder="Search Events" class="head-search-input">
+                <input type="search " placeholder="Search Events" class="head-search-input">
             </div>
             <div class="head-vertical-line"></div>
             <div class="head-login" >

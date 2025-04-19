@@ -105,13 +105,13 @@ body{
     gap: 36px;
 }
 .event-form {
-    padding: 20px 20px;
     display: flex;
     flex-direction: column;
     width: 1217px;
-    height: 1253px;
+    height:auto;
     background-color: white;
     border-radius: 8px;
+    padding: 30px 20px 100px 20px;
     gap: 18px;
     position: relative;
 }
@@ -193,7 +193,7 @@ body{
     align-items: center;
     position: absolute;
     right: 8%;
-    bottom: 25%;
+    bottom: 120px;
 }
 .add-member {
     padding: 12px 36px;
@@ -247,7 +247,7 @@ body{
     height: 40px;
     position: absolute;
     right: 8%;
-    bottom: 21%;
+    bottom: 42px;
     background-color: #237FFF;
     border: none;
     border-radius: 8px;
