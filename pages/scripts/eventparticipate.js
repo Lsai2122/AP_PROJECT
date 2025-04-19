@@ -44,3 +44,20 @@ function add(){
         alert("Maximum team members reached!");
     }
 };
+function remove() {
+    let teamName= document.getElementById('team-name');
+    let leadName= document.getElementById('lead-name');
+    let leadCollege= document.getElementById('lead-college');
+    let leadEmail= document.getElementById('lead-email');
+    let leadNumber= document.getElementById('lead-number');
+    let addMembers= document.getElementById('add-member');
+    let memberBox= document.querySelector('.team-members-box');
+    if(i>0) {
+        members.pop();
+        memberBox.innerHTML=members;
+        i--;
+    }
+    else {
+        alert("Members list is empty");
+    }
+}
