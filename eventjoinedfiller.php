@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Check if user already joined this event
-    $checkStmt = $conn->prepare("SELECT joined_ id FROM joined WHERE user_id = ? AND event_id = ?");
+    $checkStmt = $conn->prepare("SELECT joined_id FROM joined WHERE user_id = ? AND event_id = ?");
     $checkStmt->bind_param("ii", $user_id, $event_id);
     $checkStmt->execute();
     $checkStmt->store_result();

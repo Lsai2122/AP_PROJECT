@@ -229,51 +229,52 @@
             }
 
 
-            {fetch('fetchbest.php')
-            .then(response=>response.json())
-            .then(result=>{
-                n=result.n;
-                data = result.data
-                for(i=0;i<n;i++){
-                    eventId=data[i].id;
-                    fetch('fetcheventdetails.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    body: `event_id=${eventId}`
-                    })
-                    .then(response => response.json())
-                    .then(data2 => {
-                        if (data2.error) {
-                        console.log('Error:', data2.error);
-                        } else {
-                            data2 = data2.data
-                            const today = new Date();
-                            const targetDate = new Date(data2['last_date']); // example future date
+            {
+                fetch('fetchbest.php')
+                .then(response=>response.json())
+                .then(result=>{
+                    n=result.n;
+                    data = result.data
+                    for(i=0;i<n;i++){
+                        eventId=data[i].id;
+                        fetch('fetcheventdetails.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: `event_id=${eventId}`
+                        })
+                        .then(response => response.json())
+                        .then(data2 => {
+                            if (data2.error) {
+                            console.log('Error:', data2.error);
+                            } else {
+                                data2 = data2.data
+                                const today = new Date();
+                                const targetDate = new Date(data2['last_date']); // example future date
 
-                            const timeDiff = targetDate - today; // in milliseconds
-                            const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); // convert to days
-                            document.querySelector('.best-event').innerHTML += `
-                                <div class="event-${i + 1} best-event-details" onclick="window.location.href='eventdetailspage.php?event_id=${data2['id']}'">
-                                    <div class="best-event-cover-pic">
-                                        <div class="best-event-pic"></div>
+                                const timeDiff = targetDate - today; // in milliseconds
+                                const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); // convert to days
+                                document.querySelector('.best-event').innerHTML += `
+                                    <div class="event-${i + 1} best-event-details" onclick="window.location.href='eventdetailspage.php?event_id=${data2['id']}'">
+                                        <div class="best-event-cover-pic">
+                                            <div class="best-event-pic"></div>
+                                        </div>
+                                        <div class="best-event-info">
+                                            <div class="best-event-name">${data2['event_name']}</div>
+                                            <div class="best-event-place">${data2['state']}</div>
+                                            <div class="best-event-time-left">${daysLeft} days left</div>
+                                        </div>
                                     </div>
-                                    <div class="best-event-info">
-                                        <div class="best-event-name">${data2['event_name']}</div>
-                                        <div class="best-event-place">${data2['state']}</div>
-                                        <div class="best-event-time-left">${daysLeft} days left</div>
-                                    </div>
-                                </div>
-                            `;
+                                `;
 
-                        // You can display the event data in your UI
-                        }
-                    })
-                    .catch(error => console.error('Error:', error));
-                    
-                }
-            })
+                            // You can display the event data in your UI
+                            }
+                        })
+                        .catch(error => console.error('Error:', error));
+                        
+                    }
+                })
             }
 
 

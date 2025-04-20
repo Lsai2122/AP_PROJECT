@@ -1,14 +1,31 @@
 <?php
-    session_start();
     include 'pages/header.php'; 
     
     
+    $conn = new mysqli("localhost", "root", "", "ap_project");
 
     $id = (int)$_GET["event_id"];
 
+    if (!$id || !is_numeric($id)) {
+        echo json_encode(['success' => false, 'message' => 'Invalid or missing event_id']);
+        exit();
+    }
+    
+    // Query to count users joined in the event
+    $stmt = $conn->prepare("SELECT COUNT(*) FROM joined WHERE event_id = ?");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $stmt->bind_result($count);
+    $stmt->fetch();
+    $stmt->close();
+    
+    $joinedcount= json_encode([
+        'success' => true,
+        'event_id' => $event_id,
+        'joined_count' => $count
+    ]);
     // Connect to DB
-    $conn = new mysqli("localhost", "root", "", "ap_project");
-
+    
     if ($conn->connect_error) {
         echo json_encode(['success' => false, 'message' => 'Connection failed']);
         exit();
@@ -106,6 +123,8 @@
                     .then(res => res.text())
                     .then(html => {
                         if(html=='-1'){
+                            count = JSON.parse(`<?php echo $joinedcount;?>`);
+                            console.log(count);
                             document.querySelector(".head-login").innerHTML = '<button class="head-login-button" onclick="LoginDisplay()">Login</button>';
                             document.querySelector(".logininfo").innerHTML = 'not signed in'
                             document.querySelector(".register").innerHTML=` <div class="register-container">
@@ -129,7 +148,7 @@
                                                 </div>
                                                 <div class="teams-info">
                                                     <div class="teams-size-text">Teams Joined</div>
-                                                    <div class="teams-size-data">200+</div>
+                                                    <div class="teams-size-data">${count.joined_count}</div>
                                                 </div>
                                             </div>
                                         </div>
