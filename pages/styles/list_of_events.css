@@ -7,13 +7,13 @@ body{
 
 .details_body{
     position: absolute;
-    top:0;
+    top:89px;
     left:0;
     right:0;
     height:1536px;
     background-color: #B9D6F2;
 }
-button{
+.body_search{
     font-size: 16px;
     color: white;
     background-color: #0353A4;
@@ -24,6 +24,11 @@ button{
     margin-top: 30px;
     margin-right:40px;
     margin-left: 300px;
+    width: 125px;
+}
+.body_search::placeholder{
+    display: inline;
+    color: white;
 }
 p{
     display: inline-block;
@@ -35,12 +40,14 @@ p{
 }
 .details_body_bottom{
     height: 1234px;
-   
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-left: 5%;
 }
 
 
 
-.event-details,.best-event-details {
+.event-details {
     display: flex;
     flex-direction: column;
     width: 400px;

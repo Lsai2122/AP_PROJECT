@@ -29,15 +29,15 @@
                 Upcoming<br>Events
                 <div class="head-vertical-line"></div>
             </div>
-            <div class="head-best-hosts" onclick="window.location.href=`searchresults.php?search=besth`">
+            <div class="head-best-hosts" onclick="window.location.href=`searchresults.php?search=best`">
                 Best Hosts
                 <div class="head-vertical-line"></div>
             </div>
-            <div class="head-best-events" onclick="window.location.href=`searchresults.php?search=beste`">
+            <div class="head-best-events" onclick="window.location.href=`searchresults.php?search=best`">
                 Best Events
                 <div class="head-vertical-line"></div>
             </div>
-            <div class="head-applied" onclick="window.location.href=`searchresults.php?search=applied`">
+            <div class="head-applied" onclick="window.location.href=`searchresults.php?search=hosted`">
                 Hosted
                 <div class="head-vertical-line"></div>
             </div>
