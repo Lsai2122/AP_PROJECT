@@ -117,6 +117,9 @@
             </div>
         </div>
         <div class="login-into"></div>
+        <div class="login-info-container">
+        
+    </div>
             <script>
                 function checklogin(){
                     fetch("session.php")

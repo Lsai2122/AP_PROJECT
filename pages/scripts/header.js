@@ -1,4 +1,36 @@
-
+temp=0;
+function loggedinfo(){
+    if (temp%2==0){
+        document.querySelector(".login-info-container").innerHTML=`
+    <div class='login-info'>
+    <div class="user-name-details">
+            <img src="images/mdi_user.png" class="user-name-logo">
+            <div class="user-name">Hello, Username</div>
+        </div>
+        <div class="user-email-details">
+            <img src="images/Vector.png" class="user-email-logo">
+            <div class="user-email">user@eventora.com</div>
+        </div>
+        <!--Log-out code here and css in mainpage css-->
+        <div class="log-out">
+            <button class="log-out-button" onclick='logout()'>Log Out</button>
+        </div>
+        </div>
+    `
+    document.body.style.overflow = "hidden";
+    }else{
+        document.body.style.overflow = "auto";
+        document.querySelector(".login-info-container").innerHTML="";
+    }
+    temp++;
+}
+function logout(){
+    fetch('logout.php')
+    loggedinfo();
+    setTimeout(
+    checklogin()
+    ,1000);
+}
 function LoginDisplay(){
     const login=`
         <div class="block-background">

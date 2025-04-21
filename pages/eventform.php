@@ -69,6 +69,9 @@
     </div>
     </div>
     <button class="submit">reg</button>
+    <div class="login-info-container">
+        
+    </div>
 </form>
 
 </body>
