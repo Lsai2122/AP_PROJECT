@@ -123,7 +123,36 @@ $id = $_SESSION['user-id'];
         $conn->close();
     }
     else{
+        $sql = "
+        SELECT 
+        e.id,
+        e.event_name,
+        e.state,
+        e.venue,
+        e.last_date
+    FROM 
+        event_main_details e
+    WHERE 
+        e.event_name LIKE '%$search%'
+            ;
+    ";
+    $result = $conn->query($sql);
 
+        $events = [];
+
+        if ($result && $result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $events[] = $row;
+            }
+        }
+
+        // Store in $total_data
+        $total_data = [
+            'data' => $events,
+            'n' => count($events)
+        ];
+
+        $conn->close();
     }
 ?>
 <!DOCTYPE html>
