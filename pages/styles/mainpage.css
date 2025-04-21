@@ -124,7 +124,7 @@ body{
     flex-direction: column;
     
 }
-.New,.best_events{
+.New,.best_events,.hosted{
     color: #000000;
     font-size: 30px;
     padding-top: 30px;
@@ -145,6 +145,14 @@ body{
     border-radius: 3px;
     background-color:#000000;
     margin: 0px;
+}
+.underline-hosted{
+    border-radius: 3px;
+    background-color:#000000;
+    margin: 0px;
+    margin-left: -8px;
+    height: 3px;
+    width: 100px;
 }
 .middle{
     display: flex;
@@ -201,19 +209,19 @@ body{
     border-radius: 10px;
 }
 
-.normal-event,.best_event {
+.normal-event,.best_event,.hosted-event {
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin-top: 18px;
 }
-.NewEvent,.best-event {
+.NewEvent,.best-event,.host-event {
     display: flex;
     gap: 15px;
     flex: none;
 
 }
-.event-details,.best-event-details {
+.event-details,.best-event-details ,.hosted-event-details {
     display: flex;
     flex-direction: column;
     width: 400px;
@@ -223,37 +231,19 @@ body{
     border-radius: 12px;
     cursor: pointer;
 }
-.event-cover-pic,.best-event-cover-pic {
+.event-cover-pic,.best-event-cover-pic,.hosted-event-cover-pic {
     width: 100%;
     height: 200px;
     background-color: white;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
 }
-.event-info,.best-event-info {
+.event-info,.best-event-info,.hosted-event-info {
     height: 200px;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
 }
-.entry-type,.best-entry-type {
-    position: absolute;
-    top: 44%;
-    left: 10%;
-    background-color: #003559;
-    color: white;
-    padding: 5px 8px;
-    border-radius: 5px;
-}
-.event-mode,.best-event-mode {
-    position: absolute;
-    top: 44%;
-    left: 25%;
-    background-color: #003559;
-    color: white;
-    padding: 5px 8px;
-    border-radius: 5px;
-}
-.event-pic,.best-event-pic {
+.event-pic,.best-event-pic,.hosted-event-pic {
     width: 110px;
     height: 110px;
     background-color: #003559;
@@ -261,33 +251,33 @@ body{
     right: 12%;
     top: 11%;
 }
-.event-name,.best-event-name {
+.event-name,.best-event-name,.hosted-event-name {
     font-weight: bold;
     font-size: 22px;
     position: absolute;
     top: 62%;
     left: 12%;
 }
-.event-place,.best-event-place {
+.event-place,.best-event-place,.hosted-event-place {
     font-size: 14px;
     color: grey;
     position: absolute;
     left: 12%;
     top: 71%;
 }
-.event-time-left,.best-event-time-left {
+.event-time-left,.best-event-time-left,.hosted-event-time-left {
     color: grey;
     font-size: 14px;
     position: absolute;
     bottom: 5%;
     right: 5%;
 }
-.event-view-box,.best-event-view-box {
+.event-view-box,.best-event-view-box,.hosted-event-view-box  {
     width: 1250px;
     display: flex;
     overflow-x: scroll;
 }
-.event-view-box::-webkit-scrollbar,.best-event-view-box::-webkit-scrollbar {
+.event-view-box::-webkit-scrollbar,.best-event-view-box::-webkit-scrollbar,.hosted-event-view-box::-webkit-scrollbar{
     display: none;
 }
 .page2{
@@ -429,7 +419,7 @@ body{
     color: white !important;
     border-color: white;
 }
-.section-2,.section-3{
+.section-2,.section-3,.section-4{
     padding-bottom: 50px;
 }
 .information{

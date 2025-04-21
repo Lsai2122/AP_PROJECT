@@ -1,5 +1,50 @@
 <?php
     include('pages/header.php');
+    $host = "localhost";
+    $dbname = "ap_project";
+    $username = "root";
+    $password = "";
+
+    $conn = new mysqli($host, $username, $password, $dbname);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Set your user ID
+    $user_id = $_SESSION['user-id']; // Change this to the actual user ID
+
+    $sql = "
+        SELECT 
+            e.id,
+            e.event_name,
+            e.state,
+            e.venue,
+            e.last_date
+        FROM 
+            event_main_details e
+        WHERE 
+            e.user_id = $user_id;
+    ";
+
+    $result = $conn->query($sql);
+
+    $events = [];
+
+    if ($result && $result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $events[] = $row;
+        }
+    }
+
+    // Store in $total_data
+    $total_data = [
+        'data' => $events,
+        'n' => count($events)
+    ];
+
+    $conn->close();
 ?>
 
 
@@ -79,6 +124,25 @@
             </div>
         </div>
         <div class="section-3"></div>
+        <div class="section-4">
+            <div class="hosted">
+                hosted
+                <div class="underline-hosted"></div>
+            </div>
+            <div class="hosted-event">
+                <div class="arrow">
+                    <img src="images/arrow-left.png" id="hosted-prev">
+                </div>
+                <div class="hosted-event-view-box">
+                    <div class="host-event">
+                        
+                    </div>
+                </div>
+                <div class="arrow">
+                    <img src="images/arrow-right.png" id="hosted-next">
+                </div>
+            </div>
+        </div>
     </div>
     <div class="login-into"></div>
         <script>
@@ -123,6 +187,9 @@
                             } else {
                                 data = res.data;
                                 n=res.n;
+                                if(n==0){
+                                    document.querySelector(".applied-event-box").innerHTML='No Applied Events'
+                                }
                                 for(i=0;i<res.n;i++){
                                     id = data[i].id;
                                     fetch('fetcheventdetails.php', {
@@ -221,6 +288,7 @@
                     </div>
                     `
                 }
+
                 
             })
             .catch(error => {
@@ -277,6 +345,28 @@
                 })
             }
 
+            results = JSON.parse(`<?php echo json_encode($total_data)?>`)
+            console.log(results)
+            for(i=0;i<results.n;i++){
+                a = results.data
+                const today = new Date();
+                const targetDate = new Date(a[i]['last_date']); // example future date
+
+                const timeDiff = targetDate - today; // in milliseconds
+                const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); // convert to days
+                document.querySelector(".host-event").innerHTML+=`
+                    <div class="event-1 hosted-event-details">
+                        <div class="hosted-event-cover-pic">
+                            <div class="hosted-event-pic"></div>
+                        </div>
+                        <div class="hosted-event-info">
+                            <div class="hosted-event-name">${a[i]['event_name']}</div>
+                            <div class="hosted-event-place">${a[i].state}</div>
+                            <div class="hosted-event-time-left">11 days left</div>
+                        </div>
+                    </div>
+                `
+            }
 
 
 
