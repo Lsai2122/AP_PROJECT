@@ -1,4 +1,5 @@
 <?php
+$id = $_SESSION['user-id'];
     include('header.php');
     $search = $_GET['search'];
     $servername = "localhost";
@@ -155,35 +156,34 @@
     </div>
     <script>
         function checklogin(){
-                fetch("session.php")
-                .then(res => res.text())
-                .then(html => {
-                    if(html=='-1'){
-                        document.querySelector(".head-login").innerHTML = '<button class="head-login-button" onclick="LoginDisplay()">Login</button>';
-                        document.querySelector(".logininfo").innerHTML = 'not signed in'
-                    }
-                    else{
-                        document.querySelector(".head-login").innerHTML ='<img src="images/user-logo.png" onclick="loggedinfo()">';
-                        fetch('fetchusername.php')
-                            .then(res=>res.json())
-                            .then(data =>{
-                                if(data.success){
-                                    document.querySelector(".logininfo").innerHTML = "Hello, " + data.username;
-                                }
-                                else{
-                                    console.warn("usernot found");
-                                    
-                                }
-                            })
-                        setTimeout(()=>{
-                            document.querySelector(".logininfocontainer").innerHTML="";
-                        },1000)
-                        document.querySelector(".section-3").innerHTML=`<?php include "pages/joined_events.php"?>`
-                        const userId = <?php echo $id;?>;
+            fetch("session.php")
+            .then(res => res.text())
+            .then(html => {
+                if(html=='-1'){
+                    document.querySelector(".head-login").innerHTML = '<button class="head-login-button" onclick="LoginDisplay()">Login</button>';
+                    document.querySelector(".logininfo").innerHTML = 'not signed in'
+                }
+                else{
+                    document.querySelector(".head-login").innerHTML ='<img src="images/user-logo.png" onclick="loggedinfo()">';
+                    fetch('fetchusername.php')
+                        .then(res=>res.json())
+                        .then(data =>{
+                            if(data.success){
+                                document.querySelector(".logininfo").innerHTML = "Hello, " + data.username;
+                            }
+                            else{
+                                console.warn("usernot found");
+                                
+                            }
+                        })
+                    setTimeout(()=>{
+                        document.querySelector(".logininfocontainer").innerHTML="";
+                    },1000)
+                    const userId = `<?php echo $id;?>`;
 
-                        
-                    }
-                })
+                    
+                }
+            })
         }
         results = JSON.parse(`<?php echo json_encode($total_data)?>`);
         console.log(results);
