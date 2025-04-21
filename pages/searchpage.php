@@ -1,19 +1,15 @@
 <?php
     include('header.php');
     $search = $_GET['search'];
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "ap_project"; // replace with your DB name
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
     if($search=='new'){
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "ap_project"; // replace with your DB name
-
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
-
-        // Check connection
-        if ($conn->connect_error) {
-            die(json_encode(["error" => "Connection failed: " . $conn->connect_error]));
-        }
 
         $sql = "SELECT * FROM event_main_details ORDER BY id DESC LIMIT 30"; // replace 'your_table' and 'id' as needed
         $result = $conn->query($sql);
@@ -34,13 +30,6 @@
         $conn->close();
     }
     elseif($search=='best'){
-        $host = "localhost";
-        $dbname = "ap_project";
-        $username = "root";
-        $password = "";
-
-        $conn = new mysqli($host, $username, $password, $dbname);
-
         $sql = "
             SELECT e.id, e.event_name,e.last_date,e.state, COUNT(j.user_id) AS total_joined
             FROM event_main_details e
@@ -63,16 +52,6 @@
             $conn->close();
     }
     elseif($search=='upcoming'){
-        $host = "localhost";
-            $dbname = "ap_project";
-            $username = "root";
-            $password = "";
-
-            $conn = new mysqli($host, $username, $password, $dbname);
-
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
             $sql = "
                 SELECT 
                     e.id,
@@ -108,18 +87,6 @@
 
     }
     elseif($search=='hosted'){
-        $host = "localhost";
-        $dbname = "ap_project";
-        $username = "root";
-        $password = "";
-
-        $conn = new mysqli($host, $username, $password, $dbname);
-
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-
         // Set your user ID
         $user_id = $_SESSION['user-id']; // Change this to the actual user ID
 
@@ -154,6 +121,9 @@
 
         $conn->close();
     }
+    else{
+
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -177,7 +147,12 @@
         <div class="details_body_bottom">
         </div>
     </div>
+    <div class="logininfocontainer">
+        <div class="logininfo"></div>
+    </div>
     <div class="login-into"></div>
+    <div class="login-info-container">
+    </div>
     <script>
         function checklogin(){
                 fetch("session.php")
@@ -209,7 +184,6 @@
                         
                     }
                 })
-                .catch(err => console.error("Error loading session:", err));
         }
         results = JSON.parse(`<?php echo json_encode($total_data)?>`);
         console.log(results);
