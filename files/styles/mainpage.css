@@ -434,3 +434,35 @@ body{
     background-color:#000000;
     margin: 0px;
 }
+.login-info {
+    width: 335px;
+    height: 197px;
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+.user-name-details,.user-email-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width:200px;
+    text-align: start;
+}
+.log-out {
+    display: flex;
+    width: 300px;
+    align-items: center;
+    justify-content: end;
+}
+.log-out-button {
+    width: 120px;
+    height: 43px;
+    border: none;
+    background-color: #B9D6F2;
+    font-size: 15px;
+}
