@@ -58,6 +58,7 @@ body{
     display: flex;
     align-items: center;
     justify-content:space-evenly;
+    cursor: pointer;
 }
 .head-vertical-line{
     width: 2px;
