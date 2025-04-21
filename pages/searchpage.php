@@ -174,8 +174,8 @@ $id = $_SESSION['user-id'];
             <div class="search-in">
                 <img src="images/vector(1).png">
                 <input class="body_search" placeholder="Search Events">
+                <p>Search results for : <?php echo $search?></p>
             </div>
-            <p>Search results for : <?php echo $search?></p>
         </div>
         <div class="details_body_bottom">
         </div>
