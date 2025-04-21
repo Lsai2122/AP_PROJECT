@@ -113,7 +113,7 @@
                     </div>
                     <div class="button">
                         <input type="button" name="add-member" id="add-member" class="add-member" onclick='add()' value="Add a Member">
-                        <input type="reset" name="remove" id="remove" class="remove" value="Remove">
+                        <input type="reset" name="remove" id="remove" class="remove" value="Remove" onclick="remove();">
                     </div>
                     <input type="submit" name="submit" id="submit" class="submit">
                     `

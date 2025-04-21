@@ -91,5 +91,4 @@ document.getElementById('remove').addEventListener('click',()=> {
     else {
         alert("Members list is empty");
     }
-   console.log("hello");
 });

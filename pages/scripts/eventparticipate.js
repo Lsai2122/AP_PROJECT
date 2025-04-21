@@ -1,5 +1,6 @@
 
 let i=0;
+members=[];
 function add(){
     let teamName= document.getElementById('team-name');
     let leadName= document.getElementById('lead-name');
@@ -36,9 +37,9 @@ function add(){
                 </div>
             </div>
         `;
+        members.push(html);
         memberBox.innerHTML+=html;
         i++;
-        current++;
     }
     else {
         alert("Maximum team members reached!");
