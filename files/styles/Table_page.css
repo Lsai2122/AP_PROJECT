@@ -108,6 +108,9 @@ body{
     height: 100px; 
     text-align: left;
   }
+.table th{
+    text-align:center;
+}
   .table thead th:last-child {
     border-right: none;
 }
