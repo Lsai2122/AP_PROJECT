@@ -48,7 +48,7 @@
                     <img src="images/search1.png" alt="Search Icon" class="head-search-image">
                 </div>
                 <form action="searchresults.php" method="get">
-                <input type="search " placeholder="Search Events" class="head-search-input">
+                <input type="search " placeholder="Search Events" class="head-search-input" name="search">
                 </form>
             </div>
             <div class="head-vertical-line"></div>
