@@ -126,3 +126,8 @@ hr {
     height: 100%;
     border: 1px solid black;
 }
+.submit {
+    position: fixed;
+    right: 0;
+    top: 0;
+}
