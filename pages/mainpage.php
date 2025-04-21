@@ -72,7 +72,7 @@
                     <div class="mic">Host a <br> Event</div><br>
                 </div>
                 <div class="horizontal-left"></div>
-                <Button class="buttton-host" onclick="window.locaton.href=`eventhosting.php`;">Host</Button>
+                <Button class="buttton-host" onclick="window.location.href=`eventhosting.php`">Host</Button>
             </div>
         </div>
         <div class="right">
