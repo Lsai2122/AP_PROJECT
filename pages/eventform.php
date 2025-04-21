@@ -7,6 +7,7 @@
 </head>
 <body>
 <form class="eventhoster">
+    <div style="display: flex;flex-direction: row">
     <div class="form_body_left">
         <div class="eve_nam">
             <label for="event_name">Event Name:</label><br>
@@ -62,10 +63,11 @@
             <label for="terms">Terms and Conditions</label>
         </div>
     </div>
+    <div>
+        <div class="form_vertical_line"></div>
+        <div class="form_body_right" id="display-rounds"></div>
     </div>
-                <div class="form_vertical_line"></div>
-                <div class="form_body_right" id="display-rounds"></div>
-            </div>
+    </div>
     <button class="submit">reg</button>
 </form>
 
