@@ -116,10 +116,13 @@
                 
             </div>
         </div>
+        <div class="logininfocontainer">
+        <div class="logininfo"></div>
+        </div>
         <div class="login-into"></div>
         <div class="login-info-container">
         
-    </div>
+        </div>
             <script>
                 function checklogin(){
                     fetch("session.php")
@@ -163,7 +166,7 @@
                             document.querySelector(".team-size-data").innerHTML = `1-${MaxMem} Members`
                         }
                         else{
-                            document.querySelector(".head-login").innerHTML ='<img src="images/user-logo.png">';
+                            document.querySelector(".head-login").innerHTML ='<img src="images/user-logo.png" onclick="loggedinfo()">';
                             fetch('fetchusername.php')
                                 .then(res=>res.json())
                                 .then(data =>{

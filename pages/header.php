@@ -47,7 +47,7 @@
                 <div class="head-search-icon">
                     <img src="images/search1.png" alt="Search Icon" class="head-search-image">
                 </div>
-                <form action="searchresultsphp" method="get">
+                <form action="searchresults.php" method="get">
                 <input type="search " placeholder="Search Events" class="head-search-input">
                 </form>
             </div>
@@ -62,8 +62,9 @@
             </div>
         </div>
     </header>
-    <div class="logininfocontainer">
-    <div class="logininfo"></div>
+    </div>
+    <div class="loggedinfo">
+        
     </div>
 
     <script  src="pages/scripts/header.js"></script>

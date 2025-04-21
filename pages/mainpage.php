@@ -144,9 +144,11 @@
             </div>
         </div>
     </div>
+    <div class="logininfocontainer">
+        <div class="logininfo"></div>
+    </div>
     <div class="login-into"></div>
     <div class="login-info-container">
-        
     </div>
         <script>
             function checklogin(){

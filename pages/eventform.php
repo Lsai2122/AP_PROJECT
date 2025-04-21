@@ -62,11 +62,11 @@
             <label for="terms">Terms and Conditions</label>
         </div>
     </div>
-    <div>
-        <div class="form_vertical_line"></div>
-        <div class="form_body_right" id="display-rounds"></div>
     </div>
-    <button class="submit">reg</button>
+                <div class="form_vertical_line"></div>
+                <div class="form_body_right" id="display-rounds"></div>
+            </div>
+    <button class="submit">Register</button>
 </form>
 
 </body>

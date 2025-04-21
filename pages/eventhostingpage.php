@@ -28,10 +28,11 @@
         </div>
         <div class="gap"></div>
     </div>
+    <div class="logininfocontainer">
+        <div class="logininfo"></div>
+    </div>
     <div class="login-into"></div>
     <div class="login-info-container">
-        
-    </div>
     <script>
         function checklogin(){
             fetch("session.php")
@@ -43,7 +44,7 @@
                     document.querySelector(".eventform").innerHTML=`<button class="head-login-button" onclick="LoginDisplay()">Login</button> to host a event`;
                 }
                 else{
-                    document.querySelector(".head-login").innerHTML ='<img src="images/user-logo.png">';
+                    document.querySelector(".head-login").innerHTML ='<img src="images/user-logo.png" onclick="loggedinfo()">';
                     fetch('fetchusername.php')
                         .then(res=>res.json())
                         .then(data =>{
