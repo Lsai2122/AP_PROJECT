@@ -64,6 +64,9 @@
         </form>
     </div>
     <div class="login-into"></div>
+    <div class="login-info-container">
+        
+    </div>
     <script src="pages/scripts/eventparticipate.js"></script>
     <script>
         function checklogin(){

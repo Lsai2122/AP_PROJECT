@@ -65,9 +65,6 @@
     <div class="logininfocontainer">
     <div class="logininfo"></div>
     </div>
-    <div class="loggedinfo">
-        
-    </div>
 
     <script  src="pages/scripts/header.js"></script>
 </body>

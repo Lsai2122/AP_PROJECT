@@ -67,6 +67,9 @@
                 <div class="form_body_right" id="display-rounds"></div>
             </div>
     <button class="submit">reg</button>
+    <div class="login-info-container">
+        
+    </div>
 </form>
 
 </body>
