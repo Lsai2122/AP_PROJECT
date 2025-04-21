@@ -77,7 +77,7 @@
         </div>
         <div class="right">
             <div class="right-content">
-                <button class="button-join"><div >Join</div></button>
+                <button class="button-join" onclick="window.location.href=`searchresults.php?search=new`"><div>Join</div></button>
                 <div class="horizontal-right"></div>
                 <div class="right-bottom">
                     <div class="compu">Join a <br> Event </div>
