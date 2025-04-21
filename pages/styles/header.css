@@ -302,3 +302,6 @@ label {
     font-size: 15px;
     margin-right: 30px
 }
+.head-login {
+    cursor: pointer;
+}

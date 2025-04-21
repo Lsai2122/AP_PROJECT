@@ -426,3 +426,6 @@ body{
     height: 20px;
     overflow: hidden;
 }
+.arrow {
+    cursor: pointer;
+}
