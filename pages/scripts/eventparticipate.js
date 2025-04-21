@@ -1,6 +1,6 @@
 
 let i=0;
-members=[];
+let members=[];
 function add(){
     let teamName= document.getElementById('team-name');
     let leadName= document.getElementById('lead-name');
