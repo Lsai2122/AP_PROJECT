@@ -171,7 +171,10 @@ $id = $_SESSION['user-id'];
 <body onload="checklogin()">
     <div class="details_body">
         <div class="details_body_top">
-            <input class="body_search" placeholder="Search Events">
+            <div class="search-in">
+                <img src="images/vector(1).png">
+                <input class="body_search" placeholder="Search Events">
+            </div>
             <p>Search results for : <?php echo $search?></p>
         </div>
         <div class="details_body_bottom">
