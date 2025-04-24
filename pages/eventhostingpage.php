@@ -55,19 +55,16 @@
                     },1000)
                     document.querySelector(".eventform").innerHTML=`<?php include "pages/eventform.php"?>`
                     document.querySelector(".eventhoster").addEventListener("submit", function(e) {
-                        e.preventDefault(); // Prevent default form submission
+                        e.preventDefault();
 
                         fetch("eventfilling.php", {
                             method: "POST",
-                            body: new FormData(this) // Send all form fields
+                            body: new FormData(this)
                         })
                         .then(res => res.json())
                         .then(data => {
                             if (data.success) {
                                 alert("Event submitted successfully!");
-                                // You can redirect or reset form here:
-                                // location.href = "dashboard.php";
-                                // this.reset(); 
                             } else {
                                 console.error(data.message);
                                 alert("Error: " + data.message);

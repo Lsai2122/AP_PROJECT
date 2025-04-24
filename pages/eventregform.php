@@ -1,7 +1,6 @@
 <?php
     $id = $_GET["event_id"];
 
-    // Connect to DB
     $conn = new mysqli("localhost", "root", "", "ap_project");
 
     if ($conn->connect_error) {
@@ -17,6 +16,11 @@
         while($row = $result->fetch_assoc()){
             $data[]=$row;
         }
+    }
+    foreach ($data as &$row) {
+        $row = array_map(function($value) {
+            return str_replace(["\r\n", "\n", "\r"], ' ', $value);
+        }, $row);
     }
     $conn->close();
 ?>
@@ -51,7 +55,7 @@
                             <span class="date">Last Date: 19-Mar-2025</span>
                         </div>
                     </div>
-                    <div class="event-pic"></div>
+                    <img class="event-pic" src="images/eventimg.png"></img>
                 </div>
                 <div class="days-left">
                     <div class="number">10</div>
@@ -120,7 +124,7 @@
                     `
                     document.querySelector(".event-form").addEventListener("submit",function(e){
                         formdata = new FormData(this);
-                        formdata.append('current',current);
+                        formdata.append('current',i);
                         formdata.append("event_id",<?php echo $id?>);
                         fetch("eventjoinedfiller.php",{
                                 method:"POST",
@@ -163,9 +167,9 @@
         MaxMem = EventDetails.max_members;
         norounds = EventDetails.rounds;
         const today = new Date();
-        const targetDate = date; // example future date
-        const timeDiff = targetDate - today; // in milliseconds
-        const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); // convert to days
+        const targetDate = date; 
+        const timeDiff = targetDate - today; 
+        const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); 
         document.querySelector(".event-name").innerHTML = EventDetails.event_name;
         document.querySelector(".loc-name").innerHTML=EventDetails.state;
         document.querySelector(".date").innerHTML= `Last Date: ${date.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}`

@@ -21,14 +21,25 @@ $id = $_SESSION['user-id'];
             while ($row = $result->fetch_assoc()) {
                 $data[] = $row;
             }
-            $total_data=([
-                            "n"=>$result->num_rows,
-                            "data"=>$data
-                            ]);
+            foreach ($data as &$row) {
+                // Sanitize data: Replace newlines or carriage returns
+                $row = array_map(function($value) {
+                    return str_replace(["\r\n", "\n", "\r"], ' ', $value);  // Replace newlines with spaces
+                }, $row);
+            }
+            $total_data = [
+                "n" => $result->num_rows,
+                "data" => $data
+            ];
         } else {
-            $total_data=(["n"=>0]);
+            $total_data = [
+                "n" => 0,
+                "data" => []
+            ]; // Ensuring consistency in the structure
         }
-        $conn->close();
+
+$conn->close();
+
     }
     elseif($search=='best'){
         $sql = "
@@ -48,6 +59,12 @@ $id = $_SESSION['user-id'];
             while($row = $result->fetch_assoc()) {
                 $events[] = $row;
             }
+        }
+        foreach ($events as &$row) {
+            // Sanitize data: Replace newlines or carriage returns
+            $row = array_map(function($value) {
+                return str_replace(["\r\n", "\n", "\r"], ' ', $value);  // Replace newlines with spaces
+            }, $row);
         }
             $total_data = ['data'=>$events,'n'=>$result->num_rows];
             $conn->close();
@@ -77,7 +94,12 @@ $id = $_SESSION['user-id'];
                     $events[] = $row;
                 }
             }
-
+            foreach ($events as &$row) {
+                // Sanitize data: Replace newlines or carriage returns
+                $row = array_map(function($value) {
+                    return str_replace(["\r\n", "\n", "\r"], ' ', $value);  // Replace newlines with spaces
+                }, $row);
+            }
             // Store in $total_data
             $total_data = [
                 'data' => $events,
@@ -113,7 +135,12 @@ $id = $_SESSION['user-id'];
                 $events[] = $row;
             }
         }
-
+        foreach ($events as &$row) {
+            // Sanitize data: Replace newlines or carriage returns
+            $row = array_map(function($value) {
+                return str_replace(["\r\n", "\n", "\r"], ' ', $value);  // Replace newlines with spaces
+            }, $row);
+        }
         // Store in $total_data
         $total_data = [
             'data' => $events,
@@ -145,8 +172,11 @@ $id = $_SESSION['user-id'];
                 $events[] = $row;
             }
         }
-
-        // Store in $total_data
+        foreach ($events as &$row) {
+            $row = array_map(function($value) {
+                return str_replace(["\r\n", "\n", "\r"], ' ', $value); 
+            }, $row);
+        }
         $total_data = [
             'data' => $events,
             'n' => count($events)
@@ -172,8 +202,10 @@ $id = $_SESSION['user-id'];
     <div class="details_body">
         <div class="details_body_top">
             <div class="search-in">
-                <img src="images/vector(1).png">
-                <input class="body_search" placeholder="Search Events">
+                <img src="images/search1.png">
+                <form action="searchresults.php" method="get">
+                <input class="body_search" placeholder="Search Events" name='search'>
+                </form>
                 <p>Search results for : <?php echo $search?></p>
             </div>
         </div>
@@ -221,14 +253,15 @@ $id = $_SESSION['user-id'];
         console.log(results);
         for(i=0;i<results.n;i++){
             const today = new Date();
-            const targetDate = new Date(results.data[i]['last_date']); // example future date
+            const targetDate = new Date(results.data[i]['last_date']);
 
-            const timeDiff = targetDate - today; // in milliseconds
-            const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); // convert to days
+            const timeDiff = targetDate - today; 
+            const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
             document.querySelector(".details_body_bottom").innerHTML+=`
-            <div class="event-1 event-details">
+            <div class="event-1 event-details" onclick="window.location.href='eventdetailspage.php?event_id=${results.data[i]['id']}'">
                 <div class="event-cover-pic">
-                    <div class="event-pic"></div>
+                    
+                    <img class="event-pic" src = 'images/eventimg.png'></img>
                 </div>
                 <div class="event-info">
                     <div class="event-name">${results.data[i]['event_name']}</div>

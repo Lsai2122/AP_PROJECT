@@ -37,8 +37,11 @@
             $events[] = $row;
         }
     }
-
-    // Store in $total_data
+    foreach ($events as &$row) {
+        $row = array_map(function($value) {
+            return str_replace(["\r\n", "\n", "\r"], ' ', $value);
+        }, $row);
+    }
     $total_data = [
         'data' => $events,
         'n' => count($events)
@@ -176,7 +179,7 @@
                             document.querySelector(".logininfocontainer").innerHTML="";
                         },1000)
                         document.querySelector(".section-3").innerHTML=`<?php include "pages/joined_events.php"?>`
-                        const userId = <?php echo $id;?>; // Example user_id
+                        const userId = <?php echo $id;?>;
 
                         fetch('fetcheventsjoined.php', {
                         method: 'POST',
@@ -215,7 +218,7 @@
                                             document.querySelector(".applied-event-box").innerHTML += `
                                                 <div class="event-${i} applied-event-details" onclick="window.location.href='eventdetailspage.php?event_id=${data2['id']}'">
                                                     <div class="applied-event-cover-pic">
-                                                        <div class="applied-event-pic"></div>
+                                                        <img class="applied-event-pic" src = 'images/eventimg.png'></img>
                                                     </div>
                                                     <div class="applied-event-info">
                                                         <div class="applied-event-name">${data2.event_name}</div>
@@ -276,14 +279,13 @@
                 data = result.data;
                 for(i=0;i<n;i++){
                     const today = new Date();
-                    const targetDate = new Date(data[i]['last_date']); // example future date
-
-                    const timeDiff = targetDate - today; // in milliseconds
-                    const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); // convert to days
+                    const targetDate = new Date(data[i]['last_date']); 
+                    const timeDiff = targetDate - today;
+                    const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
                     document.querySelector(".NewEvent").innerHTML+=`
                     <div class="event-${i+1} event-details" onclick="window.location.href='eventdetailspage.php?event_id=${data[i]['id']}'">
                         <div class="event-cover-pic">
-                            <div class="event-pic"></div>
+                            <img class="event-pic" src = 'images/eventimg.png'></img>
                         </div>
                         <div class="event-info">
                             <div class="event-name">${data[i]['event_name']}</div>
@@ -324,14 +326,14 @@
                             } else {
                                 data2 = data2.data
                                 const today = new Date();
-                                const targetDate = new Date(data2['last_date']); // example future date
+                                const targetDate = new Date(data2['last_date']);
 
-                                const timeDiff = targetDate - today; // in milliseconds
-                                const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); // convert to days
+                                const timeDiff = targetDate - today;
+                                const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
                                 document.querySelector('.best-event').innerHTML += `
                                     <div class="event-${i + 1} best-event-details" onclick="window.location.href='eventdetailspage.php?event_id=${data2['id']}'">
                                         <div class="best-event-cover-pic">
-                                            <div class="best-event-pic"></div>
+                                            <img class="best-event-pic" src = 'images/eventimg.png'></img>
                                         </div>
                                         <div class="best-event-info">
                                             <div class="best-event-name">${data2['event_name']}</div>
@@ -341,7 +343,6 @@
                                     </div>
                                 `;
 
-                            // You can display the event data in your UI
                             }
                         })
                         .catch(error => console.error('Error:', error));
@@ -355,14 +356,14 @@
             for(i=0;i<results.n;i++){
                 a = results.data
                 const today = new Date();
-                const targetDate = new Date(a[i]['last_date']); // example future date
+                const targetDate = new Date(a[i]['last_date']);
 
-                const timeDiff = targetDate - today; // in milliseconds
-                const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); // convert to days
+                const timeDiff = targetDate - today;
+                const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
                 document.querySelector(".host-event").innerHTML+=`
-                    <div class="event-1 hosted-event-details">
+                    <div class="event-1 hosted-event-details" onclick="window.location.href='eventdetailspage.php?event_id=${a[0]['id']}'">
                         <div class="hosted-event-cover-pic">
-                            <div class="hosted-event-pic"></div>
+                            <img class="hosted-event-pic" src = 'images/eventimg.png'></img>
                         </div>
                         <div class="hosted-event-info">
                             <div class="hosted-event-name">${a[i]['event_name']}</div>

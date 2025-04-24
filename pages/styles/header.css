@@ -287,6 +287,10 @@ label {
     width:200px;
     text-align: start;
 }
+.user-email{
+    padding-left: 10px;
+    padding-right: 10px;
+}
 .log-out {
     display: flex;
     width: 300px;

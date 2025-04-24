@@ -23,8 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $user = $result->fetch_assoc();
             
             if (password_verify($password, $user['password'])) {
-                // Save to session
-                $_SESSION['user-id'] = $user['id']; // assuming column is id
+                $_SESSION['user-id'] = $user['id']; 
 
                 echo json_encode([
                     'success' => true,

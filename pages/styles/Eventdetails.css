@@ -53,6 +53,7 @@ body{
 
 }
 .register{
+    height: auto;
     background-color: white;
     position: relative;
     display: flex;
@@ -103,7 +104,7 @@ body{
     font-size: 14px;
 }
 .register-container{
-    height:307px;
+    height:auto;
     width: 438px;
     background-color: white;
     border-radius: 10px; 

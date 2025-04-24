@@ -10,7 +10,6 @@ if (!isset($_SESSION['user-id'])) {
 
 $user_id = $_SESSION['user-id'];
 
-// Connect to DB
 $conn = new mysqli("localhost", "root", "", "ap_project");
 
 if ($conn->connect_error) {
@@ -18,14 +17,14 @@ if ($conn->connect_error) {
     exit();
 }
 
-$sql = "SELECT username FROM login_info WHERE id = ?";
+$sql = "SELECT username,email FROM login_info WHERE id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
-$stmt->bind_result($username);
+$stmt->bind_result($username,$email);
 
 if ($stmt->fetch()) {
-    echo json_encode(['success' => true, 'username' => $username,'id'=>$_SESSION['user-id']]);
+    echo json_encode(['success' => true, 'username' => $username,'id'=>$_SESSION['user-id'],'email' => $email]);
 } else {
     echo json_encode(['success' => false, 'message' => 'User not found']);
 }

@@ -1,5 +1,4 @@
 <?php
-// DB connection setup
 $host = "localhost";
 $dbname = "ap_project";
 $username = "root";
@@ -7,7 +6,6 @@ $password = "";
 
 $conn = new mysqli($host, $username, $password, $dbname);
 
-// Check connection
 if ($conn->connect_error) {
     die(json_encode(["error" => "Connection failed"]));
 }

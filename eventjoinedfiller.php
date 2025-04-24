@@ -38,7 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     $checkStmt->close();
 
-    // Insert into `joined`
     $stmt = $conn->prepare("INSERT INTO joined (event_id, user_id, LeadName, LeadClg, LeadEmail, LeadGen, LeadNum, FilledMembers)
                             VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("iisssssi", $event_id, $user_id, $LeadName, $LeadClg, $LeadEmail, $LeadGen, $LeadNum, $FilledMembers);
