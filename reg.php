@@ -5,10 +5,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Encrypt password
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    // DB Connection
     $conn = new mysqli("localhost", "root", "", "ap_project");
     if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
 

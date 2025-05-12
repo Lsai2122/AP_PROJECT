@@ -201,20 +201,20 @@ body{
     border-radius: 10px;
 }
 
-.normal-event,.best-event {
+.normal-event,.best-event,.hosted-event {
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin-top: 18px;
 }
-.event,.best-event {
+.event,.best-event,.host-event {
     display: grid;
     grid-template-columns: auto auto auto;
     grid-gap: 10px;
     width: 100%;
     flex: none;
 }
-.event-details,.best-event-details {
+.event-details,.best-event-details,.hosted-event-details {
     display: flex;
     flex-direction: column;
     width: 400px;
@@ -223,19 +223,19 @@ body{
     border: 1px solid rgba(0, 0, 0);
     border-radius: 12px;
 }
-.event-cover-pic,.best-event-cover-pic {
+.event-cover-pic,.best-event-cover-pic,.hosted-event-cover-pic {
     width: 100%;
     height: 200px;
     background-color: white;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
 }
-.event-info,.best-event-info {
+.event-info,.best-event-info,.hosted-event-info {
     height: 200px;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
 }
-.entry-type,.best-entry-type {
+.entry-type,.best-entry-type,.hosted-entry-type {
     position: absolute;
     top: 44%;
     left: 10%;
@@ -244,7 +244,7 @@ body{
     padding: 5px 8px;
     border-radius: 5px;
 }
-.event-mode,.best-event-mode {
+.event-mode,.best-event-mode,.hosted-event-mode {
     position: absolute;
     top: 44%;
     left: 25%;
@@ -253,7 +253,7 @@ body{
     padding: 5px 8px;
     border-radius: 5px;
 }
-.event-pic,.best-event-pic {
+.event-pic,.best-event-pic,.hosted-event-pic {
     width: 110px;
     height: 110px;
     background-color: #003559;
@@ -261,33 +261,33 @@ body{
     right: 12%;
     top: 11%;
 }
-.event-name,.best-event-name {
+.event-name,.best-event-name,.hosted-event-name {
     font-weight: bold;
     font-size: 22px;
     position: absolute;
     top: 62%;
     left: 12%;
 }
-.event-place,.best-event-place {
+.event-place,.best-event-place,.hosted-event-place {
     font-size: 14px;
     color: grey;
     position: absolute;
     left: 12%;
     top: 71%;
 }
-.event-time-left,.best-event-time-left {
+.event-time-left,.best-event-time-left,.hosted-event-time-left {
     color: grey;
     font-size: 14px;
     position: absolute;
     bottom: 5%;
     right: 5%;
 }
-.event-view-box,.best-event-view-box {
+.event-view-box,.best-event-view-box,.hosted-event-view-box {
     width: 1250px;
     display: flex;
     overflow-x: scroll;
 }
-.event-view-box::-webkit-scrollbar,.best-event-view-box::-webkit-scrollbar {
+.event-view-box::-webkit-scrollbar,.best-event-view-box::-webkit-scrollbar,.hosted-event-view-box::-webkit-scrollbar {
     display: none;
 }
 .page2{
@@ -418,4 +418,52 @@ body{
     border-radius: 3px;
     background-color:#000000;
     margin: 0px;
+}
+.hosted{
+    color: #000000;
+    font-size: 30px;
+    padding-top: 30px;
+    font-family:itim ;
+    padding-left: 30px;
+    margin: 0px 0px 75px 0px;
+}
+.underline-hosted {
+    height: 3px;
+    width: 87px;
+    border-radius: 3px;
+    background-color:#000000;
+    margin: 0px;
+}
+/*here from logout code css*/
+.login-info {
+    width: 335px;
+    height: 197px;
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+.user-name-details,.user-email-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width:200px;
+    text-align: start;
+}
+.log-out {
+    display: flex;
+    width: 300px;
+    align-items: center;
+    justify-content: end;
+}
+.log-out-button {
+    width: 120px;
+    height: 43px;
+    border: none;
+    background-color: #B9D6F2;
+    font-size: 15px;
 }

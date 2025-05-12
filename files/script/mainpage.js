@@ -7,6 +7,9 @@ let bestScrollContainer=document.querySelector('.best-event-view-box');
 let appliedScrollContainer=document.querySelector('.applied-event-view-box');
 let appliedNext=document.getElementById('applied-next');
 let appliedPrev=document.getElementById('applied-prev');
+let hostedPrev=document.getElementById('hosted-prev');
+let hostedNext=document.getElementById('hosted-next');
+let hostedScrollContainer=document.querySelector('.hosted-event-view-box');
 
 normalNext.addEventListener('click',()=> {
     scrollContainer.scrollLeft+= 420;
@@ -31,4 +34,12 @@ appliedNext.addEventListener('click',()=> {
 appliedPrev.addEventListener('click',()=> {
     appliedScrollContainer.scrollLeft-= 340;
     appliedScrollContainer.style.scrollBehavior='smooth';
+});
+hostedNext.addEventListener('click',()=> {
+    hostedScrollContainer.scrollLeft+= 420;
+    hostedScrollContainer.style.scrollBehavior='smooth';
+});
+hostedPrev.addEventListener('click',()=> {
+    hostedScrollContainer.scrollLeft-= 420;
+    hostedScrollContainer.style.scrollBehavior='smooth';
 });

@@ -201,14 +201,12 @@ body{
     color: #fff;
     border: none;
     border-radius: 8px;
-    cursor: pointer;
 }
 .remove {
     padding: 12px 42px;
     background-color: transparent;
     border: 1px solid black;
     border-radius: 8px;
-    cursor: pointer;
 }
 .team-members-box {
     display: flex;

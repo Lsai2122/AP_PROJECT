@@ -3,15 +3,13 @@ session_start();
 header('Content-Type: application/json');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $user_id = $_SESSION["user-id"] ?? null; // ✅ FIXED session key
+    $user_id = $_SESSION["user-id"] ?? null;
 
-    // Basic validation
     if ($user_id==-1) {
         echo json_encode(['success' => false, 'message' => 'User not logged in']);
         exit();
     }
 
-    // Get event data
     $event_name = $_POST['event_name'] ?? '';
     $date_sub = $_POST['date_sub'] ?? '';
     $time_sub = $_POST['time_sub'] ?? '';
@@ -21,7 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $max_members = $_POST['max_members'] ?? '';
     $price = $_POST['price'] ?? '';
 
-    // Round arrays
     $names = [];
     $dates = [];
     $times = [];
@@ -38,27 +35,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $modes[] = ($_POST["mode$i"]) === 'offline' ? 0 : 1;
     }
 
-    // DB Connection
     $conn = new mysqli("localhost", "root", "", "ap_project");
     if ($conn->connect_error) {
         echo json_encode(['success' => false, 'message' => 'Connection failed']);
         exit();
     }
 
-    // Insert main event
     $stmt1 = $conn->prepare("INSERT INTO event_main_details (user_id, event_name, last_date, last_time, state, venue, rounds, max_members, price_pool)
                              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt1->bind_param("isssssiii", $user_id, $event_name, $date_sub, $time_sub, $state, $venue, $rounds, $max_members, $price);
 
     if ($stmt1->execute()) {
-        $event_id = $stmt1->insert_id; // ✅ get inserted event ID
+        $event_id = $stmt1->insert_id; // get inserted event ID
         $stmt1->close();
 
         // Loop through rounds
         for ($i = 0; $i < $rounds; $i++) {
-            $table = "round" . ($i+1); // Table name must exist
+            $table = "round" . ($i+1); 
             $stmt2 = $conn->prepare("INSERT INTO $table (eventid, round_name, date, time, duration, details, is_online)
-                                     VALUES (?, ?, ?, ?, ?, ?, ?)");
+            VALUES (?, ?, ?, ?, ?, ?, ?)");
+            
+
+            if (!$stmt2) {
+            echo json_encode(['success' => false, 'message' => 'Prepare failed for round table: ' . $conn->error]);
+            exit();
+            }
             $stmt2->bind_param("isssssi", $event_id, $names[$i], $dates[$i], $times[$i], $durations[$i], $details_of_round[$i], $modes[$i]);
             $stmt2->execute();
             $stmt2->close();

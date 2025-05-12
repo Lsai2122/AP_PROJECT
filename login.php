@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (!empty($email)) {
-        $stmt = $conn->prepare("SELECT * FROM login_info WHERE email = ?");
+        $stmt =$conn ->prepare("SELECT * FROM login_info WHERE email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -23,8 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $user = $result->fetch_assoc();
             
             if (password_verify($password, $user['password'])) {
-                // Save to session
-                $_SESSION['user-id'] = $user['id']; // assuming column is id
+                $_SESSION['user-id'] = $user['id']; 
 
                 echo json_encode([
                     'success' => true,

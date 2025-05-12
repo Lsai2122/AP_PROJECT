@@ -40,6 +40,7 @@ body{
     height: 700px;
 }
 .eventhoster{
+    position: relative;
     display:flex;
     justify-content: center;
     height: 700px;
@@ -125,4 +126,14 @@ hr {
     width: 75%;
     height: 100%;
     border: 1px solid black;
+}
+.submit {
+    padding: 10px 20px;
+    position: absolute;
+    right: 15px;
+    bottom: 10px;
+    background-color: #006DAA;
+    color: white;
+    border: none;
+    border-radius: 5px;
 }

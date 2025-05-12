@@ -21,24 +21,24 @@
             </div>
         </div>
         <div class="head-mid">
-            <div class="head-new">
+            <div class="head-new" onclick="window.location.href=`searchresults.php?search=new`">
                 New
                 <div class="head-vertical-line"></div>
             </div>
-            <div class="head-upcoming">
+            <div class="head-upcoming" onclick="window.location.href=`searchresults.php?search=upcoming`">
                 Upcoming<br>Events
                 <div class="head-vertical-line"></div>
             </div>
-            <div class="head-best-hosts">
+            <div class="head-best-hosts" onclick="window.location.href=`searchresults.php?search=best`">
                 Best Hosts
                 <div class="head-vertical-line"></div>
             </div>
-            <div class="head-best-events">
+            <div class="head-best-events" onclick="window.location.href=`searchresults.php?search=best`">
                 Best Events
                 <div class="head-vertical-line"></div>
             </div>
-            <div class="head-applied">
-                Applied
+            <div class="head-applied" onclick="window.location.href=`searchresults.php?search=hosted`">
+                Hosted
                 <div class="head-vertical-line"></div>
             </div>
         </div>
@@ -47,7 +47,9 @@
                 <div class="head-search-icon">
                     <img src="images/search1.png" alt="Search Icon" class="head-search-image">
                 </div>
-                <input type="text" placeholder="Search Events" class="head-search-input">
+                <form action="searchresults.php" method="get">
+                <input type="search " placeholder="Search Events" class="head-search-input" name="search">
+                </form>
             </div>
             <div class="head-vertical-line"></div>
             <div class="head-login" >
@@ -60,8 +62,6 @@
             </div>
         </div>
     </header>
-    <div class="logininfocontainer">
-    <div class="logininfo"></div>
     </div>
     <div class="loggedinfo">
         

@@ -28,7 +28,11 @@
         </div>
         <div class="gap"></div>
     </div>
+    <div class="logininfocontainer">
+        <div class="logininfo"></div>
+    </div>
     <div class="login-into"></div>
+    <div class="login-info-container">
     <script>
         function checklogin(){
             fetch("session.php")
@@ -40,7 +44,7 @@
                     document.querySelector(".eventform").innerHTML=`<button class="head-login-button" onclick="LoginDisplay()">Login</button> to host a event`;
                 }
                 else{
-                    document.querySelector(".head-login").innerHTML ='<img src="images/user-logo.png">';
+                    document.querySelector(".head-login").innerHTML ='<img src="images/user-logo.png" onclick="loggedinfo()">';
                     fetch('fetchusername.php')
                         .then(res=>res.json())
                         .then(data =>{
@@ -51,19 +55,16 @@
                     },1000)
                     document.querySelector(".eventform").innerHTML=`<?php include "pages/eventform.php"?>`
                     document.querySelector(".eventhoster").addEventListener("submit", function(e) {
-                        e.preventDefault(); // Prevent default form submission
+                        e.preventDefault();
 
                         fetch("eventfilling.php", {
                             method: "POST",
-                            body: new FormData(this) // Send all form fields
+                            body: new FormData(this)
                         })
                         .then(res => res.json())
                         .then(data => {
                             if (data.success) {
                                 alert("Event submitted successfully!");
-                                // You can redirect or reset form here:
-                                // location.href = "dashboard.php";
-                                // this.reset(); 
                             } else {
                                 console.error(data.message);
                                 alert("Error: " + data.message);

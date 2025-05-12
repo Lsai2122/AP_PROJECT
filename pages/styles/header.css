@@ -12,7 +12,7 @@ body{
     justify-content: space-between;
     align-items: center;
     border-bottom: solid 1px #000000;
-    background-color: white;
+    background-color:white;
 }
 .head-left{
     flex: 3;
@@ -58,6 +58,7 @@ body{
     display: flex;
     align-items: center;
     justify-content:space-evenly;
+    cursor: pointer;
 }
 .head-vertical-line{
     width: 2px;
@@ -69,6 +70,7 @@ body{
     display: flex;
     align-content: center;
     justify-content: center;
+
 }
 .head-search-icon{
     display: flex;
@@ -93,6 +95,7 @@ body{
     border-left: 0;
     padding-left: 10px;
     font-size: 16px;
+    outline: none;
 }
 .head-login-button{
     display: flex;
@@ -263,4 +266,47 @@ label {
     display: flex;
     background-color: white;
     z-index: 1000000;
+}
+.login-info {
+    position:fixed;
+    border-radius: 10px;
+    width: 300px;
+    height: 197px;
+    top: 89px;
+    right: 10%;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+.user-name-details,.user-email-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width:200px;
+    text-align: start;
+}
+.user-email{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.log-out {
+    display: flex;
+    width: 300px;
+    align-items: center;
+    justify-content: end;
+}
+.log-out-button {
+    width: 120px;
+    height: 43px;
+    border: none;
+    border-radius: 3px;
+    background-color: #B9D6F2;
+    font-size: 15px;
+    margin-right: 30px;
+    cursor: pointer;
+}
+.head-login {
+    cursor: pointer;
 }

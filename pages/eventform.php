@@ -66,7 +66,7 @@
                 <div class="form_vertical_line"></div>
                 <div class="form_body_right" id="display-rounds"></div>
             </div>
-    <button class="submit">reg</button>
+    <button class="submit">Register</button>
 </form>
 
 </body>

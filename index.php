@@ -1,18 +1,22 @@
 <?php
 
     session_start();
-    $_SESSION['user-id']=-1;
+    if (!isset($_SESSION['user-id'])) {
+        $_SESSION['user-id']=-1;
+    }
+    
     $uri = $_SERVER['REQUEST_URI'];
     $path = parse_url($uri, PHP_URL_PATH);
     $normalizedPath = rtrim($path, '/');
     
-    if (strpos(strtoupper($normalizedPath), "AP_PROJECT")!=false){
+    if (strpos(strtolower($normalizedPath), 'ap_project') !== false) {
 
         include 'pages/mainpage.php';
         
+        include('pages/mainpage.php');
 
     } else {
-        echo $normalizedPath;
+        echo  $normalizedPath;
     }
 
     
