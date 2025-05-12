@@ -8,7 +8,7 @@
     
     if (strpos(strtoupper($normalizedPath), "AP_PROJECT")!=false){
 
-        include('pages/mainpage.php');
+        include 'pages/mainpage.php';
         
 
     } else {
